@@ -1,0 +1,516 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+    
+    
+      
+        <title>可持久化数据结构 - Mr.Iodin</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.fe0cca5b.min.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a46bcfb3.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="Mr.Iodin" class="md-header-nav__button md-logo" aria-label="Mr.Iodin">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Mr.Iodin
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              可持久化数据结构
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Mr.Iodin" class="md-nav__button md-logo" aria-label="Mr.Iodin">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Mr.Iodin
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Mr. Iodin" class="md-nav__link">
+      Mr. Iodin
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        可持久化数据结构
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="可持久化数据结构" class="md-nav__link md-nav__link--active">
+      可持久化数据结构
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1 函数式编程→副作用→不可变性→纯函数式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    ２ 可持久化数据结构
+  </a>
+  
+    <nav class="md-nav" aria-label="２ 可持久化数据结构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1两个特性
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 三个层次
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    2.3示例
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1 函数式编程→副作用→不可变性→纯函数式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    ２ 可持久化数据结构
+  </a>
+  
+    <nav class="md-nav" aria-label="２ 可持久化数据结构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1两个特性
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 三个层次
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    2.3示例
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="_1">可持久化数据结构</h1>
+<h4 id="1">1 函数式编程→副作用→不可变性→纯函数式</h4>
+<ul>
+<li>
+<p>函数式编程（<a href="https://www.cnblogs.com/wchukai/p/5651185.html?tdsourcetag=s_pctim_aiomsg">Map&amp;Reduce</a>）</p>
+</li>
+<li>
+<p>编程上的函数</p>
+<p><img alt="" src="https://i.loli.net/2020/07/31/5bRQoBJwLVadFcC.png" /></p>
+<p>​        在数学上，函数就是值到值的映射。通过编程语言实现数学上的函数：一个函数，给它一个输入值，能得到一个对应的输出值，同时保证相同的输入能得到相同的输出。</p>
+</li>
+<li>
+<p>无副作用</p>
+<blockquote>
+<p><strong>副作用：</strong></p>
+<p>​        在计算机科学中，<strong>函数副作用</strong>指当调用函数时，除了<strong>返回函数值</strong>之外，还<strong>对主调用函数产生附加的影响</strong>。例如修改全局变量（函数外的变量），修改参数或改变外部存储。</p>
+<p>​                                                                                                                                                         —— 中文维基百科</p>
+</blockquote>
+</li>
+</ul>
+<pre><code class="c++">string name=&quot;student： &quot;;
+
+int student(int id){
+    name +=&quot;Iodin &quot;;
+    return id;
+}
+</code></pre>
+
+<p><center>(a)</center></p>
+<pre><code class="c++">pair&lt;int,string&gt; student(int id,string name){
+    return make_pair(id,name+&quot;Iodin&quot;);
+}
+</code></pre>
+
+<p><center>(b)</center></p>
+<p>函数式编程强调 "无副作用"，这意味着函数内部与外部<strong>不能存在互动</strong>，既函数要<strong>保持独立</strong>。</p>
+<ul>
+<li>不可变性</li>
+</ul>
+<p>“不可变”是函数式编程中又一重要概念，是一门保持对象状态的艺术。它可以使得开发变得更简单、可追踪、易测试同时能减少任何可能的副作用。</p>
+<p>​ 其中，实现不可变性的一个主要思路就是：<strong>在每一次修改过程中，不直接修改原有的对象，而是创建一个新对象用来承载新的数据状态。</strong>而这通常会由无副作用的纯函数来实现。</p>
+<pre><code class="c++">pair &lt;string,string&gt; student0 (&quot;Id:&quot; ,&quot;Name:&quot;);
+
+pair&lt;string,string&gt; change_student(pair&lt;string,string&gt; student0){
+    student0.first +=1; 
+    student0.second +=&quot;Iodin&quot;;
+    return student1;
+}
+
+pair &lt;string,string&gt; student1=change_student(student0);
+
+/*
+student0: Id：  Name: 
+student1: Id:1  Name:Iodin
+*/
+</code></pre>
+
+<ul>
+<li>纯函数式</li>
+</ul>
+<p>​     在命令式语言中，像（b）那样 给予相同参数返回值是固定的函数，称之为纯函数。纯函数本质上是“自给自足”的，函数依赖均由函数自身提供。</p>
+<p>​     而纯函数式，通常是用来描述不可破坏性修改的算法、编写语言和数据结构等术语。</p>
+<h4 id="2">２ 可持久化数据结构</h4>
+<p>​   函数式编程往往需要特别的数据结构来符合其语言特性，其中不可变的性质极为重要。</p>
+<p>​     数据结构是一种特殊的数据组织方法，通常存储在内存中，并为提高算法效率而设计。常用的数据结构中，插入、删除等更新操作往往会改变原有的结构，即旧版本（更新前的版本）被摧毁，这些数据结构被称为短暂的（ephemeral）。</p>
+<p>​   可持久化数据结构（Persistent data structure），简单来说就是<strong>总是保留这个数据结构的所有历史版本</strong>，并支持<strong>操作的不可变性</strong>，同时<strong>利用不同版本间的共用数据</strong>减少时间空间消耗。</p>
+<h5 id="21">2.1两个特性</h5>
+<ul>
+<li><strong>持久性（persistence）：</strong>若对过去版本进行修改，就会得到一个新的版本，而原来的旧版本不会发生改变。</li>
+<li><strong>追溯性（retroactivity）：</strong>在当前版本下能返回之前的任意版本。</li>
+</ul>
+<h5 id="22">2.2 三个层次</h5>
+<p>根据持久性结构允许的操作，可以区分以下类型的持久性：</p>
+<ul>
+<li><strong>部分持久性（partial persistence）</strong></li>
+</ul>
+<p>​        只允许更新最新版本 ，呈现为一个线性状态。</p>
+<ul>
+<li><strong>完全持久性（full persistence）</strong></li>
+</ul>
+<p>​        在完全持久性模型下，你可以更新任意版本内容，呈现为一个树的结构。</p>
+<ul>
+<li><strong>融合持久性（confluent persistence）</strong></li>
+</ul>
+<p>​         能将两个不同版本融合使用，融合后将不同版本分支进行重新组合，从而获取新的版本，呈现为一个有向无环图（DAG）。</p>
+<h5 id="23">2.3示例</h5>
+<p><strong>单向链表：</strong></p>
+<p>​   可持久化最简单的一个示例可能就是单向链表。以两个链表的链接为例：</p>
+<p>​   在普通的操作中，需要保持两个指针分别指在其中一个链表的最后一个元素与另外一个链表的第一个元素，接着只需修改最后一个元素的指针，使其指向另外一个链表的第一个元素，这样的操作只需要O(1)。</p>
+<p><img alt="" src="https://i.loli.net/2020/07/31/NsSkXzmDHChoIbJ.png" /></p>
+<p>​       而在函数设置并不允许这样破坏性的修改，因此我们需要在旧版本复制一整个链表再进行修改，这需要O（N）。</p>
+<p><img alt="" src="https://i.loli.net/2020/07/31/npS2IeX5gKFisy8.png" /></p>
+<p>​   对比新旧版本的链表，一种更聪明的办法就是重用第二个链表，实现新旧版本的共享，这种方法被称为<strong>尾部共享</strong>。</p>
+<p><img alt="" src="https://i.loli.net/2020/07/31/BI4iXAndJtq9oh7.png" /></p>
+<pre><code class="haskell">data List a = Nil | Cons a (List a)
+isEmpty Nil = True
+isEmpty _   = False
+
+head Nil   = error &quot;head Nil&quot;
+head (Cons x _) = x
+
+tail Nil   = error &quot;tail Nil&quot;
+tail (Cons _ xs)= xs
+
+(++) Nil ys = ys
+(++) xs ys = Cons (head xs) ((++)(tail xs) ys)
+</code></pre>
+
+<p>​   而于其类似的另一种技术<strong>路径复制（path-copying）</strong>，从树根开始进行复制修改，再复用未更改的子树。这种方法常被用于实现树的持久化数据结构中。</p>
+<p>我需要思考一个问题...</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href=".." title="Mr. Iodin" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Mr. Iodin
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.d710d30a.min.js"></script>
+      <script src="../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.a68abb33.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
