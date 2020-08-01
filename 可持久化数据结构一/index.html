@@ -208,8 +208,42 @@
       
         <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
-    1 函数式编程→副作用→不可变性→纯函数式
+    1 函数式编程:副作用、不可变性、纯函数式
   </a>
+  
+    <nav class="md-nav" aria-label="1 函数式编程:副作用、不可变性、纯函数式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    1.1 编程上的函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    1.2 无副作用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    1.3 不可变性
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    1.4 纯函数式
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -237,13 +271,20 @@
         
           <li class="md-nav__item">
   <a href="#23" class="md-nav__link">
-    2.3示例
+    2.3 举个例子
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3.参考
+  </a>
   
 </li>
       
@@ -281,8 +322,42 @@
       
         <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
-    1 函数式编程→副作用→不可变性→纯函数式
+    1 函数式编程:副作用、不可变性、纯函数式
   </a>
+  
+    <nav class="md-nav" aria-label="1 函数式编程:副作用、不可变性、纯函数式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    1.1 编程上的函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    1.2 无副作用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    1.3 不可变性
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    1.4 纯函数式
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -310,13 +385,20 @@
         
           <li class="md-nav__item">
   <a href="#23" class="md-nav__link">
-    2.3示例
+    2.3 举个例子
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3.参考
+  </a>
   
 </li>
       
@@ -337,25 +419,16 @@
                 
                 
                 <h1 id="_1">可持久化数据结构</h1>
-<h4 id="1">1 函数式编程→副作用→不可变性→纯函数式</h4>
-<ul>
-<li>
-<p>函数式编程（<a href="https://www.cnblogs.com/wchukai/p/5651185.html?tdsourcetag=s_pctim_aiomsg">Map&amp;Reduce</a>）</p>
-</li>
-<li>
-<p>编程上的函数</p>
-<p><img alt="" src="https://i.loli.net/2020/07/31/5bRQoBJwLVadFcC.png" /></p>
+<h3 id="1">1 函数式编程:副作用、不可变性、纯函数式</h3>
+<h4 id="11">1.1 编程上的函数</h4>
+<p><img alt="" src="https://i.loli.net/2020/08/01/TIQzkbSP3sMOhrX.png" /></p>
 <p>​        在数学上，函数就是值到值的映射。通过编程语言实现数学上的函数：一个函数，给它一个输入值，能得到一个对应的输出值，同时保证相同的输入能得到相同的输出。</p>
-</li>
-<li>
-<p>无副作用</p>
+<h4 id="12">1.2 无副作用</h4>
 <blockquote>
 <p><strong>副作用：</strong></p>
 <p>​        在计算机科学中，<strong>函数副作用</strong>指当调用函数时，除了<strong>返回函数值</strong>之外，还<strong>对主调用函数产生附加的影响</strong>。例如修改全局变量（函数外的变量），修改参数或改变外部存储。</p>
 <p>​                                                                                                                                                         —— 中文维基百科</p>
 </blockquote>
-</li>
-</ul>
 <pre><code class="c++">string name=&quot;student： &quot;;
 
 int student(int id){
@@ -372,11 +445,9 @@ int student(int id){
 
 <p><center>(b)</center></p>
 <p>函数式编程强调 "无副作用"，这意味着函数内部与外部<strong>不能存在互动</strong>，既函数要<strong>保持独立</strong>。</p>
-<ul>
-<li>不可变性</li>
-</ul>
+<h4 id="13">1.3 不可变性</h4>
 <p>“不可变”是函数式编程中又一重要概念，是一门保持对象状态的艺术。它可以使得开发变得更简单、可追踪、易测试同时能减少任何可能的副作用。</p>
-<p>​ 其中，实现不可变性的一个主要思路就是：<strong>在每一次修改过程中，不直接修改原有的对象，而是创建一个新对象用来承载新的数据状态。</strong>而这通常会由无副作用的纯函数来实现。</p>
+<p>​   其中，实现不可变性的一个主要思路就是：<strong>在每一次修改过程中，不直接修改原有的对象，而是创建一个新对象用来承载新的数据状态。</strong>而这通常会由无副作用的纯函数来实现。</p>
 <pre><code class="c++">pair &lt;string,string&gt; student0 (&quot;Id:&quot; ,&quot;Name:&quot;);
 
 pair&lt;string,string&gt; change_student(pair&lt;string,string&gt; student0){
@@ -393,21 +464,24 @@ student1: Id:1  Name:Iodin
 */
 </code></pre>
 
+<h4 id="14">1.4 <strong>纯函数式</strong></h4>
+<p>​       像（b）那样，<strong>给予相同输入返回相同的输出</strong>，我们称之为纯函数。纯函数本质上是“自给自足”的，函数依赖均由函数自身提供。</p>
+<p>使用纯函数的好处（参考自 <a href="https://legacy.gitbook.com/book/llh911001/mostly-adequate-guide-chinese/details">函数式编程指北</a> 第三章）：</p>
 <ul>
-<li>纯函数式</li>
+<li>并行代码</li>
+<li>...</li>
 </ul>
-<p>​     在命令式语言中，像（b）那样 给予相同参数返回值是固定的函数，称之为纯函数。纯函数本质上是“自给自足”的，函数依赖均由函数自身提供。</p>
-<p>​     而纯函数式，通常是用来描述不可破坏性修改的算法、编写语言和数据结构等术语。</p>
-<h4 id="2">２ 可持久化数据结构</h4>
+<p>​       而纯函数式，通常是用来描述不可破坏性修改的算法、编写语言和数据结构等术语。</p>
+<h3 id="2">２ 可持久化数据结构</h3>
 <p>​   函数式编程往往需要特别的数据结构来符合其语言特性，其中不可变的性质极为重要。</p>
 <p>​     数据结构是一种特殊的数据组织方法，通常存储在内存中，并为提高算法效率而设计。常用的数据结构中，插入、删除等更新操作往往会改变原有的结构，即旧版本（更新前的版本）被摧毁，这些数据结构被称为短暂的（ephemeral）。</p>
 <p>​   可持久化数据结构（Persistent data structure），简单来说就是<strong>总是保留这个数据结构的所有历史版本</strong>，并支持<strong>操作的不可变性</strong>，同时<strong>利用不同版本间的共用数据</strong>减少时间空间消耗。</p>
-<h5 id="21">2.1两个特性</h5>
+<h4 id="21">2.1两个特性</h4>
 <ul>
 <li><strong>持久性（persistence）：</strong>若对过去版本进行修改，就会得到一个新的版本，而原来的旧版本不会发生改变。</li>
 <li><strong>追溯性（retroactivity）：</strong>在当前版本下能返回之前的任意版本。</li>
 </ul>
-<h5 id="22">2.2 三个层次</h5>
+<h4 id="22">2.2 三个层次</h4>
 <p>根据持久性结构允许的操作，可以区分以下类型的持久性：</p>
 <ul>
 <li><strong>部分持久性（partial persistence）</strong></li>
@@ -421,7 +495,7 @@ student1: Id:1  Name:Iodin
 <li><strong>融合持久性（confluent persistence）</strong></li>
 </ul>
 <p>​         能将两个不同版本融合使用，融合后将不同版本分支进行重新组合，从而获取新的版本，呈现为一个有向无环图（DAG）。</p>
-<h5 id="23">2.3示例</h5>
+<h4 id="23">2.3 举个例子</h4>
 <p><strong>单向链表：</strong></p>
 <p>​   可持久化最简单的一个示例可能就是单向链表。以两个链表的链接为例：</p>
 <p>​   在普通的操作中，需要保持两个指针分别指在其中一个链表的最后一个元素与另外一个链表的第一个元素，接着只需修改最后一个元素的指针，使其指向另外一个链表的第一个元素，这样的操作只需要O(1)。</p>
@@ -444,8 +518,77 @@ tail (Cons _ xs)= xs
 (++) xs ys = Cons (head xs) ((++)(tail xs) ys)
 </code></pre>
 
-<p>​   而于其类似的另一种技术<strong>路径复制（path-copying）</strong>，从树根开始进行复制修改，再复用未更改的子树。这种方法常被用于实现树的持久化数据结构中。</p>
-<p>我需要思考一个问题...</p>
+<p>​   ( 而于其类似的另一种技术<strong>路径复制（path-copying）</strong>，从树根开始进行复制修改，再复用未更改的子树。这种方法常被用于实现树的持久化数据结构中。)</p>
+<p><strong>Git ：</strong>（引用自 <a href="https://blog.jayway.com/2013/03/03/git-is-a-purely-functional-data-structure/">Git is a purely functional data structure</a> 【<a href="https://blog.csdn.net/coderising/article/details/100021617">译</a>】）</p>
+<p>不变性数据结构：</p>
+<ul>
+<li>保持旧版本数据结构不变情况下更新新的数据结构；</li>
+<li>一个线程对数据结构的更改不会影响另外一个线程。</li>
+</ul>
+<p>版本控制的目的：</p>
+<ul>
+<li>用新版本文档替换旧版本文档，旧版本文档任需保留；</li>
+<li>多人同时在单个代码库进行协作，更新互不干涉。</li>
+</ul>
+<p>① commit（提交）：</p>
+<p>Git commiting 代表历史记录里整个工作状态中的独立副本，可以说是你的工作目录中的完整快照。</p>
+<p>假设现在仓库的master按时间先后有A，B ，C三次commit ，我们将这种发展状态记录为[C,B,A] ，如下图所示：</p>
+<p><img alt="" src="https://i.loli.net/2020/08/01/Hyq2zJsaclPXd8v.png" /></p>
+<p>当我们新增一个commit时，为了保持所以历史版本，git为我们移动了当前的分支指针，master指向状态记录为[D,C,B,A]：</p>
+<p><img alt="" src="https://i.loli.net/2020/08/01/I3cePtvGoNiHk1l.png" /></p>
+<p>此时，我们依然可以通过master^来引用历史记录[C,B,A]，在该状态下工作的其他人并不会注意到我们的更改D。</p>
+<p>② amend（修改）：</p>
+<p>当我们通过<code>commit -amend</code>来更新最新一次commit时，并没有直接在其基础上修改，而是创建了一个新的commit，并使master指针指向它而已。</p>
+<p><img alt="" src="https://i.loli.net/2020/08/01/ZfrFyxlgaKst4TP.png" /></p>
+<p>此时，通过<code>git reflog</code>命令，我们依旧可以找到修改前的commit D。</p>
+<p>③ branch（分支）：</p>
+<p>如上所说，每一次对版本的修改实质上是创建了一个而外的新分支，而分支实质上是给一个引用的commit起了个commit而已。</p>
+<p>那么在了解了git的“本质”是一个函数式数据结构之后，你可以在任意commit上来创建分支。</p>
+<p><img alt="" src="https://i.loli.net/2020/08/01/BPQ87gZxTkoWnCj.png" /></p>
+<p>④ rebase *（变基）</p>
+<p>​   当我们在列表示例中更新一个节点再回到列表时，我们必须在更新元素之前添加列表中的每一个节点。在git中，将其称为重播提交（replaying commits），而用于执行该操作的命令称为<code>rebase</code>。</p>
+<p>...</p>
+<p>⑤ merge (合并)</p>
+<p>在git中允许将两个不同的分支合并为一个。假设你开发历史从一个很早的地方分叉开来：</p>
+<p><img alt="" src="https://i.loli.net/2020/08/01/8v1ZDe3aAfiTktU.png" /></p>
+<p>由于master所在的commit并不是dev分支所在的commit的直接祖先，所以git不得不做一些而外的工作：</p>
+<p><img alt="" src="https://i.loli.net/2020/08/01/csWuflOCtTBX6hL.png" /></p>
+<p>这种情况下，git会使用两个分支末端所指的commit（H与D）以及两个分支的公共祖先B 做一个简单的三方合并，</p>
+<p><img alt="" src="https://i.loli.net/2020/08/01/Eu8gpXbdGN9RoPj.png" /></p>
+<p>三方合并的结果会而外产生一个新的commit，这一次被称为合并提交，它的特别之处在于它不止有一个父节点，使得现在不再是一颗树，而是一个有向无环图。</p>
+<h3 id="3">3.参考</h3>
+<p>有关函数式编程一些概念：</p>
+<ol>
+<li>
+<p><a href="https://bartoszmilewski.com/2014/10/28/category-theory-for-programmers-the-preface/">Category Theory for Programmers: The Preface</a>【<a href="https://segmentfault.com/a/1190000003882331">译</a>】</p>
+</li>
+<li>
+<p><a href="https://legacy.gitbook.com/book/llh911001/mostly-adequate-guide-chinese/details">函数式编程指北</a></p>
+</li>
+<li>
+<p>对于不可变数据在函数式编程中的理解：</p>
+</li>
+</ol>
+<p>https://www.jianshu.com/p/89f1d4245b20</p>
+<p>可持久化数据结构：</p>
+<ol>
+<li>
+<p><a href="https://courses.cs.ut.ee/MTAT.03.271/2012_fall/uploads/Main/KristjanVedel.pdf">Purely functional data structures</a>. kristjan vedel</p>
+</li>
+<li>
+<p>MIT高级数据结构课件：</p>
+</li>
+</ol>
+<p>https://courses.csail.mit.edu/6.851/spring12/scribe/lec1.pdf</p>
+<p>Git：</p>
+<ol>
+<li>
+<p><a href="https://blog.jayway.com/2013/03/03/git-is-a-purely-functional-data-structure/">Git is a purely functional data structure</a> 【<a href="https://blog.csdn.net/coderising/article/details/100021617">译</a>】</p>
+</li>
+<li>
+<p><a href="https://git-scm.com/book/en/v2">git官方文档</a> （3.2分支新建与合并）</p>
+</li>
+</ol>
                 
               
               
