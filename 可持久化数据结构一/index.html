@@ -158,18 +158,6 @@
       
       
 
-
-  <li class="md-nav__item">
-    <a href=".." title="Mr. Iodin" class="md-nav__link">
-      Mr. Iodin
-    </a>
-  </li>
-
-    
-      
-      
-      
-
   
 
 
@@ -519,8 +507,9 @@ tail (Cons _ xs)= xs
 </code></pre>
 
 <p>​   ( 而于其类似的另一种技术<strong>路径复制（path-copying）</strong>，从树根开始进行复制修改，再复用未更改的子树。这种方法常被用于实现树的持久化数据结构中。)</p>
+<p><img alt="" src="https://i.loli.net/2020/08/02/kPtYlX2UBVdqF3y.jpg" /></p>
 <p><strong>Git ：</strong>（引用自 <a href="https://blog.jayway.com/2013/03/03/git-is-a-purely-functional-data-structure/">Git is a purely functional data structure</a> 【<a href="https://blog.csdn.net/coderising/article/details/100021617">译</a>】）</p>
-<p>不变性数据结构：</p>
+<p>持久化数据结构：</p>
 <ul>
 <li>保持旧版本数据结构不变情况下更新新的数据结构；</li>
 <li>一个线程对数据结构的更改不会影响另外一个线程。</li>
@@ -542,7 +531,7 @@ tail (Cons _ xs)= xs
 <p><img alt="" src="https://i.loli.net/2020/08/01/ZfrFyxlgaKst4TP.png" /></p>
 <p>此时，通过<code>git reflog</code>命令，我们依旧可以找到修改前的commit D。</p>
 <p>③ branch（分支）：</p>
-<p>如上所说，每一次对版本的修改实质上是创建了一个而外的新分支，而分支实质上是给一个引用的commit起了个commit而已。</p>
+<p>如上所说，每一次对版本的修改实质上是创建了一个额外的新分支，而分支实质上是给一个引用的commit起了个commit而已。</p>
 <p>那么在了解了git的“本质”是一个函数式数据结构之后，你可以在任意commit上来创建分支。</p>
 <p><img alt="" src="https://i.loli.net/2020/08/01/BPQ87gZxTkoWnCj.png" /></p>
 <p>④ rebase *（变基）</p>
@@ -603,27 +592,6 @@ tail (Cons _ xs)= xs
       
         
 <footer class="md-footer">
-  
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
-        
-          <a href=".." title="Mr. Iodin" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-            </div>
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Previous
-                </span>
-                Mr. Iodin
-              </div>
-            </div>
-          </a>
-        
-        
-      </nav>
-    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
