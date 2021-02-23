@@ -1,0 +1,1378 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+    
+    
+      
+        <title>回归分析 - Mr.Iodin</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.fe0cca5b.min.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a46bcfb3.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="Mr.Iodin" class="md-header-nav__button md-logo" aria-label="Mr.Iodin">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Mr.Iodin
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              回归分析
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Mr.Iodin" class="md-nav__button md-logo" aria-label="Mr.Iodin">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Mr.Iodin
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      算法
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="算法" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        算法
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-1" type="checkbox" id="nav-1-1">
+    
+    <label class="md-nav__link" for="nav-1-1">
+      高级数据结构
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="高级数据结构" data-md-level="2">
+      <label class="md-nav__title" for="nav-1-1">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        高级数据结构
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E5%8F%AF%E6%8C%81%E4%B9%85%E5%8C%96%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%80/" title="可持久化数据结构" class="md-nav__link">
+      可持久化数据结构
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      数学建模
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="数学建模" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        数学建模
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        回归分析
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="回归分析" class="md-nav__link md-nav__link--active">
+      回归分析
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1.概念
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2.回归思想
+  </a>
+  
+    <nav class="md-nav" aria-label="2.回归思想">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 三个关键词：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 三个任务：
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3.回归分析分类
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4.线性回归
+  </a>
+  
+    <nav class="md-nav" aria-label="4.线性回归">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    4.1 不同数据类型处理方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    4.2 一元线性回归模型
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5.回归系数的解释
+  </a>
+  
+    <nav class="md-nav" aria-label="5.回归系数的解释">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    5.1基本解释
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    5.2 内生性探究
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    5.3 对解释变量取对数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54" class="md-nav__link">
+    5.4 四类模型回归系数解释
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6.回归中处理定性变量
+  </a>
+  
+    <nav class="md-nav" aria-label="6.回归中处理定性变量">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    6.1 虚拟变量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    6.2 虚拟变量的解释
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    7.回归中处理含有交互性的自变量
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    8.案例一：探究婴幼儿奶粉的销售情况
+  </a>
+  
+    <nav class="md-nav" aria-label="8.案例一：探究婴幼儿奶粉的销售情况">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81" class="md-nav__link">
+    8.1 问题一
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82" class="md-nav__link">
+    8.2 问题二
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    9.案例二：探究大学生期末数学成绩影响因素分析
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10p2p" class="md-nav__link">
+    10.案例三：P2P网络借贷中的地域歧视现象研究
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    11.回归模型的扰动项
+  </a>
+  
+    <nav class="md-nav" aria-label="11.回归模型的扰动项">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111" class="md-nav__link">
+    11.1 异方差概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112" class="md-nav__link">
+    11.2 检验异方差方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113-bp" class="md-nav__link">
+    11.3 BP检验
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#114" class="md-nav__link">
+    11.4 怀特检验
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#115" class="md-nav__link">
+    11.5 解决异方差
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    12.多重共线性
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    13.逐步回归
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1.概念
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2.回归思想
+  </a>
+  
+    <nav class="md-nav" aria-label="2.回归思想">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 三个关键词：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 三个任务：
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3.回归分析分类
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4.线性回归
+  </a>
+  
+    <nav class="md-nav" aria-label="4.线性回归">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    4.1 不同数据类型处理方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    4.2 一元线性回归模型
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5.回归系数的解释
+  </a>
+  
+    <nav class="md-nav" aria-label="5.回归系数的解释">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    5.1基本解释
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    5.2 内生性探究
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    5.3 对解释变量取对数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54" class="md-nav__link">
+    5.4 四类模型回归系数解释
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6.回归中处理定性变量
+  </a>
+  
+    <nav class="md-nav" aria-label="6.回归中处理定性变量">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    6.1 虚拟变量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    6.2 虚拟变量的解释
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    7.回归中处理含有交互性的自变量
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    8.案例一：探究婴幼儿奶粉的销售情况
+  </a>
+  
+    <nav class="md-nav" aria-label="8.案例一：探究婴幼儿奶粉的销售情况">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81" class="md-nav__link">
+    8.1 问题一
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82" class="md-nav__link">
+    8.2 问题二
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    9.案例二：探究大学生期末数学成绩影响因素分析
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10p2p" class="md-nav__link">
+    10.案例三：P2P网络借贷中的地域歧视现象研究
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    11.回归模型的扰动项
+  </a>
+  
+    <nav class="md-nav" aria-label="11.回归模型的扰动项">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111" class="md-nav__link">
+    11.1 异方差概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112" class="md-nav__link">
+    11.2 检验异方差方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113-bp" class="md-nav__link">
+    11.3 BP检验
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#114" class="md-nav__link">
+    11.4 怀特检验
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#115" class="md-nav__link">
+    11.5 解决异方差
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    12.多重共线性
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    13.逐步回归
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="_1">回归分析</h1>
+<h2 id="1">1.概念</h2>
+<p>​   回归分析:的任务是<strong>通过研究自变量X与因变量Y的相关关系,尝试去解释Y的形成机制,进而达到通过X去预测Y。</strong></p>
+<p>通过划分因变量Y的类型,常见的回归分析有5类:</p>
+<p>①线性回归   ②0-1回归  ③定序回归   ④计数回归   ⑤生存回归</p>
+<h2 id="2">2.回归思想</h2>
+<h3 id="21">2.1 三个关键词：</h3>
+<p>回归分析:研究<strong>X</strong>和<strong>Y</strong>之间<strong>相关性的分析</strong>。</p>
+<p><strong>相关性：</strong></p>
+<p>首先，相关性≠因果性。</p>
+<p>例如，统计数据：游泳死亡人数与雪糕销量 → 结果：游泳死亡人数和雪糕销量之间呈显著正相关，即游泳死亡人数越高，雪糕卖得越多。<strong>（相关性结论）</strong></p>
+<p>但不能从结果中得到结论：吃雪糕会增加游泳死亡的风险。<strong>（因果性结论）</strong></p>
+<p>回归分析只能用来探究各种因素之间的相关性。</p>
+<p><strong>Y(因变量)：</strong></p>
+<p>因别人改变而改变的变量,在实际应用中需要探究的核心变量。</p>
+<blockquote>
+<p>例如：</p>
+<p>（1）经济学家研究经济增长的决定因素，那么Y可以选取GDP增长率。<strong>（连续数值型变量）</strong>
+（2）P2P公司要研究借款人是否能按时还款，那么Y可以设计成一个二值变量，Y=0时代表可以还款，Y=1时代表不能还款。<strong>（0‐1型变量）</strong>
+（3）消费者调查得到的数据（1表示非常不喜欢，2表示有点不喜欢，3表示一般般，4表示有点喜欢，5表示非常喜欢）。<strong>（定序变量）</strong>
+（4）管理学中RFM模型：F代表一定时间内，客户到访的次数，次数其实就是一个非负的整数。<strong>（计数变量）</strong>
+（5）研究产品寿命、企业寿命甚至是人的寿命（这种数据往往不能精确的观测，例如现在要研究吸烟对于寿命的影响，如果选取的样本中老王60岁，现在还活的非常好，我们不可能等到他去世了再做研究，那怎么办呢？直接记他的年龄为60+，那这种数据就是截断的数据）。<strong>（生存变量）</strong></p>
+</blockquote>
+<p><strong>X(自变量)：</strong>
+用来解释Y的相关变量。</p>
+<p><strong>例题：</strong></p>
+<p>【例一】下表为1990-2007年中国棉花单产与要素投入表格，请用回归的方法指出哪个要素投入是最重要的要素。</p>
+<p><img alt="" src="https://i.loli.net/2021/01/30/Kn2ovgxrzQG7EsJ.png" /></p>
+<p>Y为连续型变量，所以可以采用线性回归方法。</p>
+<p>【例二】研究借款人是否能借款成功与借款人是否能按时还款。</p>
+<p><img src="https://i.loli.net/2021/01/30/VSBGweN5rg6xpsf.png" style="zoom:80%;" /></p>
+<p>​   从借款人的角度，探究是否借款成功，则选取SUCCESS作为Y；从贷款人的角度，探究借款后是否违约，则选取DEFAULT作为Y。（在回归分析中Y只能有一个，所以需要从不同研究角度来选取Y）</p>
+<p>其中，Y为0-1变量，所以可采用0-1回归方法。</p>
+<h3 id="22">2.2 三个任务：</h3>
+<p><strong>识别重要变量：</strong> 回归分析需要去识别并判断：<strong>哪些X变量是同Y真相关，哪些不是。</strong></p>
+<p>​   统计学中有一个非常重要的领域，叫做“变量选择”，判断X中哪些有用哪些没有。例如逐步回归法，即将X逐个分析，显著就留下，否则舍弃。</p>
+<p><strong>判断相关性方向：</strong> 回归分析分析还需要去探究：<strong>这些有用的X变量同Y的相关关系是正还是负。</strong></p>
+<p><strong>估计权重（回归系数）：</strong> <strong>赋予不同X不同权重，即不同回归系数，进而可以知道不同变量之间的相对重要性。</strong>其中还有一个非常重要的步骤，<strong>去除量纲处理</strong>。</p>
+<h2 id="3">3.回归分析分类</h2>
+<p><img alt="" src="https://i.loli.net/2021/01/30/jxWlt2IZAOJd9TQ.png" /></p>
+<h2 id="4">4.线性回归</h2>
+<h3 id="41">4.1 不同数据类型处理方法</h3>
+<p><img alt="" src="https://i.loli.net/2021/01/30/vL6et7CuWKfcpB5.png" /></p>
+<p><strong>横截面数据：</strong>在某一时间点收集不同对象的数据。</p>
+<blockquote>
+<p>例如：
+（1）我们自己发放问卷得到的数据
+（2）全国各省份2018年GDP的数据
+（3）大一新生今年体测的得到的数据</p>
+</blockquote>
+<p><strong>时间序列数据：</strong>同一对象在不同时间连续观察所得到的数据。</p>
+<blockquote>
+<p>例如：
+（1）从出生到现在，你的体重的数据（每年生日称一次)。
+（2）中国历年来GDP的数据。
+（3）在某地方每隔一小时测得的温度数据。</p>
+</blockquote>
+<p><strong>面板数据：</strong>横截面数据与时间序列数据综合起来得到的一种数据资源。面板类数据较为复杂，是在中级计量经济学中才会学到的模型。</p>
+<blockquote>
+<p>例如：
+2008‐2018年，我国各省份GDP的数据。</p>
+</blockquote>
+<h3 id="42">4.2 一元线性回归模型</h3>
+<p><img alt="" src="https://i.loli.net/2021/01/30/smqxXDipUQ3JWfS.png" /></p>
+<p>推导过程，最小二乘法：</p>
+<p><img alt="" src="https://ae01.alicdn.com/kf/U0c3bd87fa30449dc9e9687fbcffbc2ebx.jpg" /></p>
+<p>比较一元线性函数拟合：</p>
+<p><img alt="" src="https://i.loli.net/2021/01/30/b6WoA8FU5dISvyp.png" /></p>
+<p><img alt="" src="https://i.loli.net/2021/01/30/pUy4KrDXEOdwiQv.png" /></p>
+<p><img alt="" src="https://i.loli.net/2021/01/30/OL697viyE4ZGWHA.png" /></p>
+<p>​   <strong>拟合和回归，只是概念上有所不同，本质上还是一样的</strong>，目的都是为了使得最后的残差平方和最小。</p>
+<p>准确来说，两者差别：</p>
+<blockquote>
+<p>​ 曲线拟合问题的特点是，根据得到的若干有关变量的一组数据，寻找因变量与（一个或几个）自变量之间的一个函数，使这个函数对那组数据拟合得最好。通常，函数的形式可以由经验、先验知识或对数据的直观观察决定，要作的工作是由数据用最小二乘法计算函数中的待定系数。</p>
+<p>​ 而从数理统计的观点看，这里涉及的都是随机变量，我们根据一个样本计算出的那些系数，只是它们的一个（点）估计，应该对它们作区间估计或假设检验，如果置信区间太大甚至包含了零点，那么系数的估计值是没有多大意义的。另外也可以用方差分析方法对模型的误差进行分析，对拟合的优劣给出评价。</p>
+<p>简单地说，<strong>回归分析就是对拟合问题作的统计分析</strong>。</p>
+</blockquote>
+<p><strong>对于线性的理解：</strong></p>
+<p>在上述模型的假设中，</p>
+<p><img alt="" src="https://i.loli.net/2021/01/30/O1Ik3MsWNqfApZC.png" /></p>
+<p>但注意在线性假设中，并不要求初始模型都呈上述的严格线性关系，自变量与因变量可通过变量变换而转化成线性模型，例如：</p>
+<p><img alt="" src="https://i.loli.net/2021/01/30/sNz75mMnlWRoE1b.png" /></p>
+<h2 id="5">5.回归系数的解释</h2>
+<h3 id="51">5.1基本解释</h3>
+<p><strong>一元回归模型:</strong>
+$$
+y_i=\beta _0+\beta _1x_i+\mu _i
+$$
+其中，β<sub>0</sub>和β<sub>1</sub>为回归系数。</p>
+<p>假设x为某产品品质评分（1-10之间），y为该产品的销量，我们对x和y使用一元线性回归模型。</p>
+<p>假设得到结果为：
+$$
+\widehat{y_i}=3.4+2.3x_i
+$$
+对其进行解释:</p>
+<ul>
+<li>3.4:在评分为0时,该产品的平均销量为3.4;</li>
+<li>2.3:在评分每增加一个单位,该产品的平均销量增加2.3;</li>
+</ul>
+<p><strong>多元回归模型:</strong></p>
+<p>在上述一元回归模型中继续添加一个变量
+$$
+y_i=\beta _0+\beta _1x_{1i}+\beta _2x_{2i}+\mu _i
+$$
+其中有两个自变量,假设x<sub>1</sub>表示品质评分,x<sub>2</sub>表示该产品的价格。</p>
+<p>假设得到结果为：
+$$
+\widehat{y_i}=5.3+2.3x_{1i}-1.74x_{2i}
+$$</p>
+<ul>
+<li>5.3:在评分为0且价格为0时,该产品的平均销量为5.3个;</li>
+<li>0.19:在保持其他变量不变的情况下,评分每增加一个单位,该产品平均销量增加0.19;</li>
+<li>-1.74:在保持其他变量不变的情况下,价格每增加一个单位,该产品平均销量减少1.74;</li>
+</ul>
+<p><img alt="" src="https://i.loli.net/2021/01/31/scnE7X8YMQm1AiN.png" /></p>
+<p>对比上面两个模型可以看出,引入一个新的变量后,对回归系数影响非常大。</p>
+<p>其原因为：<strong>遗漏变量导致内生性</strong>。</p>
+<h3 id="52">5.2 内生性探究</h3>
+<p>假设模型为：</p>
+<p>$$
+y_i=\beta _0+\beta _1x{1i}+\beta _2x_{2i}+...+\beta _kx_{ki}+\mu _i
+$$</p>
+<p>​   u为无法观察且满足一定条件的扰动项。如果满足<strong>误差项u和所有的自变量x均不相关</strong>，则称该模型具有<strong>外生性</strong>。</p>
+<p>​   反之如果相关，则存在<strong>内生性</strong>，这样会导致回归系数估计的不准确：不满足无偏性和一致性。</p>
+<p>回到刚刚的例子：
+$$
+y_i=\beta _0+\beta _1x_i+\mu _i
+$$
+β<sub>0</sub>和β<sub>1</sub>为回归系数,x为该产品品质评分（1-10之间），y为该产品的销量。</p>
+<p>那么模型中误差项μ<sub>i</sub>则包含了<strong>所有与y<sub>i</sub>相关，但未添加到回归模型中的变量，如果这些变量和我们已经添加的自变量相关，则存在内生性。</strong></p>
+<p>​   就如上述多元回归模型，产品的价格x<sub>2</sub>与品质评分x<sub>1</sub>间存在一定的相关性关系，所以就会存在一定内生性问题。</p>
+<p>无内生性(no endogeneity)要求所有解释变量均与扰动项不相关。这个假定通常太强，因为解释 变量一般很多且要保证它们全部外生。所以可以弱化此条件：<strong>将解释变量区分为核心解释变量和控制变量。</strong></p>
+<ul>
+<li>核心解释变量：我们最感兴趣的变量，因此我们特别希望得到对其系数的一致估计（当样本容量无限增大时，收敛于待估计参数的真值）。</li>
+<li>控制变量：我们可能对于这些变量本身并无太大兴趣；而之所以把它们放入回归方程，主要是为了“控制住” 那些对被解释变量有影响的遗漏因素。</li>
+</ul>
+<p>在实际应用中，我们只要保证核心解释变量与𝝁不相关即可。</p>
+<p>而由于内生性本身是一个非常复杂的问题，在数模比赛中，一般不用去考虑。</p>
+<h3 id="53">5.3 对解释变量取对数</h3>
+<p>$$
+\
+\widehat{y_i}=\widehat{\beta _0}+\widehat{\beta _1}\ln x_{1i}
+$$</p>
+<p>伍德里奇的《计量经济学导论，现代观点》里，第六章176-177页有详细的论述:<strong>取对数意味着原被解释变量对解释变量的弹性，即百分比的变化而不是数值的变化</strong>；
+目前，对于什么时候取对数还没有固定的规则，但是有一些经验法则：</p>
+<blockquote>
+<p>（1）与市场价值相关的，例如，价格、销售额、工资等都可以取对数；
+（2）以年度量的变量，如受教育年限、工作经历等通常不取对数；
+（3）比例变量，如失业率、参与率等，两者均可；
+（4）变量取值必须是非负数，如果包含0，则可以对y取对数ln(1+y);</p>
+</blockquote>
+<p><strong>取对数的好处：</strong></p>
+<p>①减弱数据的异方差性  ②如果变量本身不符合正态分布，取了对数后可能渐近服从正态分布  ③模型形式的需要，让模型具有经济学意义。</p>
+<h3 id="54">5.4 四类模型回归系数解释</h3>
+<p><img alt="" src="https://i.loli.net/2021/01/31/q7WsP3ptwzNKHQh.png" /></p>
+<p><img alt="" src="https://i.loli.net/2021/01/31/AVyv2sPuLx5oRaq.png" /></p>
+<h2 id="6">6.回归中处理定性变量</h2>
+<h3 id="61">6.1 虚拟变量</h3>
+<p>若自变量中存在定性变量,则需要相应的引入虚拟变量:</p>
+<p><img alt="" src="https://i.loli.net/2021/01/31/7PNHMpkKlGj95sx.png" /></p>
+<p>Female则为引入的虚拟变量。</p>
+<h3 id="62">6.2 虚拟变量的解释</h3>
+<p><strong>0-1分类虚拟变量解释：</strong></p>
+<p><img alt="" src="https://i.loli.net/2021/01/31/ViAczTxDX6ZSHNO.png" /></p>
+<p><strong>多分类虚拟变量解释：</strong></p>
+<p>如，探讨我国P2P网络贷款中是否存在显著的地域歧视问题？</p>
+<p><img alt="" src="https://i.loli.net/2021/01/31/8n1ktDgM3m9FBXN.png" /></p>
+<p><img alt="" src="https://i.loli.net/2021/01/31/8NHYpl15AwUEq7B.jpg" /></p>
+<p>为了避免完全多重共线性的影响，引入虚拟变量的个数一般是分类数减1。</p>
+<h2 id="7">7.回归中处理含有交互性的自变量</h2>
+<p>price:房价sqrft:住房面积bdrms:卧室数量bthrms:卫生间数量。</p>
+<p><img alt="" src="https://i.loli.net/2021/01/31/IEScMU8YNvgZG91.png" /></p>
+<h2 id="8">8.案例一：探究婴幼儿奶粉的销售情况</h2>
+<p>​   现有某电商平台846条关于婴幼儿奶粉的销售信息，每条信息由11个指标组成。其中，评价量可以从一个侧面反映顾客对产品的关注度。
+​   请对所给数据进行以下方面的分析，要求最终的分析将不仅仅有益于商家，更有益于宝妈们为宝贝选择适合自己的奶粉。
+1) 以评价量为因变量，分析其它变量和评价量之间的关系；
+2) 以评价量为因变量，研究影响评价量的重要因素</p>
+<p><img alt="" src="https://i.loli.net/2021/01/31/mODsqKCEQ54UZXL.png" /></p>
+<h3 id="81">8.1 问题一</h3>
+<p>1) 以评价量为因变量，分析其它变量和评价量之间的关系；</p>
+<p>以下演示使用Stata进行回归分析：</p>
+<p><strong>第一步：导入数据</strong></p>
+<pre><code class="stata">import excel &quot;G:\1.0学习资料\算法模型数据挖掘\数学建模\七.多元回归分析\代码和
+&gt; 例题数据\课堂中讲解的奶粉数据.xlsx&quot;, sheet(&quot;Sheet1&quot;) firstrow
+</code></pre>
+
+<p><img alt="" src="https://i.loli.net/2021/01/31/Znfrh15Ac3OK4Dv.png" /></p>
+<p><strong>第二步：描述性统计</strong></p>
+<p>①定量数据:</p>
+<p><center>summarize 变量1 变量2 ... 变量n
+</center></p>
+<pre><code>summarize 团购价元 评价量 商品毛重kg
+</code></pre>
+
+<p><img alt="" src="https://i.loli.net/2021/01/31/RhgWOKD3S6det9z.png" /></p>
+<p>Obs:样本量值;   Mean:均值;    Std.Dev.:标准差;   Min:最小值;    Max:最大值;</p>
+<p>②定性数据:</p>
+<p><center>tabulate 变量名,gen(A)</center></p>
+<p>tablate每次只能对一个定性变量进行描述性统计,返回对应的这个变量的频率分布表，并生成对应的虚拟变量(以A开头)。</p>
+<pre><code>tabulate 配方,gen(A)
+tabulate 奶源产地 ,gen(B)
+tabulate 国产或进口 ,gen(C)
+tabulate 适用年龄岁 ,gen(D)
+tabulate 包装单位 ,gen(E)
+tabulate 分类 ,gen(F)
+tabulate 段位 ,gen(G)
+</code></pre>
+
+<p><img alt="" src="https://i.loli.net/2021/01/31/pfMhK5tc7rql4FS.png" /></p>
+<p>如果想将定类数据放到论文中,可以对定类频数做扇形图。(可以不做)</p>
+<p>最后,<em>将描述性统计结果整理表格放入论文</em>。</p>
+<p><img alt="" src="https://i.loli.net/2021/01/31/OIH8TPzemjYW4No.png" /></p>
+<p><strong>第三步：进行回归</strong></p>
+<p>进行回归语句:</p>
+<p><center>regress y x1 x2 … xk</center></p>
+<p>默认使用的OLS：普通最小二乘估计法</p>
+<p>例 定量变量分析</p>
+<pre><code>regress 评价量 团购价元 商品毛重kg
+</code></pre>
+
+<p><img alt="" src="https://i.loli.net/2021/01/31/eRHXLx4la7nY18z.jpg" /></p>
+<p>例 加入定性变量分析:</p>
+<pre><code>regress 评价量 G1-G4
+</code></pre>
+
+<p><img alt="" src="https://i.loli.net/2021/01/31/WOXfD2mK5V3wpPu.jpg" /></p>
+<p>综合分析:</p>
+<pre><code>reg 评价量 团购价元 商品毛重kg A1-G4
+</code></pre>
+
+<p><img alt="" src="https://i.loli.net/2021/01/31/bgd5T2xRa3v1BVZ.jpg" /></p>
+<p>保存结果：</p>
+<pre><code>//ssc install reg2docx, all replace//安装第三方库reg2docx
+
+est store m1 //将上边reg结果保存到m1中
+
+reg2docx m1 using m1.docx,replace //导出结果,得到一个m1.docx文件
+</code></pre>
+
+<p><img alt="" src="https://i.loli.net/2021/01/31/2qsGOvCB1XWr6Fh.png" /></p>
+<p><img alt="" src="https://i.loli.net/2021/01/31/6IwW9HvCrDBu1qz.png" /></p>
+<p>*<strong> :p&lt;0.01    </strong> :p&lt;0.05  * :p&lt;0.1   括号中为T检验值。</p>
+<p>可以回答第一问:</p>
+<p>1)在90%的置信水平下,团购价元和F1对应的回归系数是显著的。</p>
+<ul>
+<li>团购价：在其他自变量不变的情况下，团购价每增加一元，会导致评价量平均减少29.77；</li>
+<li>F1（F1为牛奶粉，F2为羊奶粉）：在控制其他自变量不变的情况下，分类为牛奶粉的奶粉的平均评价量要比分类为羊奶粉的评价量要高出14894.55。</li>
+</ul>
+<p>其他自变量都不显著所以不用分析。</p>
+<p><strong>拟合优度R<sup>2</sup>较低怎么办：</strong></p>
+<ul>
+<li>回归分为解释型回归和预测型回归。</li>
+</ul>
+<p>预测型回归一般才会更看重R<sup>2</sup>,R<sup>2</sup>越大,拟合效果越好。
+  解释型回归更多的关注模型整体显著性以及自变量的统计显著性和经济意义显著性即可。</p>
+<ul>
+<li>
+<p>可以对模型进行调整，例如对数据取对数或者平方后再进行回归(玄学)。</p>
+</li>
+<li>
+<p>数据中可能有存在异常值或者数据的分布极度不均匀。</p>
+</li>
+</ul>
+<p><strong>关于拟合优度和调整后的拟合优度:</strong></p>
+<p>​   我们引入的自变量越多，拟合优度会变大。但我们倾向于使用调整后的拟合优度，如果新引入的自变量对SSE的减少程度特别少，那么调整后的拟合优度反而会减小。(放入论文中)</p>
+<p><img alt="" src="https://i.loli.net/2021/01/31/uN5RWMn76xwVb3r.png" /></p>
+<h3 id="82">8.2 问题二</h3>
+<p>2) 以评价量为因变量，研究影响评价量的重要因素</p>
+<ul>
+<li>
+<p>为了更为精准的研究影响评价量的重要因素（去除量纲的影响），我们可考虑使用标准化回归系数。</p>
+</li>
+<li>
+<p>对数据进行标准化，就是将原始数据减去它的均数后，再除以该变量的标准差，计算得到新的变量值，新变量构成的回归方程称为标准化回归方程，回归后相应可得到标准化回归系数。</p>
+</li>
+<li>
+<p>标准化系数的绝对值越大，说明对因变量的影响就越大（只关注显著的回归系数哦）。</p>
+</li>
+</ul>
+<p>标准化回归命令:</p>
+<p><center>regress y x1 x2 … xk,beta</center></p>
+<pre><code>reg 评价量 团购价元 商品毛重kg A1-G4,beta
+</code></pre>
+
+<p><img alt="" src="https://i.loli.net/2021/01/31/cHmT9iaqWxF8uGg.jpg" /></p>
+<p>回答问题2)：</p>
+<p>团购价的标准化回归系数绝对值要大于F1,所以团购价是影响评价量的最重要因素。</p>
+<h2 id="9">9.案例二：探究大学生期末数学成绩影响因素分析</h2>
+<p>一篇存在问题的论文：</p>
+<p><img alt="" src="https://i.loli.net/2021/01/31/2Hc3mFlv5XWMKYs.png" /></p>
+<p><img alt="" src="https://i.loli.net/2021/01/31/KaQt6xFl8SrGYWd.jpg" /></p>
+<p><img alt="" src="https://i.loli.net/2021/01/31/mwo6f2Q9eREHcGV.jpg" /></p>
+<h2 id="10p2p">10.案例三：P2P网络借贷中的地域歧视现象研究</h2>
+<p><img alt="" src="https://i.loli.net/2021/01/31/KzyngdFLXBwj1Wp.png" /></p>
+<p>①数据描述性统计</p>
+<p><img alt="" src="https://i.loli.net/2021/01/31/4Aqa5ulfYZIevrs.png" /></p>
+<p>​   该表给出了各省份样本数、借贷成功率和违约率的数据。</p>
+<p>​   从表中可以 看出，内蒙古的借款成功率最低，仅有 3.4%，江苏的成功率最高，达到了 11.2%; 但是从违约率的角度来看，内蒙古的违约率略低于平均违约率，而江苏的违约率 却略高于违约率。</p>
+<p>​   这表明各省份的借款成功率与违约率之间并没有明显的关系，</p>
+<p>各省份借贷样本数、成功率和违约率：</p>
+<p><img alt="" src="https://i.loli.net/2021/01/31/tOeGDYRklpPFrKs.png" /></p>
+<p>使用excel绘图</p>
+<p><img alt="image-20210131063752775" src="https://i.loli.net/2021/01/31/nkDAcCHJdgX1NLt.png" /></p>
+<p>②模型构建
+$$
+SUCCESS_i=\alpha +\sum{\beta _n\times Province_n+\lambda \times Controls_i+\varepsilon _i}
+$$
+<img alt="" src="https://i.loli.net/2021/01/31/qGUQ8sb6wDBEIe2.png" /></p>
+<p>③回归结果</p>
+<p><img alt="" src="https://i.loli.net/2021/01/31/zRJ62vCqwGBjNpD.png" /></p>
+<p><img alt="" src="https://i.loli.net/2021/01/31/lj6RtzyHnMfoVGv.png" /></p>
+<p>上方的实线是通过统计性描述计算出来的各省份与内蒙古的成功率的相对差。</p>
+<p>下方的虚线是回归系数，其实际意义是控制了其他变量（包括借贷合约信息、个人信用、经济与非经济信息）后的相对差。</p>
+<p>圆形的实心标记表示该省份的回归系数显著（置信水平为90%）。</p>
+<p>④回归结果分析</p>
+<p>​   本文对30个省份的系数进行了联合显著性检验，得到的F统计量：F(30,128489)=9.09，对应的p值为0.00，这说明在1%的显著性水平上，P2P借贷市场中存在着地域歧视。</p>
+<p><img alt="image-20210131065015770" src="https://i.loli.net/2021/01/31/RTxYX5glKbLQBEA.png" /></p>
+<h2 id="11">11.回归模型的扰动项</h2>
+<p>在回归模型中:
+$$
+y_i=\beta <em>0+\beta _1x</em>{1i}+\beta <em>2x</em>{2i}+...+\beta <em>kx</em>{ki}+\mu _i
+$$
+扰动项μ<sub>i</sub>为无法观察且满足一定条件的扰动项。</p>
+<p>在之前的回归分析中，都默认了扰动项是球型扰动项：满足“同方差”和“无自相关”两个条件。</p>
+<p><img alt="" src="https://i.loli.net/2021/01/31/3Iji9su8Vvqm7Dh.jpg" /></p>
+<p>横截面数据往往容易出现异方差的问题；而时间序列数据容易出现自相关问题。</p>
+<h3 id="111">11.1 异方差概念</h3>
+<p>如果扰动项存在异方差：</p>
+<ul>
+<li>OLS估计出来的回归系数是无偏、一致的；</li>
+<li>假设检验无法使用（构造的t统计量失效了）；</li>
+<li>OLS估计量不再是最优线性无偏估计量（BLUE）；</li>
+</ul>
+<p>存在异方差的图：</p>
+<p><img alt="" src="https://i.loli.net/2021/01/31/yCY1ZMLhxfdn4W9.png" /></p>
+<p>随着x增大，方差不断增大，也就意味着方程在不断改变，存在异方差。</p>
+<p><strong>解决异方差方法：</strong></p>
+<ul>
+<li>使用OLS + 稳健的标准误</li>
+<li>广义最小二乘估计法GLS
+  原理：方差较小的数据包含的信息较多（较为重要），我们可以给予信息量大的数据更大的权
+  重（即方差较小的数据给予更大的权重）</li>
+</ul>
+<h3 id="112">11.2 检验异方差方法</h3>
+<p><strong>通过图形检验异方差（较为粗糙）：</strong></p>
+<pre><code>rvfplot (画残差与拟合值的散点图）
+</code></pre>
+
+<p><img alt="image-20210131074217987" src="https://i.loli.net/2021/01/31/EtAlDZLmIRwz39e.png" /></p>
+<p>随着拟合值的不断增大,数据波动越来越明显,说明存在异方差。</p>
+<pre><code>rvpplot x (画残差与自变量x的散点图)
+</code></pre>
+
+<p>如 rvpplot 团购价元</p>
+<p><img alt="" src="https://i.loli.net/2021/01/31/ExRfhAeZnWrHcmG.png" /></p>
+<p>​   当团购价小的时候数据波动比较大,而当团购价足够大的时候数据波动小,则说明存在异方差问题。</p>
+<p><strong>拟合值出现负数的原因：</strong></p>
+<p>在第一张图中，</p>
+<p><img alt="image-20210131074217987" src="https://i.loli.net/2021/01/31/EtAlDZLmIRwz39e.png" /></p>
+<p>​   横坐标为拟合值，数据中评价量为正数，理论上拟合值也应该为正数，但图像上出现了拟合值为负数的情况。</p>
+<p>评价量的概率密度函数：</p>
+<pre><code>kdensity 评价量
+</code></pre>
+
+<p><img alt="" src="C:\Users\sn159\AppData\Roaming\Typora\typora-user-images\image-20210131074807654.png" /></p>
+<p>从概率密度函数图上可看出,评价量分布是极度不均匀的，主要位于评价类很小的区间。</p>
+<pre><code>sum 评价量,d
+</code></pre>
+
+<p><img alt="" src="https://i.loli.net/2021/01/31/Ue5jf6EbFPdKucS.png" /></p>
+<p>有75%的奶粉品牌的评价量小于1100，评价量超过17000的只有10%不到，而样本均值却达到了15800。<strong>这说明评价量的分布极度不平衡</strong>，大多数个体的评价量都较小。从右图中也直观的说明了绝大部分品牌的评价量都较小这一特征。</p>
+<p>由于分布不均匀,导致了拟合值的R<sup>2</sup>很小,而且拟合值还会出现负数。</p>
+<p>通过图形检验比较除此，除此之外还有两种更准确的检验方法：BP检验、怀特检验。</p>
+<h3 id="113-bp">11.3 BP检验</h3>
+<p><img alt="" src="https://i.loli.net/2021/01/31/D4C2hX5Sc8quIbl.png" /></p>
+<p>BP检验在Stata中命令（回归结束后使用）：</p>
+<pre><code>estat hettest ,rhs iid
+</code></pre>
+
+<p><img alt="" src="https://i.loli.net/2021/01/31/FzbSlukTE2KV4A1.png" /></p>
+<ul>
+<li>24:为自由度;</li>
+<li>59.54:对应的卡方分布;</li>
+<li>P:检验值</li>
+</ul>
+<p>原假设H<sub>0</sub>：扰动项不存在异方差。</p>
+<p>P值小于0.05，说明在95%的置信水平下拒绝原假设，即我们认为扰动项存在异方差。</p>
+<h3 id="114">11.4 怀特检验</h3>
+<p><img alt="" src="https://i.loli.net/2021/01/31/85JSG4j9ZgPHXRE.png" /></p>
+<p>Stata命令（在回归结束后使用）：</p>
+<pre><code>estat imtest,white
+</code></pre>
+
+<p><img alt="image-20210131080748286" src="https://i.loli.net/2021/01/31/VeiFl4DSmXG7rJk.png" /></p>
+<p>怀特检验原假设：不存在异方差</p>
+<p>P值小于0.05，说明在95%的置信水平下拒绝原假设，即我们认为扰动项存在异方差。</p>
+<h3 id="115">11.5 解决异方差</h3>
+<ul>
+<li>使用OLS + 稳健的标准误</li>
+</ul>
+<p>如果发现存在异方差，一种处理方法是，仍然进行OLS 回归，但使用稳健标准误。这是最简单，也是目前通用的方法。只要样本容量较大，即使在异方差的情况下，若使用稳健标准误，则所有参数估计、假设检验均可照常进行。换言之，只要使用了稳健标准误，就可以与异方差“和平共处”了。</p>
+<ul>
+<li>广义最小二乘法GLS</li>
+</ul>
+<p>原理：方差较大的数据包含的信息较少，我们可以给予信息量大的数据（即方差
+  较小的数据更大的权重）</p>
+<p>缺点：我们不知道扰动项真实的协方差矩阵，因此我们只能用样本数据来估计，
+  这样得到的结果不稳健，存在偶然性。</p>
+<p>在大多数情况下应该使用“OLS + 稳健标准误”。</p>
+<p><strong>使用OLS + 稳健的标准误：</strong></p>
+<p>在原来回归的基础上：</p>
+<p><center>regress y x1 x2 … xk,robust</center></p>
+<pre><code>reg 评价量 团购价元 商品毛重kg A1-G4,r
+</code></pre>
+
+<p><img alt="" src="https://i.loli.net/2021/01/31/W6yR8G9C2vFJdIY.png" /></p>
+<p><img alt="" src="https://i.loli.net/2021/01/31/lBpW5ztGuyJe3Fn.png" /></p>
+<p>可以发现显著项变多。</p>
+<p>所以在state进行回归之前，先进行异方差检验，若存在异方差，则使用robust对结果进行修正。</p>
+<h2 id="12">12.多重共线性</h2>
+<p><img alt="" src="https://i.loli.net/2021/01/31/jKLzxpn9USPlcge.png" /></p>
+<p><strong>检验多重共线性：</strong></p>
+<p>计算指标，方差膨胀因子VIF。</p>
+<p>假设现在有k个自变量，那么第m个自变量的VIF为：
+$$
+VIF_m=\frac{1}{1-R_{1-k\backslash\text{m}}^{2}}
+$$
+<img alt="" src="https://i.loli.net/2021/01/31/gz9GRiuFyD2dCUZ.png" /></p>
+<p><img alt="image-20210131091050679" src="https://i.loli.net/2021/01/31/Y4e25tfSQ3Nh1Wc.png" /></p>
+<p>Stata计算各自变量VIF的命令（在回归结束后使用）：</p>
+<pre><code>estat vif
+</code></pre>
+
+<p><img alt="" src="https://i.loli.net/2021/01/31/JMBFIuLa7ZbrmUs.png" /></p>
+<p>框内的指标存在多重共线性问题.</p>
+<p>如果发现存在多重共线性，可以采取以下处理方法。</p>
+<p>(1)如果不关心具体的回归系数，而只关心整个方程预测被解释变量的能力，则通常可以不必理会多重共线性（假设你的整个方程是显著的）。这是因为，多重共线性的主要后果是使得对单个变量的贡献估计不准，但所有变量的整体效应仍可以较准确地估计。</p>
+<p>(2)如果关心具体的回归系数，但多重共线性并不影响所关心变量的显著性，那么也可以不必理会。即使在有方差膨胀的情况下，这些系数依然显著;如果没有
+多重共线性，则只会更加显著。</p>
+<p>(3) 如果多重共线性影响到所关心变量的显著性，则需要增大样本容量，剔除导致严重共线性的变量（不要轻易删除哦，因为可能会有内生性的影响），或对模型设定进行修改。</p>
+<p><strong>要么不管,要么把存在问题的变量删除.</strong></p>
+<h2 id="13">13.逐步回归</h2>
+<p><strong>向前逐步回归:</strong></p>
+<p>将自变量逐个引入模型，每引入一个自变量后都要进行检验，显著时才加入回归模型。</p>
+<p>缺点：随着以后其他自变量的引入，原来显著的自变量也可能又变为不显著了，但是，并没有将其及时从回归方程中剔除掉。</p>
+<p>Stata语句:</p>
+<pre><code>stepwise regress y x1 x2 … xk, pe(#1)
+</code></pre>
+
+<p>#为显著性水平,如果你觉得筛选后的变量仍很多你可以减小#1或者#2；如果你觉得筛选后的变量太少了，你可以增加#1或者#2。</p>
+<p><strong>向后逐步回归:</strong></p>
+<p>先将所有变量均放入模型，之后尝试将其中一个自变量从模型中剔除，看整个模型解释因变量的变异是否有显著变化，之后将最没有解释力的那个自变量剔除；此过程不断迭代，直到没有自变量符合剔除的条件。</p>
+<p>缺点：一开始把全部变量都引入回归方程，这样计算量比较大。若对一些不重要的变量，一开始就不引入，这样就可以减少一些计算。(但计算量对计算机来说一般都不是问题)</p>
+<pre><code>stepwise regress y x1 x2 … xk, pr(#2)
+</code></pre>
+
+<p>此时要注意，采用逐步回归时，x1 x2 … xk之间不能有完全多重共线性，需要手动剔除。</p>
+<p><strong>逐步回归说明：</strong></p>
+<p>（1）向前逐步回归和向后逐步回归的结果可能不同。</p>
+<p>（2）不要轻易使用逐步回归分析，因为剔除了自变量后很有可能会产生新的问题，例如内生性问题。</p>
+<p>（3）有没有更加优秀的筛选方法？有的，那就是每种情况都尝试一次，最终一共有<img alt="image-20210131093138007" src="https://i.loli.net/2021/01/31/cxSXYsQb6rB2Iiu.png" />。但这种全局筛选不现实。</p>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../%E5%8F%AF%E6%8C%81%E4%B9%85%E5%8C%96%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%80/" title="可持久化数据结构" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                可持久化数据结构
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.d710d30a.min.js"></script>
+      <script src="../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.a68abb33.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
