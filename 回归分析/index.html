@@ -1057,9 +1057,9 @@ y_i=\beta _0+\beta _1x_i+\mu _i
 $$
 其中，β<sub>0</sub>和β<sub>1</sub>为回归系数。</p>
 <p>假设x为某产品品质评分（1-10之间），y为该产品的销量，我们对x和y使用一元线性回归模型。</p>
-<p>假设得到结果为：
-$$
-\widehat{y_i}=3.4+2.3x_i
+<p>假设得到结果为：</p>
+<p>$$
+\widehat {y_i}=3.4+2.3x_i
 $$
 对其进行解释:</p>
 <ul>
@@ -1087,7 +1087,7 @@ $$</p>
 <h3 id="52">5.2 内生性探究</h3>
 <p>假设模型为：</p>
 <div class="arithmatex">\[
-y_i=\beta \_0+\beta \_1x{1i}+\beta \_2x_{2i}+...+\beta \_kx\_{ki}+\mu \_i
+y_i=\beta _0+\beta _1x{1i}+\beta _2x_{2i}+...+\beta _kx_{ki}+\mu _i
 \]</div>
 <p>​   u为无法观察且满足一定条件的扰动项。如果满足<strong>误差项u和所有的自变量x均不相关</strong>，则称该模型具有<strong>外生性</strong>。</p>
 <p>​   反之如果相关，则存在<strong>内生性</strong>，这样会导致回归系数估计的不准确：不满足无偏性和一致性。</p>
@@ -1108,7 +1108,7 @@ $$
 <h3 id="53">5.3 对解释变量取对数</h3>
 <div class="arithmatex">\[
 \\
-\widehat{y_i}=\widehat{\beta \_0}+\widehat{\beta \_1}\ln x_{1i}
+\widehat{y_i}=\widehat{\beta _0}+\widehat{\beta _1}\ln x_{1i}
 \]</div>
 <p>伍德里奇的《计量经济学导论，现代观点》里，第六章176-177页有详细的论述:<strong>取对数意味着原被解释变量对解释变量的弹性，即百分比的变化而不是数值的变化</strong>；
 目前，对于什么时候取对数还没有固定的规则，但是有一些经验法则：</p>
