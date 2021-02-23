@@ -1,6 +1,7 @@
 # Mr. Iodin
 
-个人笔记.
+个人学习笔记.
+
 
 <script type="text/javascript"
   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
