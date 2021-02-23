@@ -1,0 +1,1009 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.0">
+    
+    
+      
+        <title>高斯消元法——求解线性方程组 - Mr.Iodin</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.a3f8f96a.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.7fa14f5b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="indigo">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Mr.Iodin" class="md-header__button md-logo" aria-label="Mr.Iodin">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mr.Iodin
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              高斯消元法——求解线性方程组
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Mr.Iodin" class="md-nav__button md-logo" aria-label="Mr.Iodin">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Mr.Iodin
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" checked>
+      
+      <label class="md-nav__link" for="nav-1">
+        算法
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="算法" data-md-level="1">
+        <label class="md-nav__title" for="nav-1">
+          <span class="md-nav__icon md-icon"></span>
+          算法
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-1" type="checkbox" id="nav-1-1" checked>
+      
+      <label class="md-nav__link" for="nav-1-1">
+        数论
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="数论" data-md-level="2">
+        <label class="md-nav__title" for="nav-1-1">
+          <span class="md-nav__icon md-icon"></span>
+          数论
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%9C%8D%E7%BA%B3%E6%B3%95%E5%88%99/" class="md-nav__link">
+        霍纳法则(Horner's rule)——多项式求值
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          高斯消元法——求解线性方程组
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        高斯消元法——求解线性方程组
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    基本概念
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    高斯消元法求解
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    矩阵运算过程
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    解的判断
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    编程部分
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-2" type="checkbox" id="nav-1-2" >
+      
+      <label class="md-nav__link" for="nav-1-2">
+        高级数据结构
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="高级数据结构" data-md-level="2">
+        <label class="md-nav__title" for="nav-1-2">
+          <span class="md-nav__icon md-icon"></span>
+          高级数据结构
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%8F%AF%E6%8C%81%E4%B9%85%E5%8C%96%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%80/" class="md-nav__link">
+        可持久化数据结构
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
+      
+      <label class="md-nav__link" for="nav-2">
+        数学建模
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="数学建模" data-md-level="1">
+        <label class="md-nav__title" for="nav-2">
+          <span class="md-nav__icon md-icon"></span>
+          数学建模
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" >
+      
+      <label class="md-nav__link" for="nav-2-1">
+        评价模型
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="评价模型" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-1">
+          <span class="md-nav__icon md-icon"></span>
+          评价模型
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/" class="md-nav__link">
+        层次分析法
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2" >
+      
+      <label class="md-nav__link" for="nav-2-2">
+        回归模型
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="回归模型" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-2">
+          <span class="md-nav__icon md-icon"></span>
+          回归模型
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" class="md-nav__link">
+        回归分析
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    基本概念
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    高斯消元法求解
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    矩阵运算过程
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    解的判断
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    编程部分
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="_1">高斯消元法——求解线性方程组</h1>
+<h2 id="_2">基本概念</h2>
+<p>​        高斯消元法主要用于求解线性方程组，也可以求矩阵的秩、矩阵的逆等，是一个重要的数学方法。</p>
+<p>线性方程组：</p>
+<p>​        有多个未知数，且每个未知数的次数均为一次，这样多个未知数所组成的方程组。
+$$
+\left\{\begin{matrix} a_{11}x_1+a_{12}x_2+...+a_{1n}x_n=b_1 \\ a_{21}x_1+a_{22}x_2+...+a_{2n}x_n=b_2 \\ ... \\ a_{n1}x_1+a_{n2}x_2+...+a_{nn}x_n=b_n \end{matrix}\right.
+$$
+记为矩阵形式：
+$$
+Ax=B,A=\begin{bmatrix}a_{11} &amp;a_{12} &amp;... &amp;a_{1n} \\ a_{21}&amp; a_{22} &amp; ... &amp; a_{2n}\\ ...&amp; ... &amp; ... &amp; ...\\ a_{n1} &amp; a_{n2} &amp;... &amp;a_{nn} \end{bmatrix},B= \begin{bmatrix} b_1\\b_2\\...\\b_n\end{bmatrix}
+$$</p>
+<h2 id="_3">高斯消元法求解</h2>
+<p><strong>基本思想：</strong></p>
+<p>通过一系列的加减消元运算，直到得到类似 kx=b 的式子，然后逐一回代求解 x 向量。</p>
+<p><strong>求解步骤：</strong></p>
+<p>以下面的线性方程组为例：
+$$
+\left\{\begin{matrix} 3x+2y+z=6 \:\:\:\: (1)\\ 2x+2y+2z=4 \:\:\:\:(2)\\4x-2y-2z=2\:\:\:\:(3) \end{matrix}\right.
+$$</p>
+<ul>
+<li>首先进行<strong>消元</strong></li>
+</ul>
+<p>将 (1) 除以 3，把 x 的系数化为 1，得
+$$
+x+\frac{2}{3}y+\frac{1}{3}z=2 \:\:\:\: (1)'
+$$
+再令 (2)-2<em>(1)'、(3)-4</em>(1)'，将 (2)、(3) 的 x 消去，得：
+$$
+\left\{\begin{matrix} x+\frac{2}{3}y+\frac{1}{3}z=2 \:\:\:\: (1)'\\ 0x+\frac{2}{3}y+\frac{4}{3}z=0 \:\:\:\:(2)'\\0x-\frac{14}{3}y-\frac{10}{3}z=-6\:\:\:\:(3)' \end{matrix}\right.
+$$
+将令 (2)' 除以 2/3，将 y 系数化为 1，得：
+$$
+y+2z=0 \:\:\:\:(2)''
+$$
+再令 (3)'-(-14/3)*(2)''，将 (3)' 的 y 消去，得：
+$$
+\left\{\begin{matrix} x+\frac{2}{3}y+\frac{1}{3}z=2 \:\:\:\: (1)'\\ 0x+y+2z=0 \:\:\:\:(2)''\\0x+0y+\frac{18}{3}z=-6\:\:\:\:(3)'' \end{matrix}\right.
+$$
+由 (3)'' 可得：
+$$
+z=-1
+$$</p>
+<ul>
+<li>回代操作</li>
+</ul>
+<p>将 z=-1带回 (2)'' 可得：
+$$
+y=2
+$$
+再将y=2、z=-1带回(1)' 可得：
+$$
+x=1
+$$
+得到结果为：
+$$
+\left\{\begin{matrix} x=1\\ y=2\\z=-1 \end{matrix}\right.
+$$</p>
+<h2 id="_4">矩阵运算过程</h2>
+<p>线性方程组：</p>
+<p>$$
+\left\{\begin{matrix} 3x+2y+z=6 \:\:\:\: (1)\\ 2x+2y+2z=4 \:\:\:\:(2)\\4x-2y-2z=2\:\:\:\:(3) \end{matrix}\right.
+$$
+记为矩阵形式：
+$$
+\begin{bmatrix} x &amp; y &amp; z &amp; val \\ 3&amp;2 &amp;1 &amp;6 \\2 &amp;2 &amp;2 &amp;4 \\4 &amp; -2&amp;-2 &amp;2 \end{bmatrix}
+$$
+消去 x：
+$$
+\begin{bmatrix} x &amp; y &amp; z &amp; val \\ 1&amp;\frac{2}{3} &amp;\frac{1}{3} &amp;2 \\0 &amp;\frac{2}{3} &amp;\frac{4}{3} &amp;0 \\0 &amp; -\frac{14}{3}&amp;-\frac{10}{3} &amp;-6 \end{bmatrix}
+$$
+消去 y：
+$$
+\begin{bmatrix} x &amp; y &amp; z &amp; val \\ 1&amp;\frac{2}{3} &amp;\frac{1}{3} &amp;2 \\0 &amp;1&amp;2 &amp;0 \\0 &amp; 0&amp;\frac{18}{3} &amp;-6 \end{bmatrix}
+$$
+回代得解：
+$$
+\begin{bmatrix}1 \\ 2 \\ -1 \end{bmatrix}
+$$</p>
+<h2 id="_5">解的判断</h2>
+<ul>
+<li><strong>无解</strong></li>
+</ul>
+<p>​        当消元完毕后，发现有一行系数都为 0，但是常数项不为 0，此时无解</p>
+<p>如：
+$$
+\begin{bmatrix} x &amp; y &amp; z &amp; val \\ 1&amp;\frac{2}{3} &amp;\frac{1}{3} &amp;2 \\0 &amp;1&amp;2 &amp;0 \\0 &amp; 0&amp;0 &amp;-6 \end{bmatrix}
+$$</p>
+<ul>
+<li><strong>多解</strong></li>
+</ul>
+<p>​        当消元完毕后，发现有多行系数、常数项均为 0，此时多解，有几行为全为 0，就有几个自由元，即变量的值可以任取，有无数种情况可以满足给出的方程组</p>
+<p>如：
+$$
+\begin{bmatrix} x &amp; y &amp; z &amp; val \\ 1&amp;\frac{2}{3} &amp;\frac{1}{3} &amp;2 \\0 &amp;0&amp;0 &amp;0 \\0 &amp; 0&amp;0 &amp;0 \end{bmatrix}
+$$
+此时自由元个数为 2。</p>
+<h2 id="_6">编程部分</h2>
+<ul>
+<li>主函数部分</li>
+</ul>
+<pre><code class="language-c++">int main(){
+    int n;
+    cout&lt;&lt;&quot;输入线性方程组的阶数&quot;;
+    cin&gt;&gt;n;
+//  3    
+    int c=n*n;
+    double a[c];
+    for(int i=0;i&lt;c;i++){
+        cout&lt;&lt;&quot;按行输入A矩阵的元素&quot;;
+//  3 2 1
+//  2 2 2
+//  4 -2 -2
+        cin&gt;&gt;a[i];
+    }
+    double b[n];
+    for(int i=0;i&lt;n;i++){
+        cout&lt;&lt;&quot;输入B的元素&quot;;
+        cin&gt;&gt;b[i];
+//  6 4 2
+    }
+    gaosi(a,b,n);
+    return 0;
+}
+</code></pre>
+<pre><code class="language-c++">int main(){
+
+    int n;
+
+    freopen(&quot;in.txt&quot;,&quot;r&quot;,stdin);
+    freopen(&quot;out.txt&quot;,&quot;w&quot;,stdout);
+
+    while(scanf(&quot;%d&quot;,&amp;n)!=EOF)
+    {
+        int c=n*n;
+
+        double a[c];
+        for(int i=0;i&lt;c;i++){ 
+            scanf(&quot;%lf&quot;,&amp;a[i]);
+        }
+
+        double b[n];
+        for(int i=0;i&lt;n;i++){
+            scanf(&quot;%lf&quot;,&amp;b[i]);
+        }
+        Solution sol;
+        sol.gaosi(a,b,n); 
+        cout&lt;&lt;&quot;\n&quot;;
+    }  
+    fclose(stdin);
+    fclose(stdout);
+
+    return 0;
+}
+</code></pre>
+<ul>
+<li>Solution </li>
+</ul>
+<pre><code class="language-c++">class Solution 
+{
+    public:
+         void gaosi(double a[],double b[],int n){
+
+            double A[n][n],B[n];
+            for (int i=0;i&lt;n;i++){
+                B[i]=b[i];
+                for(int j=0;j&lt;n;j++){
+                    A[i][j]=a[n*i+j];
+                }
+            }
+
+            double AA[n][n],BB[n];
+            for(int k=1;k&lt;=(n-1);k++){
+
+                //消元 
+                for (int i=(k+1);i&lt;=n;i++){
+                    double mik=A[i-1][k-1]/A[k-1][k-1];
+
+                    for(int j=(k+1);j&lt;=n;j++){
+                        AA[i-1][j-1]=A[i-1][j-1]-mik*A[k-1][j-1];
+                        BB[i-1]=B[i-1]-mik*B[k-1];
+                    }
+                }
+
+                for (int p=k;p&lt;n;p++){
+                    A[p][k-1]=0;
+                    B[p]=BB[p];
+                }
+                //求得简化后的三角矩阵 
+                for (int p=k;p&lt;n;p++){
+                    for(int q=k;q&lt;n;q++){
+                        A[p][q]=AA[p][q];
+                    }
+                }
+
+            }
+//          //打印 
+//          for (int i=0;i&lt;n;i++){
+//              for(int j=0;j&lt;n;j++){
+//              cout&lt;&lt;A[i][j]&lt;&lt;&quot;\t&quot;;
+//              }
+//            cout&lt;&lt;&quot;\n&quot;;
+//          }
+//
+//          for (int i=0;i&lt;n;i++){
+//              cout&lt;&lt;B[i]&lt;&lt;&quot;\t&quot;;
+//          }
+//          cout&lt;&lt;&quot;\n&quot;;
+
+            int count=0;
+            if(A[n-1][n-1]==0)
+            {
+                int t=0; 
+                for (int i=n-1;i&gt;=0;i--){
+                    for(int j=0;j&lt;n;j++){
+                        if(A[i][j]!=0||!isnan(A[i][j])) t=1;
+                    }
+                    if(t==0&amp;&amp;B[i]==0) count++;   
+                }
+                cout&lt;&lt;&quot;coefficient matrix is singular.&quot;; 
+                return;
+            }
+
+            double x[n];
+            x[n-1]=B[n-1]/A[n-1][n-1];
+            for (int i=n-1;i&gt;=1;i--){
+                double sum=0;
+                 for(int j=i+1;j&lt;=n;j++){
+                     sum=sum+A[i-1][j-1]*x[j-1];
+                 }
+                 x[i-1]=(B[i-1]-sum)/A[i-1][i-1];
+            }
+            int t=0;
+            for (int i=0;i&lt;n;i++){
+                if(!isnan(x[i]))t=1;
+            }
+            if(t==1)
+            for (int i=0;i&lt;n;i++){
+                cout&lt;&lt;x[i]&lt;&lt;&quot;\t&quot;;
+            }
+            else if(t==0)
+            cout&lt;&lt;&quot;coefficient matrix is singular.&quot;; 
+
+            return;
+        }
+};
+</code></pre>
+<ul>
+<li>完整代码</li>
+</ul>
+<pre><code class="language-c++">#include&lt;cstdio&gt;
+#include&lt;fstream&gt;
+#include&lt;iostream&gt;
+#include&lt;math.h&gt;
+#include&lt;stdio.h&gt;
+
+using namespace std;
+class Solution 
+{
+    public:
+         void gaosi(double a[],double b[],int n){
+
+            double A[n][n],B[n];
+            for (int i=0;i&lt;n;i++){
+                B[i]=b[i];
+                for(int j=0;j&lt;n;j++){
+                    A[i][j]=a[n*i+j];
+                }
+            }
+
+            double AA[n][n],BB[n];
+            for(int k=1;k&lt;=(n-1);k++){
+
+                //消元 
+                for (int i=(k+1);i&lt;=n;i++){
+                    double mik=A[i-1][k-1]/A[k-1][k-1];
+
+                    for(int j=(k+1);j&lt;=n;j++){
+                        AA[i-1][j-1]=A[i-1][j-1]-mik*A[k-1][j-1];
+                        BB[i-1]=B[i-1]-mik*B[k-1];
+                    }
+                }
+
+                for (int p=k;p&lt;n;p++){
+                    A[p][k-1]=0;
+                    B[p]=BB[p];
+                }
+                //求得简化后的三角矩阵 
+                for (int p=k;p&lt;n;p++){
+                    for(int q=k;q&lt;n;q++){
+                        A[p][q]=AA[p][q];
+                    }
+                }
+
+            }
+//          //打印 
+//          for (int i=0;i&lt;n;i++){
+//              for(int j=0;j&lt;n;j++){
+//              cout&lt;&lt;A[i][j]&lt;&lt;&quot;\t&quot;;
+//              }
+//            cout&lt;&lt;&quot;\n&quot;;
+//          }
+//
+//          for (int i=0;i&lt;n;i++){
+//              cout&lt;&lt;B[i]&lt;&lt;&quot;\t&quot;;
+//          }
+//          cout&lt;&lt;&quot;\n&quot;;
+
+            int count=0;
+            if(A[n-1][n-1]==0)
+            {
+                int t=0; 
+                for (int i=n-1;i&gt;=0;i--){
+                    for(int j=0;j&lt;n;j++){
+                        if(A[i][j]!=0||!isnan(A[i][j])) t=1;
+                    }
+                    if(t==0&amp;&amp;B[i]==0) count++;   
+                }
+                cout&lt;&lt;&quot;coefficient matrix is singular.&quot;; 
+                return;
+            }
+
+            double x[n];
+            x[n-1]=B[n-1]/A[n-1][n-1];
+            for (int i=n-1;i&gt;=1;i--){
+                double sum=0;
+                 for(int j=i+1;j&lt;=n;j++){
+                     sum=sum+A[i-1][j-1]*x[j-1];
+                 }
+                 x[i-1]=(B[i-1]-sum)/A[i-1][i-1];
+            }
+            int t=0;
+            for (int i=0;i&lt;n;i++){
+                if(!isnan(x[i]))t=1;
+            }
+            if(t==1)
+            for (int i=0;i&lt;n;i++){
+                cout&lt;&lt;x[i]&lt;&lt;&quot;\t&quot;;
+            }
+            else if(t==0)
+            cout&lt;&lt;&quot;coefficient matrix is singular.&quot;; 
+
+            return;
+        }
+};
+
+int main(){
+
+    int n;
+
+    freopen(&quot;in.txt&quot;,&quot;r&quot;,stdin);
+    freopen(&quot;out.txt&quot;,&quot;w&quot;,stdout);
+
+    while(scanf(&quot;%d&quot;,&amp;n)!=EOF)
+    {
+        int c=n*n;
+
+        double a[c];
+        for(int i=0;i&lt;c;i++){ 
+            scanf(&quot;%lf&quot;,&amp;a[i]);
+        }
+
+        double b[n];
+        for(int i=0;i&lt;n;i++){
+            scanf(&quot;%lf&quot;,&amp;b[i]);
+        }
+        Solution sol;
+        sol.gaosi(a,b,n); 
+        cout&lt;&lt;&quot;\n&quot;;
+    }  
+    fclose(stdin);
+    fclose(stdout);
+
+    return 0;
+}
+</code></pre>
+<ul>
+<li>运行截图</li>
+</ul>
+<p><img alt="" src="https://i.loli.net/2021/02/22/9FldGrLzqwu5hIj.png" /></p>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../%E9%9C%8D%E7%BA%B3%E6%B3%95%E5%88%99/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              霍纳法则(Horner's rule)——多项式求值
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../%E5%8F%AF%E6%8C%81%E4%B9%85%E5%8C%96%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%80/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              可持久化数据结构
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.217ffd95.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.926459b3.min.js"></script>
+      
+    
+  </body>
+</html>
