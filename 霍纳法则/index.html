@@ -535,8 +535,8 @@
 $$
 P\left( x \right) =a_0+a_1x+a_2x^2+...+a_nx^n=\sum_{i=0}^n{a_ix^i}
 $$
-其中 x 是底数， n 是指数， $a_i$ 是每一项前面的系数， 0 ≤ i ≤ n ，并且最高次项前面的系数不为 0。</p>
-<p>如果使用Newton-Raphson方法来找到多项式的根，需要针对任何x评估$P（r）$及其导数$P"（x）$，效率非常低。</p>
+其中 x 是底数， n 是指数， <span class="arithmatex">\(a_i\)</span> 是每一项前面的系数， 0 ≤ i ≤ n ，并且最高次项前面的系数不为 0。</p>
+<p>如果使用Newton-Raphson方法来找到多项式的根，需要针对任何x评估<span class="arithmatex">\(P（r）\)</span>及其导数<span class="arithmatex">\(P"（x）\)</span>，效率非常低。</p>
 <p><strong>霍纳法则：</strong></p>
 <p>霍纳将多项式进行变形：
 $$
@@ -614,7 +614,7 @@ $$
 $$
 P(2)=(2-1)×2×2^1+(2-1)×4×2^0+5=4+4+5=13
 $$
-所以除以(x-1)时的商为$2x^1+4$,余数为5。</p>
+所以除以(x-1)时的商为<span class="arithmatex">\(2x^1+4\)</span>,余数为5。</p>
 <h2 id="_3">代码</h2>
 <ul>
 <li>霍纳法则</li>
@@ -859,6 +859,12 @@ MathJax.Hub.Config({
     
     
       <script src="../assets/javascripts/bundle.926459b3.min.js"></script>
+      
+        <script src="../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

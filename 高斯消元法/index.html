@@ -605,25 +605,25 @@ $$
 $$</p>
 <h2 id="_4">矩阵运算过程</h2>
 <p>线性方程组：</p>
-<p>$$
-\left\{\begin{matrix} 3x+2y+z=6 \:\:\:\: (1)\\ 2x+2y+2z=4 \:\:\:\:(2)\\4x-2y-2z=2\:\:\:\:(3) \end{matrix}\right.
+<div class="arithmatex">\[
+\left\\{\begin{matrix} 3x+2y+z=6 \:\:\:\: (1)\\\ 2x+2y+2z=4 \:\:\:\:(2)\\\4x-2y-2z=2\:\:\:\:(3) \end{matrix}\right.
 $$
 记为矩阵形式：
 $$
-\begin{bmatrix} x &amp; y &amp; z &amp; val \\ 3&amp;2 &amp;1 &amp;6 \\2 &amp;2 &amp;2 &amp;4 \\4 &amp; -2&amp;-2 &amp;2 \end{bmatrix}
+\begin{bmatrix} x &amp; y &amp; z &amp; val \\\ 3&amp;2 &amp;1 &amp;6 \\\2 &amp;2 &amp;2 &amp;4 \\\4 &amp; -2&amp;-2 &amp;2 \end{bmatrix}
 $$
 消去 x：
 $$
-\begin{bmatrix} x &amp; y &amp; z &amp; val \\ 1&amp;\frac{2}{3} &amp;\frac{1}{3} &amp;2 \\0 &amp;\frac{2}{3} &amp;\frac{4}{3} &amp;0 \\0 &amp; -\frac{14}{3}&amp;-\frac{10}{3} &amp;-6 \end{bmatrix}
+\begin{bmatrix} x &amp; y &amp; z &amp; val \\\ 1&amp;\frac{2}{3} &amp;\frac{1}{3} &amp;2 \\\0 &amp;\frac{2}{3} &amp;\frac{4}{3} &amp;0 \\\0 &amp; -\frac{14}{3}&amp;-\frac{10}{3} &amp;-6 \end{bmatrix}
 $$
 消去 y：
 $$
-\begin{bmatrix} x &amp; y &amp; z &amp; val \\ 1&amp;\frac{2}{3} &amp;\frac{1}{3} &amp;2 \\0 &amp;1&amp;2 &amp;0 \\0 &amp; 0&amp;\frac{18}{3} &amp;-6 \end{bmatrix}
+\begin{bmatrix} x &amp; y &amp; z &amp; val \\\ 1&amp;\frac{2}{3} &amp;\frac{1}{3} &amp;2 \\\0 &amp;1&amp;2 &amp;0 \\\0 &amp; 0&amp;\frac{18}{3} &amp;-6 \end{bmatrix}
 $$
 回代得解：
 $$
-\begin{bmatrix}1 \\ 2 \\ -1 \end{bmatrix}
-$$</p>
+\begin{bmatrix}1 \\\ 2 \\\ -1 \end{bmatrix}
+\]</div>
 <h2 id="_5">解的判断</h2>
 <ul>
 <li><strong>无解</strong></li>
@@ -925,14 +925,6 @@ int main(){
 <li>运行截图</li>
 </ul>
 <p><img alt="" src="https://i.loli.net/2021/02/22/9FldGrLzqwu5hIj.png" /></p>
-<script type="text/javascript"
-  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
-});
-</script>
                 
               
               
@@ -1003,6 +995,12 @@ MathJax.Hub.Config({
     
     
       <script src="../assets/javascripts/bundle.926459b3.min.js"></script>
+      
+        <script src="../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>
