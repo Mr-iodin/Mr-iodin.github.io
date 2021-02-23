@@ -14,7 +14,7 @@
     
     
       
-        <title>霍纳法则(Horner's rule)——多项式求值 - Mr.Iodin</title>
+        <title>多项式求值——霍纳法则(Horner's rule) - Mr.Iodin</title>
       
     
     
@@ -94,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              霍纳法则(Horner's rule)——多项式求值
+              多项式求值——霍纳法则(Horner's rule)
             
           </span>
         </div>
@@ -234,12 +234,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          霍纳法则(Horner's rule)——多项式求值
+          多项式求值——霍纳法则(Horner's rule)
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        霍纳法则(Horner's rule)——多项式求值
+        多项式求值——霍纳法则(Horner's rule)
       </a>
       
         
@@ -296,7 +296,7 @@
   
     <li class="md-nav__item">
       <a href="../%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83%E6%B3%95/" class="md-nav__link">
-        高斯消元法——求解线性方程组
+        高斯消元法—求解线性方程组
       </a>
     </li>
   
@@ -529,8 +529,8 @@
               
                 
                 
-                <h1 id="horners-rule">霍纳法则(Horner's rule)——多项式求值</h1>
-<h2 id="_1">基本概念</h2>
+                <h1 id="horners-rule">多项式求值——霍纳法则(Horner's rule)</h1>
+<h3 id="_1">基本概念</h3>
 <p>次数为n的一般多项式可以写成
 $$
 P\left( x \right) =a_0+a_1x+a_2x^2+...+a_nx^n=\sum_{i=0}^n{a_ix^i}
@@ -567,7 +567,7 @@ $$
 r=f(c)
 $$
 利用这个定理，可以将计算 f ( c )转化为计算 r 。如果计算 r有快速算法，那么就可以快速计算出 f ( c )。</p>
-<h3 id="_2">求解步骤</h3>
+<h5 id="_2">求解步骤</h5>
 <p>设：
 $$
 f\left( x \right) =\sum_{i=0}^N{a_ix^i}
@@ -615,7 +615,7 @@ $$
 P(2)=(2-1)×2×2^1+(2-1)×4×2^0+5=4+4+5=13
 $$
 所以除以(x-1)时的商为<span class="arithmatex">\(2x^1+4\)</span>,余数为5。</p>
-<h2 id="_3">代码</h2>
+<h3 id="_3">代码</h3>
 <ul>
 <li>霍纳法则</li>
 </ul>
@@ -795,14 +795,6 @@ int main() {
 </code></pre>
 <p><strong>运行结果:</strong></p>
 <p><img alt="" src="https://i.loli.net/2021/02/23/xFZ7k2jrQz6bhCy.png" /></p>
-<script type="text/javascript"
-  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
-});
-</script>
                 
               
               
@@ -827,7 +819,7 @@ MathJax.Hub.Config({
               <span class="md-footer__direction">
                 Next
               </span>
-              高斯消元法——求解线性方程组
+              高斯消元法—求解线性方程组
             </div>
           </div>
           <div class="md-footer__button md-icon">

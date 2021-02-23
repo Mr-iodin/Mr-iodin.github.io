@@ -14,7 +14,7 @@
     
     
       
-        <title>高斯消元法——求解线性方程组 - Mr.Iodin</title>
+        <title>高斯消元法—求解线性方程组 - Mr.Iodin</title>
       
     
     
@@ -94,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              高斯消元法——求解线性方程组
+              高斯消元法—求解线性方程组
             
           </span>
         </div>
@@ -226,7 +226,7 @@
   
     <li class="md-nav__item">
       <a href="../%E9%9C%8D%E7%BA%B3%E6%B3%95%E5%88%99/" class="md-nav__link">
-        霍纳法则(Horner's rule)——多项式求值
+        多项式求值——霍纳法则(Horner's rule)
       </a>
     </li>
   
@@ -246,12 +246,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          高斯消元法——求解线性方程组
+          高斯消元法—求解线性方程组
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        高斯消元法——求解线性方程组
+        高斯消元法—求解线性方程组
       </a>
       
         
@@ -545,25 +545,25 @@
               
                 
                 
-                <h1 id="_1">高斯消元法——求解线性方程组</h1>
-<h2 id="_2">基本概念</h2>
+                <h1 id="_1">高斯消元法—求解线性方程组</h1>
+<h3 id="_2">基本概念</h3>
 <p>​        高斯消元法主要用于求解线性方程组，也可以求矩阵的秩、矩阵的逆等，是一个重要的数学方法。</p>
 <p>线性方程组：</p>
 <p>​        有多个未知数，且每个未知数的次数均为一次，这样多个未知数所组成的方程组。
 $$
-\left\{\begin{matrix} a_{11}x_1+a_{12}x_2+...+a_{1n}x_n=b_1 \\ a_{21}x_1+a_{22}x_2+...+a_{2n}x_n=b_2 \\ ... \\ a_{n1}x_1+a_{n2}x_2+...+a_{nn}x_n=b_n \end{matrix}\right.
+\left{\begin{matrix} a_{11}x_1+a_{12}x_2+...+a_{1n}x_n=b_1 \ a_{21}x_1+a_{22}x_2+...+a_{2n}x_n=b_2 \ ... \ a_{n1}x_1+a_{n2}x_2+...+a_{nn}x_n=b_n \end{matrix}\right.
 $$
 记为矩阵形式：
 $$
-Ax=B,A=\begin{bmatrix}a_{11} &amp;a_{12} &amp;... &amp;a_{1n} \\ a_{21}&amp; a_{22} &amp; ... &amp; a_{2n}\\ ...&amp; ... &amp; ... &amp; ...\\ a_{n1} &amp; a_{n2} &amp;... &amp;a_{nn} \end{bmatrix},B= \begin{bmatrix} b_1\\b_2\\...\\b_n\end{bmatrix}
+Ax=B,A=\begin{bmatrix}a_{11} &amp;a_{12} &amp;... &amp;a_{1n} \ a_{21}&amp; a_{22} &amp; ... &amp; a_{2n}\ ...&amp; ... &amp; ... &amp; ...\ a_{n1} &amp; a_{n2} &amp;... &amp;a_{nn} \end{bmatrix},B= \begin{bmatrix} b_1\b_2\...\b_n\end{bmatrix}
 $$</p>
-<h2 id="_3">高斯消元法求解</h2>
+<h3 id="_3">高斯消元法求解</h3>
 <p><strong>基本思想：</strong></p>
 <p>通过一系列的加减消元运算，直到得到类似 kx=b 的式子，然后逐一回代求解 x 向量。</p>
 <p><strong>求解步骤：</strong></p>
 <p>以下面的线性方程组为例：
 $$
-\left\{\begin{matrix} 3x+2y+z=6 \:\:\:\: (1)\\ 2x+2y+2z=4 \:\:\:\:(2)\\4x-2y-2z=2\:\:\:\:(3) \end{matrix}\right.
+\left{\begin{matrix} 3x+2y+z=6 \:\:\:\: (1)\ 2x+2y+2z=4 \:\:\:\:(2)\4x-2y-2z=2\:\:\:\:(3) \end{matrix}\right.
 $$</p>
 <ul>
 <li>首先进行<strong>消元</strong></li>
@@ -572,8 +572,8 @@ $$</p>
 $$
 x+\frac{2}{3}y+\frac{1}{3}z=2 \:\:\:\: (1)'
 $$
-再令 (2)-2<em>(1)'、(3)-4</em>(1)'，将 (2)、(3) 的 x 消去，得：
-$$
+再令 (2)-2<em>(1)'、(3)-4</em>(1)'，将 (2)、(3) 的 x 消去，得：</p>
+<div class="arithmatex">\[
 \left\{\begin{matrix} x+\frac{2}{3}y+\frac{1}{3}z=2 \:\:\:\: (1)'\\ 0x+\frac{2}{3}y+\frac{4}{3}z=0 \:\:\:\:(2)'\\0x-\frac{14}{3}y-\frac{10}{3}z=-6\:\:\:\:(3)' \end{matrix}\right.
 $$
 将令 (2)' 除以 2/3，将 y 系数化为 1，得：
@@ -587,7 +587,7 @@ $$
 由 (3)'' 可得：
 $$
 z=-1
-$$</p>
+\]</div>
 <ul>
 <li>回代操作</li>
 </ul>
@@ -601,37 +601,37 @@ x=1
 $$
 得到结果为：
 $$
-\left\{\begin{matrix} x=1\\ y=2\\z=-1 \end{matrix}\right.
+\left{\begin{matrix} x=1\ y=2\z=-1 \end{matrix}\right.
 $$</p>
-<h2 id="_4">矩阵运算过程</h2>
-<p>线性方程组：</p>
-<div class="arithmatex">\[
-\left\\{\begin{matrix} 3x+2y+z=6 \:\:\:\: (1)\\\ 2x+2y+2z=4 \:\:\:\:(2)\\\4x-2y-2z=2\:\:\:\:(3) \end{matrix}\right.
+<h3 id="_4">矩阵运算过程</h3>
+<p>线性方程组：
+$$
+\left{\begin{matrix} 3x+2y+z=6 \:\:\:\: (1)\ 2x+2y+2z=4 \:\:\:\:(2)\4x-2y-2z=2\:\:\:\:(3) \end{matrix}\right.
 $$
 记为矩阵形式：
 $$
-\begin{bmatrix} x &amp; y &amp; z &amp; val \\\ 3&amp;2 &amp;1 &amp;6 \\\2 &amp;2 &amp;2 &amp;4 \\\4 &amp; -2&amp;-2 &amp;2 \end{bmatrix}
+\begin{bmatrix} x &amp; y &amp; z &amp; val \ 3&amp;2 &amp;1 &amp;6 \2 &amp;2 &amp;2 &amp;4 \4 &amp; -2&amp;-2 &amp;2 \end{bmatrix}
 $$
 消去 x：
 $$
-\begin{bmatrix} x &amp; y &amp; z &amp; val \\\ 1&amp;\frac{2}{3} &amp;\frac{1}{3} &amp;2 \\\0 &amp;\frac{2}{3} &amp;\frac{4}{3} &amp;0 \\\0 &amp; -\frac{14}{3}&amp;-\frac{10}{3} &amp;-6 \end{bmatrix}
+\begin{bmatrix} x &amp; y &amp; z &amp; val \ 1&amp;\frac{2}{3} &amp;\frac{1}{3} &amp;2 \0 &amp;\frac{2}{3} &amp;\frac{4}{3} &amp;0 \0 &amp; -\frac{14}{3}&amp;-\frac{10}{3} &amp;-6 \end{bmatrix}
 $$
 消去 y：
 $$
-\begin{bmatrix} x &amp; y &amp; z &amp; val \\\ 1&amp;\frac{2}{3} &amp;\frac{1}{3} &amp;2 \\\0 &amp;1&amp;2 &amp;0 \\\0 &amp; 0&amp;\frac{18}{3} &amp;-6 \end{bmatrix}
+\begin{bmatrix} x &amp; y &amp; z &amp; val \ 1&amp;\frac{2}{3} &amp;\frac{1}{3} &amp;2 \0 &amp;1&amp;2 &amp;0 \0 &amp; 0&amp;\frac{18}{3} &amp;-6 \end{bmatrix}
 $$
 回代得解：
 $$
-\begin{bmatrix}1 \\\ 2 \\\ -1 \end{bmatrix}
-\]</div>
-<h2 id="_5">解的判断</h2>
+\begin{bmatrix}1 \ 2 \ -1 \end{bmatrix}
+$$</p>
+<h3 id="_5">解的判断</h3>
 <ul>
 <li><strong>无解</strong></li>
 </ul>
 <p>​        当消元完毕后，发现有一行系数都为 0，但是常数项不为 0，此时无解</p>
 <p>如：
 $$
-\begin{bmatrix} x &amp; y &amp; z &amp; val \\ 1&amp;\frac{2}{3} &amp;\frac{1}{3} &amp;2 \\0 &amp;1&amp;2 &amp;0 \\0 &amp; 0&amp;0 &amp;-6 \end{bmatrix}
+\begin{bmatrix} x &amp; y &amp; z &amp; val \ 1&amp;\frac{2}{3} &amp;\frac{1}{3} &amp;2 \0 &amp;1&amp;2 &amp;0 \0 &amp; 0&amp;0 &amp;-6 \end{bmatrix}
 $$</p>
 <ul>
 <li><strong>多解</strong></li>
@@ -639,10 +639,10 @@ $$</p>
 <p>​        当消元完毕后，发现有多行系数、常数项均为 0，此时多解，有几行为全为 0，就有几个自由元，即变量的值可以任取，有无数种情况可以满足给出的方程组</p>
 <p>如：
 $$
-\begin{bmatrix} x &amp; y &amp; z &amp; val \\ 1&amp;\frac{2}{3} &amp;\frac{1}{3} &amp;2 \\0 &amp;0&amp;0 &amp;0 \\0 &amp; 0&amp;0 &amp;0 \end{bmatrix}
+\begin{bmatrix} x &amp; y &amp; z &amp; val \ 1&amp;\frac{2}{3} &amp;\frac{1}{3} &amp;2 \0 &amp;0&amp;0 &amp;0 \0 &amp; 0&amp;0 &amp;0 \end{bmatrix}
 $$
 此时自由元个数为 2。</p>
-<h2 id="_6">编程部分</h2>
+<h3 id="_6">编程部分</h3>
 <ul>
 <li>主函数部分</li>
 </ul>
@@ -951,7 +951,7 @@ int main(){
               <span class="md-footer__direction">
                 Previous
               </span>
-              霍纳法则(Horner's rule)——多项式求值
+              多项式求值——霍纳法则(Horner's rule)
             </div>
           </div>
         </a>
