@@ -1,0 +1,1595 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.0">
+    
+    
+      
+        <title>数据结构——第二章 线性表 - Mr.Iodin</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.a3f8f96a.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.7fa14f5b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="indigo">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Mr.Iodin" class="md-header__button md-logo" aria-label="Mr.Iodin">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mr.Iodin
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              数据结构——第二章 线性表
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Mr.Iodin" class="md-nav__button md-logo" aria-label="Mr.Iodin">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Mr.Iodin
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" >
+      
+      <label class="md-nav__link" for="nav-1">
+        算法
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="算法" data-md-level="1">
+        <label class="md-nav__title" for="nav-1">
+          <span class="md-nav__icon md-icon"></span>
+          算法
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-1" type="checkbox" id="nav-1-1" >
+      
+      <label class="md-nav__link" for="nav-1-1">
+        数论
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="数论" data-md-level="2">
+        <label class="md-nav__title" for="nav-1-1">
+          <span class="md-nav__icon md-icon"></span>
+          数论
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%9C%8D%E7%BA%B3%E6%B3%95%E5%88%99/" class="md-nav__link">
+        多项式求值——霍纳法则(Horner's rule)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83%E6%B3%95/" class="md-nav__link">
+        高斯消元法—求解线性方程组
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-2" type="checkbox" id="nav-1-2" >
+      
+      <label class="md-nav__link" for="nav-1-2">
+        高级数据结构
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="高级数据结构" data-md-level="2">
+        <label class="md-nav__title" for="nav-1-2">
+          <span class="md-nav__icon md-icon"></span>
+          高级数据结构
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%8F%AF%E6%8C%81%E4%B9%85%E5%8C%96%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%80/" class="md-nav__link">
+        可持久化数据结构
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
+      
+      <label class="md-nav__link" for="nav-2">
+        数学建模
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="数学建模" data-md-level="1">
+        <label class="md-nav__title" for="nav-2">
+          <span class="md-nav__icon md-icon"></span>
+          数学建模
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" >
+      
+      <label class="md-nav__link" for="nav-2-1">
+        评价模型
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="评价模型" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-1">
+          <span class="md-nav__icon md-icon"></span>
+          评价模型
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/" class="md-nav__link">
+        层次分析法
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2" >
+      
+      <label class="md-nav__link" for="nav-2-2">
+        回归模型
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="回归模型" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-2">
+          <span class="md-nav__icon md-icon"></span>
+          回归模型
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" class="md-nav__link">
+        回归分析
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%9B%9E%E5%BD%92%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87/" class="md-nav__link">
+        回归评价指标
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
+      
+      <label class="md-nav__link" for="nav-3">
+        神经网络
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="神经网络" data-md-level="1">
+        <label class="md-nav__title" for="nav-3">
+          <span class="md-nav__icon md-icon"></span>
+          神经网络
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E2%80%94%E2%80%94%E5%9F%BA%E7%A1%80%E7%90%86%E8%AE%BA/" class="md-nav__link">
+        神经网络——基本理论文档
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MLPRegressor%20%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        MLPRegressor 神经网络搭建
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+      
+      <label class="md-nav__link" for="nav-4">
+        考研
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="考研" data-md-level="1">
+        <label class="md-nav__title" for="nav-4">
+          <span class="md-nav__icon md-icon"></span>
+          考研
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1" checked>
+      
+      <label class="md-nav__link" for="nav-4-1">
+        数据结构
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="数据结构" data-md-level="2">
+        <label class="md-nav__title" for="nav-4-1">
+          <span class="md-nav__icon md-icon"></span>
+          数据结构
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E2%80%94%E2%80%94%E7%AC%AC%E4%B8%80%E7%AB%A0%20%E6%A6%82%E8%AE%BA/" class="md-nav__link">
+        数据结构——第一章 概论
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          数据结构——第二章 线性表
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        数据结构——第二章 线性表
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 线性表基本概念
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 线性表基本概念">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1.基本概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2.链表的五种形式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 顺序表和链表的比较
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 线性表的实现
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 线性表的实现">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    1.结构体的定义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    2.顺序表的操作
+  </a>
+  
+    <nav class="md-nav" aria-label="2.顺序表的操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21_1" class="md-nav__link">
+    2.1 插入操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22_1" class="md-nav__link">
+    2.2 删除操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    2.3 顺序表初始化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    2.4 找指定位置元素
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    3.单链表操作
+  </a>
+  
+    <nav class="md-nav" aria-label="3.单链表操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1 链表的归并（递增）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2 尾插法建链表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    3.3 头插法建链表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    3.4 链表的归并（递减）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35" class="md-nav__link">
+    3.5 删除结点
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4.双链表操作
+  </a>
+  
+    <nav class="md-nav" aria-label="4.双链表操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    4.1 用尾插法创建双链表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    4.2 查找结点算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    4.3 插入结点的算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44" class="md-nav__link">
+    4.4 删除结点算法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5.循环链表的操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6.逆置问题（重要考点）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E2%80%94%E2%80%94%E7%AC%AC%E4%B8%89%E7%AB%A0%20%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/" class="md-nav__link">
+        数据结构——第三章 栈和队列
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 线性表基本概念
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 线性表基本概念">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1.基本概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2.链表的五种形式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 顺序表和链表的比较
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 线性表的实现
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 线性表的实现">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    1.结构体的定义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    2.顺序表的操作
+  </a>
+  
+    <nav class="md-nav" aria-label="2.顺序表的操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21_1" class="md-nav__link">
+    2.1 插入操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22_1" class="md-nav__link">
+    2.2 删除操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    2.3 顺序表初始化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    2.4 找指定位置元素
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    3.单链表操作
+  </a>
+  
+    <nav class="md-nav" aria-label="3.单链表操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1 链表的归并（递增）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2 尾插法建链表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    3.3 头插法建链表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    3.4 链表的归并（递减）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35" class="md-nav__link">
+    3.5 删除结点
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4.双链表操作
+  </a>
+  
+    <nav class="md-nav" aria-label="4.双链表操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    4.1 用尾插法创建双链表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    4.2 查找结点算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    4.3 插入结点的算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44" class="md-nav__link">
+    4.4 删除结点算法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5.循环链表的操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6.逆置问题（重要考点）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="_1">数据结构——第二章 线性表</h1>
+<h3 id="21">2.1 线性表基本概念</h3>
+<h5 id="1">1.基本概念</h5>
+<p><code>定义</code>：具有相同特征数据元素的一个有限序列。</p>
+<ul>
+<li>序列中元素个数叫作线性表的长度，用n表示（n≥0）；</li>
+<li>n也可以等于0，表示该线性表是一个空表；</li>
+</ul>
+<p><code>逻辑特性</code>：</p>
+<ul>
+<li>只有一个表头元素，只有一个表尾元素。</li>
+<li>表头元素没有前驱，表尾元素没有后驱，其他元素只有一个前驱，也只有一个后驱。</li>
+</ul>
+<p><code>存储结构</code>：线性表有<code>顺序存储结构（顺序表）</code>和<code>链式存储结构（链表）</code>。</p>
+<ul>
+<li>顺序表：将线性表中所有元素按逻辑顺序，依次存储到指定的存储位置开始的一块连续的存储空间中。</li>
+<li>链表：每个结点不仅包含所存元素信息，还包含元素之间的逻辑关系信息。</li>
+</ul>
+<blockquote>
+<p>两种存储方式的比较：</p>
+<p>​ 顺序表：随机访问特性；占用连续的存储空间；</p>
+<p>​ 链表：不支持随机访问；结点的存储空间利用率较顺序表稍微低一点；支持存储空间的动态分配。</p>
+<p>插入方式比较：</p>
+<p>​ 顺序表：需要向后移动多个元素；</p>
+<p>​ 链表：只需要改变指针方向，无需进行插入操作；</p>
+</blockquote>
+<h5 id="2">2.链表的五种形式</h5>
+<p>①单链表：</p>
+<p><img src="https://i.loli.net/2021/03/19/KFVwEp2Nz3mlcJx.png" style="zoom:50%;" /></p>
+<ul>
+<li>带头结点的单链表中，头指针head指向头结点，头结点值域不含任何信息，从头结点的后续结点开始存储数据信息。</li>
+<li>头指针始终不等于<code>NULL</code>,<code>head-&gt;next</code>等于<code>NULL</code>的时候，链表为空；</li>
+<li>不带头结点的单链表头指针<code>head</code>指向开始结点</li>
+<li><code>head</code>为<code>NULL</code>时，不带头结点的单链表为空；</li>
+<li>只能由开始结点走到终端结点，而不能由终端结点反向走到开始结点。</li>
+</ul>
+<p>②双链表：</p>
+<p><img src="https://i.loli.net/2021/03/19/CJnqAHL4bx25t3v.png" style="zoom:50%;" /></p>
+<ul>
+<li>在单链表的基础上增添了一个指针域，指向当前结点前驱，方便地由其后续找到其前驱；</li>
+<li>双链表也分为带头结点的双链表和不带头结点的双链表。</li>
+<li>带头结点的双链表，当<code>head-&gt;next</code>为<code>NULL</code>时链表为空；</li>
+<li>不带头结点的双链表，当<code>head</code>为<code>NULL</code>时链表为空；</li>
+</ul>
+<p>③循环单链表</p>
+<p><img src="https://i.loli.net/2021/03/19/wbV2MkCYsmgpWjU.png" style="zoom:50%;" /></p>
+<p>​   将单链表的最后一个指针域（空指针）指向链表中的第一个结点即可。</p>
+<ul>
+<li>单链表可以实现从任一个结点出发访问链表中的任何结点；而单链表从任一结点出发后只能访问这个结点本身及其后边的所有结点。</li>
+<li>同样，可分为带头结点的循环单链表和不带头结点的循环单链表；</li>
+<li>带头结点的循环单链表，当<code>head</code>等于<code>head-&gt;next</code>时，链表为空；</li>
+<li>不带头结点的循环单链表，当<code>head</code>等于<code>NULL</code>时，链表为空。</li>
+</ul>
+<p>④循环双链表</p>
+<p><img src="https://i.loli.net/2021/03/19/HRaJXl3IyYSKMQr.png" style="zoom:50%;" /></p>
+<p>​   将终端结点的<code>next</code>指针指向链表中的第一个结点，将链表中的第一个结点的<code>prior</code>指针指向终端结点。</p>
+<ul>
+<li>
+<p>不带头结点的循环双链表为空时，<code>head</code>等于<code>NULL</code>;</p>
+</li>
+<li>
+<p>带头结点的循环双链表为空时，<code>head-&gt;next</code>和<code>head-&gt;prior</code>都等于<code>head</code>，如下；</p>
+</li>
+</ul>
+<p><code>c
+  head-&gt;next==head; //链表为空
+  head-&gt;prior==head; //链表为空
+  head-&gt;next==head&amp;&amp;head-&gt;prior==head; //链表为空
+  head-&gt;next==head||head-&gt;prior==head; //链表为空</code></p>
+<p>⑤静态链表</p>
+<p>​   静态链表借助一维数组来表示，如图：</p>
+<p><img src="https://i.loli.net/2021/03/19/VyRdXmWtLeH6OQq.png" style="zoom:50%;" /></p>
+<p>​   左边为静态链表，右边为一般链表；</p>
+<ul>
+<li>一般链表结点空间来自于整个内存；</li>
+<li>静态链表则来自于一个结构体数组：</li>
+<li>每个结点含有两个分量：一是数据元素分量<code>data</code>;另一个是指针分量，指示了当前结点的直接候选结点在数组中的位置。</li>
+</ul>
+<h5 id="3">3. 顺序表和链表的比较</h5>
+<p>(1)基于空间比较</p>
+<ul>
+<li><code>存储分配方式</code>：顺序表的存储空间是一次性分配的，链表的存储空间是多次分配的；</li>
+<li><code>存储密度（=结点值域所占的存储量/结点结构所占的存储总量）</code>：顺序表的存储密度=1；链表的存储密度&lt;1;</li>
+</ul>
+<p>(2)基于时间比较</p>
+<ul>
+<li><code>存取方式</code>：顺序表可以随机存取，也可以顺序存取；链表只能顺序存取。</li>
+<li><code>插入/删除时移动元素个数</code>：顺序表平均需移动一半的元素；链表只需要修改指针；</li>
+</ul>
+<blockquote>
+<p><strong>对顺序表进行插入和删除的时间复杂度分析：</strong></p>
+<p><img src="/Users/suneann/Library/Application Support/typora-user-images/截屏2021-03-19 下午5.10.12.png" alt="截屏2021-03-19 下午5.10.12" style="zoom:50%;" /></p>
+<p>【问】：具有n个元素的顺序表，插入一个元素所进行的平均移动个数为多少？</p>
+<p>【分析】：题目要计算平均移动个数，也就是要计算移动个数的期望。而计算期望，则要知道所有可能的位置插入元素时所对应的元素移动个数以及在每个位置发生插入操作的概率。</p>
+<p>①求概率</p>
+<p>​ 所有结点位置被插入的可能性都相同，所以概率都为p=1/n。</p>
+<p>②求对应每个插入位置需要移动的元素个数</p>
+<p>​ 假设新元素插入第i个元素之后，则需要将第i个元素之后的所有元素向后移动一个位置，因此，移动的元素个数为n-i。</p>
+<p>综合①跟②，移动元素的期望为：
+$$
+E=p\sum^{n}_{i-1} \left( n-1\right)  =\frac{n-1}{2}
+$$
+删除操作与插入操作类似，都要移动一半的元素，由此可知，删除和插入的算法平均复杂度都为<strong>O(n)</strong>。</p>
+</blockquote>
+<h3 id="22">2.2 线性表的实现</h3>
+<h5 id="1_1">1.结构体的定义</h5>
+<pre><code class="language-c">#define maxSize 100
+</code></pre>
+<ul>
+<li>顺序表结构体定义</li>
+</ul>
+<p><img src="https://i.loli.net/2021/03/19/sMU5chH1OK8ebol.png" style="zoom:50%;" /></p>
+<pre><code class="language-c">typedef struct
+{
+  int data[maxSize];//存放顺序表的数组
+  int length;//存放顺序表长度
+}Sqlist；    //顺序表类型定义
+</code></pre>
+<p>在考试中定义顺序表可以直接用数组来表示：</p>
+<pre><code class="language-c">int A[maxSize];
+int n;
+</code></pre>
+<p>​   上边两句定义了一个长度为n，表内元素为整数的顺序表。</p>
+<ul>
+<li>单链表的定义</li>
+</ul>
+<p><img src="https://i.loli.net/2021/03/19/NebsSia7nXT9xhf.png" style="zoom:50%;" /></p>
+<pre><code class="language-c">typedef struct LNode
+{
+  int data; //存放数据域
+  struct LNode *next;   //指向后续结点指针
+}LNode; //定义单链表类型
+</code></pre>
+<ul>
+<li>双链表的定义</li>
+</ul>
+<p><img src="https://i.loli.net/2021/03/22/kw7DamEc6zgCYhf.png" style="zoom: 67%;" /></p>
+<pre><code class="language-c">typedef struct DLNode
+{
+  int data; //存放数据域
+  struct DLNode *prior; //指向后续结点指针
+  struct DLNode *next;  //指向后续结点指针
+}DLNode;    //定义单链表类型
+</code></pre>
+<blockquote>
+<p><strong>说明：</strong></p>
+<p>​ 结点是内存中一片由用户分配的存储空间，只有一个地址来表示它的存在，没有显示的名称，因此在分配空间的时候，同时定义一个指针来存储这片空间的地址（也就是让指针指向结点），并且常用这个指针名称来作为结点的名称。</p>
+<p><code>LNode *A=(LNode*)malloc(sizeof(LNode));</code></p>
+<p>此处定义了一个名为A的指针来指向这个结点A。</p>
+</blockquote>
+<h5 id="2_1">2.顺序表的操作</h5>
+<h6 id="21_1">2.1 插入操作</h6>
+<p>【例1】已知一个顺序表L，其中的元素递增有序排列，设计一个算法，插入一个元素x(x为int型)后保持该顺序表仍然递增有序排列（假设插入操作总能成功）。</p>
+<p>【分析】可以分为以下两部：</p>
+<ul>
+<li>找到可以让顺序表保持有序的插入位置；</li>
+<li>将该位置之后的所有元素往后移动一个位置，然后将x放在该位置上。</li>
+</ul>
+<p><img src="https://i.loli.net/2021/03/22/GvMzUsxFqprZ9hA.png" style="zoom:50%;" /></p>
+<p>【代码】</p>
+<pre><code class="language-c">//找到插入位置
+int findElem(Sqlist L,int x)
+{
+  int i;
+  for(int i;i&lt;=L.length;++i)
+  {
+    if(x&lt;L.data[i])
+    {
+      return i;
+    }
+  }
+  return i;
+}
+//将该位置后的元素向后移动一位，插入元素
+void InsertElem(Sqlist &amp;L,int x)//因为L要发生变化，所以这里要用引用型
+{
+  int p;
+  p=findElem(L,x);
+  for(i=L.length;i&gt;=p;i++)
+  {
+    L.data[i+1]=L[i];
+  }
+  L.data[p]=x;
+  ++(L.length);//因为元素多了一位，所以表长自增1；
+}
+</code></pre>
+<p>【例2】在顺序表中找到第一个值等于e的元素，并返回下标。</p>
+<pre><code class="language-c">int findElem(Sqlidt L,int e)
+{
+  int i;
+  for(int i=0;i&lt;L.length;i++)
+  {
+    if(L.data[i]==e)
+    {
+      return i;
+    }
+  }
+  return i;
+}
+</code></pre>
+<p>【例3】插入元素算法</p>
+<p>​   在顺序表L的p（0&lt;=p&lt;=length）的位置上插入新元素e。若p输入不正确，返回0，带表插入失败；若p输入正确，则将顺序表第p个元素以及以后元素右移一位，腾出空位置插入新元素，表长增加1，插入成功返回1。</p>
+<pre><code class="language-c">int InsertElem(Sqlist L,int e,int p)
+{
+  if(p&lt;0||p&gt;L.length||L.length==maxSize)//表长已达到最大允许值 
+    return 0;
+  for(int i=L.length-1;i&gt;=p;--i)
+    L.data[i+1]=L.data[i];
+  L.data[p]=e;
+  ++(L.length);
+  return 1;
+}
+</code></pre>
+<h6 id="22_1">2.2 删除操作</h6>
+<p>【例4】删除顺序表L中下标为p(0&lt;=p&lt;=length-1)的元素，成功返回1，否则返回0，并将删除的元素赋值给e。</p>
+<pre><code class="language-c">int deleteElem(Sqlist &amp;L,int p,int &amp;e)//要改变，所以用引用型
+{
+  int i;
+  if(p&lt;0||p&gt;L.length-1)
+    return 0;
+  e=L.data[p];
+  for(int i=p;i&lt;L.length-1;i++)
+    L.data[i]=L.data[i+1];
+  --(L.length);
+  return 1;
+}
+</code></pre>
+<h6 id="23">2.3 顺序表初始化</h6>
+<pre><code class="language-c">void initList(Sqlist &amp;L)
+{
+  L.length=0;
+}
+</code></pre>
+<h6 id="24">2.4 找指定位置元素</h6>
+<pre><code class="language-c">int getElem(Sqlist L,int p,int &amp;e)
+{
+    if(p&lt;0||p&gt;L.lenght-1)
+    return 0;
+  e=L.data[p];
+    return 1;
+}
+</code></pre>
+<h5 id="3_1">3.单链表操作</h5>
+<p>（若没有特殊说明，则链表都是含有表头结点度链表。）</p>
+<h6 id="31">3.1 链表的归并（递增）</h6>
+<p>【例1】A和B是两个单链表（带表头结点），其中元素递增有序。设计一个算法，将A，B归并成一个按元素值非递减有序的链表(递增)C，C由A和B的结点组成。</p>
+<pre><code class="language-c">void merge(LNode *A,LNode *B,LNode *&amp;C)
+{
+  LNode *p=A-&gt;next;
+  LNode *q=B-&gt;next;
+  LNode *r;//用来指向头结点的终端结点
+
+  C=A;  //用A的头结点作为C的头结点
+  C-&gt;next=NULL;
+  free(B);
+  r=C;
+  while(p!=NULL&amp;&amp;q!=NULL)
+  {
+    if(p-&gt;data&lt;=q-&gt;data)
+    {
+      r-&gt;next=p;p=p-&gt;next;
+      r=r-&gt;next;
+    }
+    else{
+      r-&gt;next=q;q=q-&gt;next;
+      r=r-&gt;next;
+    }
+  }
+  r-&gt;next=NULL;
+  if(p!=NULL) r-&gt;next=p;
+  if(q!=NULL) r-&gt;next=q;
+}
+</code></pre>
+<h6 id="32">3.2 尾插法建链表</h6>
+<p>【例2】假设现有n个元素已经存储在数组a中，用尾插法建立链表C。</p>
+<pre><code class="language-c">void createlistR(LNode *&amp;C,int a[],int n)
+{
+  LNode *s,*r;
+  int i;
+  C=(LNode *)malloc(sizeof(LNode));
+  C-&gt;next=NULL;
+  r=C;
+  for(i=0;i&lt;n;++i)
+  {
+    s=(LNode*)malloc(sizeof(LNode));
+    s-&gt;data=a[i];
+    r-&gt;next=s;
+    r=r-&gt;next;
+  }
+    r-&gt;next=NULL;
+
+}
+</code></pre>
+<h6 id="33">3.3 头插法建链表</h6>
+<pre><code class="language-c">void createlistH(LNode *&amp;C,int a[],int n)
+{
+  LNode *s;
+  C=(LNode *)malloc(sizeof(LNode));
+  C-&gt;next=NULL;
+
+  for(int i=0;i&lt;n;i++)
+  {
+    s=(LNode *)malloc(sizeof(LNode));
+    s-&gt;data=a[i];
+
+    s-&gt;next=C-&gt;next;
+    C-&gt;next=s;
+  }
+}
+</code></pre>
+<h6 id="34">3.4 链表的归并（递减）</h6>
+<pre><code class="language-c">void merge(LNode *A,LNode *B,LNode *&amp;C)
+{
+  LNode *p=A-&gt;next;
+  LNode *q=B-&gt;next;
+  LNode *s;
+
+  C=A;
+  C-&gt;next=NULL;
+  free(B);
+  while(p!=NULL&amp;&amp;q!=NULL)
+  {
+    //头插法
+    if(p-&gt;data&gt;q-&gt;data)
+    {
+      s=p;p=p-&gt;next;
+      s-&gt;next=C-&gt;next;
+      C-&gt;next=s;
+    }
+    else{
+      s=q;q=q-&gt;next;
+      s-&gt;next=C-&gt;next;
+      C-&gt;next=s
+    }
+  }
+
+  while(q!=NULL)
+  {
+    s=q;q=q-&gt;next;
+    s-&gt;next=C-&gt;next;
+    C-&gt;next=s;
+  }
+
+  while(p!=NULL)
+  {
+    s=p;p=p-&gt;next;
+    s-&gt;next=C-&gt;next;
+    C-&gt;next=s;
+  }  
+
+}
+</code></pre>
+<p>在详细的讲解里边的关键代码：</p>
+<p>​   假设p指向一个结点，要将s所指结点插入p所指结点之后操作</p>
+<pre><code class="language-c">s-&gt;next=p-&gt;next;
+p-&gt;next=s;
+</code></pre>
+<p><img alt="" src="/Users/suneann/Library/Application Support/typora-user-images/截屏2021-03-23 下午10.08.43.png" /></p>
+<h6 id="35">3.5 删除结点</h6>
+<p><img src="https://i.loli.net/2021/03/23/n1lrFdkW2xfuUTb.png" style="zoom:50%;" /></p>
+<pre><code class="language-c">q=p-&gt;next;
+p-&gt;next=p-&gt;next-&gt;next;
+free(q);
+</code></pre>
+<p>【例3】查找链表C(带头结点)中是否存在一个值为x的结点，若存在，则删除该结点并返回1，否则返回0。</p>
+<pre><code class="language-c">int FindandDelete(LNode *C,int x)
+{
+  LNode *p,*q;
+  p=C;
+  while(p-&gt;next!=NULL)
+  {
+    if(p-&gt;next-&gt;data==x)
+      break;
+    p=p-&gt;next;
+  }
+  if(p-&gt;next==NULL)
+    return 0;
+  else{
+    q=p-&gt;next;p=p-&gt;next-&gt;next;
+    free(q);
+    return 1;
+  }
+}
+</code></pre>
+<h5 id="4">4.双链表操作</h5>
+<h6 id="41">4.1 用尾插法创建双链表</h6>
+<p>用数组a中的元素创建单链表；</p>
+<pre><code class="language-c">void createDlistR(DLNode *&amp;L,int a[],int n){
+  RLNode *r,*s;
+  int i;
+  L=(DLNode*)malloc(sizeof(DLNode));
+  L-&gt;prior=NULL;
+  L-&gt;next=NULL;
+  r=L;
+  for(int i=0;i&lt;n;i++)
+  {
+    s=(DLNode*)malloc(sizeof(DLNode));
+    s-&gt;data=a[i];
+    r-&gt;next=s;
+    s-&gt;prior=r;
+    r=s;
+  }
+  r-&gt;next=NULL;
+}
+</code></pre>
+<h6 id="42">4.2 查找结点算法</h6>
+<p>在双链表中查找第一个值为x的结点，若存在这样的点，则返回结点指针；不存在则返回NULL；</p>
+<pre><code class="language-c">DLNode* findNode(DLNode *C,int x)
+{
+  DLode *p=C-&gt;next;
+  while(p!=NULL)
+  {
+    if(p-&gt;data==x)
+      break;
+        p=p-&gt;next;
+  }
+  return p;
+}
+</code></pre>
+<h6 id="43">4.3 插入结点的算法</h6>
+<p><img alt="" src="https://i.loli.net/2021/03/24/86mCL3NwQ2yho4u.png" /></p>
+<p>在双链表中p所指的结点之后插入一个结点s，操作语句如下：</p>
+<pre><code class="language-c">s-&gt;next=p-&gt;next;
+s-&gt;prior=p;
+p-&gt;next=s;
+s-&gt;next-&gt;prior=s;
+</code></pre>
+<h6 id="44">4.4 删除结点算法</h6>
+<p><img alt="" src="https://i.loli.net/2021/03/24/JMKbo2HprA3vOwB.png" /></p>
+<p>删除q结点；</p>
+<pre><code class="language-c">q=p-&gt;next
+p-&gt;next=q-&gt;next;
+q-&gt;next-&gt;prior=p;
+free(q);
+</code></pre>
+<h5 id="5">5.循环链表的操作</h5>
+<p>如果p指针沿着循环链表行走，则判断p走到表尾结点的条件是p-&gt;next==head。</p>
+<h5 id="6">6.逆置问题（重要考点）</h5>
+<p>【思路】可设置两个整型变量i和j，i指向第一个元素，j指向最后一个元素，边交换i和j所指元素，边让i和j相向而行，直到相遇。</p>
+<pre><code class="language-c">for(int i=left,j=right;i&lt;j;++i,--j)
+{
+  temp=a[i];
+  a[i]=a[j];
+  a[j]=temp;
+}
+</code></pre>
+<p>【例1】</p>
+<p>（1）将一个长度为n的数组的前端k(k&lt;n)个元素逆序后移动到数组后端，要求原数组中的数据不丢失，其余元素与位置无关紧要。</p>
+<p>（2）将一个长度为n的数组前端k(k&lt;n)个元素保持原序移动到数组后端，要求原数组中的数据不丢失，其余元素的位置无关紧要；</p>
+<p>（3）将数组中的元素（<span class="arithmatex">\(X_0\)</span>,<span class="arithmatex">\(X_1\)</span>,<span class="arithmatex">\(X_2\)</span>,...,<span class="arithmatex">\(X_{n-1}\)</span>),经过移动后变为（<span class="arithmatex">\(X_p\)</span>,<span class="arithmatex">\(X_{p+1}\)</span>,...,<span class="arithmatex">\(X_{n-1}\)</span>,<span class="arithmatex">\(X_0\)</span>,<span class="arithmatex">\(X_{1}\)</span>,...,<span class="arithmatex">\(X_{p-1}\)</span>},即循环左移p(0&lt;p&lt;n)个位置。</p>
+<p>【分析】</p>
+<p>（1）只需将整个数组逆序。</p>
+<p><img alt="" src="https://i.loli.net/2021/03/24/c7NQyHRfgd3EP5K.png" /></p>
+<pre><code class="language-c">void reverse(int a[],int left,int right,int k){
+  int temp;
+  for (int i=left,j=right;i&lt;left+k&amp;&amp;i&lt;j;++i,--j)
+
+  {
+    temp=a[i];
+    a[i]=a[j];
+    a[j]=temp;
+  }
+}
+</code></pre>
+<p>(2)只需要将前端k个元素逆置，然后将整个数组逆置，即满足题目要求。</p>
+<p><img src="https://i.loli.net/2021/03/24/Fi6BupCNlteLs1X.png" style="zoom: 67%;" /></p>
+<pre><code class="language-c">void moveEnd(int a[],int n,int k)
+{
+  reverse(a,0,k-1,k);
+  reverse(a,0,n-1,k);
+}
+</code></pre>
+<p>(3)只需将0～p-1元素逆置，再将p～n-1元素逆置，最后将整个数组逆置即可。</p>
+<pre><code class="language-c">void moveP(int a[],int n,int p)
+{
+  reverse(a,0,p-1,p);
+  reverse(a,p,n-1,n-p);
+  reverse(a,0,n-1,n);
+}
+</code></pre>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E2%80%94%E2%80%94%E7%AC%AC%E4%B8%80%E7%AB%A0%20%E6%A6%82%E8%AE%BA/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              数据结构——第一章 概论
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E2%80%94%E2%80%94%E7%AC%AC%E4%B8%89%E7%AB%A0%20%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              数据结构——第三章 栈和队列
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.217ffd95.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.926459b3.min.js"></script>
+      
+        <script src="../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

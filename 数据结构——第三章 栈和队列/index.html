@@ -1,0 +1,1741 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.0">
+    
+    
+      
+        <title>数据结构——第三章 栈和队列 - Mr.Iodin</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.a3f8f96a.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.7fa14f5b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="indigo">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Mr.Iodin" class="md-header__button md-logo" aria-label="Mr.Iodin">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mr.Iodin
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              数据结构——第三章 栈和队列
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Mr.Iodin" class="md-nav__button md-logo" aria-label="Mr.Iodin">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Mr.Iodin
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" >
+      
+      <label class="md-nav__link" for="nav-1">
+        算法
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="算法" data-md-level="1">
+        <label class="md-nav__title" for="nav-1">
+          <span class="md-nav__icon md-icon"></span>
+          算法
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-1" type="checkbox" id="nav-1-1" >
+      
+      <label class="md-nav__link" for="nav-1-1">
+        数论
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="数论" data-md-level="2">
+        <label class="md-nav__title" for="nav-1-1">
+          <span class="md-nav__icon md-icon"></span>
+          数论
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%9C%8D%E7%BA%B3%E6%B3%95%E5%88%99/" class="md-nav__link">
+        多项式求值——霍纳法则(Horner's rule)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83%E6%B3%95/" class="md-nav__link">
+        高斯消元法—求解线性方程组
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-2" type="checkbox" id="nav-1-2" >
+      
+      <label class="md-nav__link" for="nav-1-2">
+        高级数据结构
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="高级数据结构" data-md-level="2">
+        <label class="md-nav__title" for="nav-1-2">
+          <span class="md-nav__icon md-icon"></span>
+          高级数据结构
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%8F%AF%E6%8C%81%E4%B9%85%E5%8C%96%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%80/" class="md-nav__link">
+        可持久化数据结构
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
+      
+      <label class="md-nav__link" for="nav-2">
+        数学建模
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="数学建模" data-md-level="1">
+        <label class="md-nav__title" for="nav-2">
+          <span class="md-nav__icon md-icon"></span>
+          数学建模
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" >
+      
+      <label class="md-nav__link" for="nav-2-1">
+        评价模型
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="评价模型" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-1">
+          <span class="md-nav__icon md-icon"></span>
+          评价模型
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/" class="md-nav__link">
+        层次分析法
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2" >
+      
+      <label class="md-nav__link" for="nav-2-2">
+        回归模型
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="回归模型" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-2">
+          <span class="md-nav__icon md-icon"></span>
+          回归模型
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" class="md-nav__link">
+        回归分析
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%9B%9E%E5%BD%92%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87/" class="md-nav__link">
+        回归评价指标
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
+      
+      <label class="md-nav__link" for="nav-3">
+        神经网络
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="神经网络" data-md-level="1">
+        <label class="md-nav__title" for="nav-3">
+          <span class="md-nav__icon md-icon"></span>
+          神经网络
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E2%80%94%E2%80%94%E5%9F%BA%E7%A1%80%E7%90%86%E8%AE%BA/" class="md-nav__link">
+        神经网络——基本理论文档
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MLPRegressor%20%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        MLPRegressor 神经网络搭建
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+      
+      <label class="md-nav__link" for="nav-4">
+        考研
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="考研" data-md-level="1">
+        <label class="md-nav__title" for="nav-4">
+          <span class="md-nav__icon md-icon"></span>
+          考研
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1" checked>
+      
+      <label class="md-nav__link" for="nav-4-1">
+        数据结构
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="数据结构" data-md-level="2">
+        <label class="md-nav__title" for="nav-4-1">
+          <span class="md-nav__icon md-icon"></span>
+          数据结构
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E2%80%94%E2%80%94%E7%AC%AC%E4%B8%80%E7%AB%A0%20%E6%A6%82%E8%AE%BA/" class="md-nav__link">
+        数据结构——第一章 概论
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E2%80%94%E2%80%94%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E7%BA%BF%E6%80%A7%E8%A1%A8/" class="md-nav__link">
+        数据结构——第二章 线性表
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          数据结构——第三章 栈和队列
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        数据结构——第三章 栈和队列
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1 栈和队列的基本概念
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 栈和队列的基本概念">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1.栈基本概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2.队列基本概念
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2 存储结构和算法应用
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 存储结构和算法应用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    1.栈的定义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    2.队的定义
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    3.3 顺序栈
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 顺序栈">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    1.数据栈的要素
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    2.栈的初始化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3.判断栈空代码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4.进栈代码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5.出栈代码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6.相关例题
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    3.4 顺序队
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4 顺序队">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_3" class="md-nav__link">
+    1.循环队列
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_3" class="md-nav__link">
+    2.初始化队列算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    3.判断队空算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    4.进队出队算法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#35" class="md-nav__link">
+    3.5 链队
+  </a>
+  
+    <nav class="md-nav" aria-label="3.5 链队">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_4" class="md-nav__link">
+    1.链队
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_4" class="md-nav__link">
+    2.初始化队列算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_2" class="md-nav__link">
+    3.判断队列空算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_2" class="md-nav__link">
+    4.进队出队算法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#36" class="md-nav__link">
+    3.6 共享栈与双端队列
+  </a>
+  
+    <nav class="md-nav" aria-label="3.6 共享栈与双端队列">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_5" class="md-nav__link">
+    1.共享栈
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_5" class="md-nav__link">
+    2.双端队列
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#37" class="md-nav__link">
+    3.7 队列配置问题
+  </a>
+  
+    <nav class="md-nav" aria-label="3.7 队列配置问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_6" class="md-nav__link">
+    1.正常配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_6" class="md-nav__link">
+    2.非正常配置
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#38-adt" class="md-nav__link">
+    3.8 抽象数据类型（ADT）
+  </a>
+  
+    <nav class="md-nav" aria-label="3.8 抽象数据类型（ADT）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1adt" class="md-nav__link">
+    1.ADT基本概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2adt" class="md-nav__link">
+    2.考研中ADT问题
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1 栈和队列的基本概念
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 栈和队列的基本概念">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1.栈基本概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2.队列基本概念
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2 存储结构和算法应用
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 存储结构和算法应用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    1.栈的定义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    2.队的定义
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    3.3 顺序栈
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 顺序栈">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    1.数据栈的要素
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    2.栈的初始化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3.判断栈空代码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4.进栈代码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5.出栈代码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6.相关例题
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    3.4 顺序队
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4 顺序队">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_3" class="md-nav__link">
+    1.循环队列
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_3" class="md-nav__link">
+    2.初始化队列算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    3.判断队空算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    4.进队出队算法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#35" class="md-nav__link">
+    3.5 链队
+  </a>
+  
+    <nav class="md-nav" aria-label="3.5 链队">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_4" class="md-nav__link">
+    1.链队
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_4" class="md-nav__link">
+    2.初始化队列算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_2" class="md-nav__link">
+    3.判断队列空算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_2" class="md-nav__link">
+    4.进队出队算法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#36" class="md-nav__link">
+    3.6 共享栈与双端队列
+  </a>
+  
+    <nav class="md-nav" aria-label="3.6 共享栈与双端队列">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_5" class="md-nav__link">
+    1.共享栈
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_5" class="md-nav__link">
+    2.双端队列
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#37" class="md-nav__link">
+    3.7 队列配置问题
+  </a>
+  
+    <nav class="md-nav" aria-label="3.7 队列配置问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_6" class="md-nav__link">
+    1.正常配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_6" class="md-nav__link">
+    2.非正常配置
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#38-adt" class="md-nav__link">
+    3.8 抽象数据类型（ADT）
+  </a>
+  
+    <nav class="md-nav" aria-label="3.8 抽象数据类型（ADT）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1adt" class="md-nav__link">
+    1.ADT基本概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2adt" class="md-nav__link">
+    2.考研中ADT问题
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="_1">数据结构——第三章 栈和队列</h1>
+<h3 id="31">3.1 栈和队列的基本概念</h3>
+<h5 id="1">1.栈基本概念</h5>
+<p><code>栈的定义</code>：栈是一种只能在一端插入或删除的线性表。允许被插入或删除的一端称为顶栈（Top）；</p>
+<p>​   栈顶由一个被称之为栈顶指针的位置指示器（就一个用来做标记的变量）来指示，是动态变化的；表的另一端称为栈底，栈底是固定不变的；</p>
+<p>​   栈的插入和删除一般被称为<code>入栈</code>和<code>出栈</code>。</p>
+<p><code>栈的特点</code>：<strong>先进后出</strong></p>
+<p><code>栈的存储结构</code>：栈是一种操作上稍加限制的顺序表。一般可以分为<code>顺序栈</code>和<code>链式栈</code></p>
+<p><code>栈的数学性质</code>：当n个元素以某种顺序进栈，并且可以任意时刻出栈时，所获的当元素排列的数目N恰好满足函数Catalan（）的计算，即
+$$
+N=\frac{1}{n+1} \complement^{n}_{2n}
+$$</p>
+<h5 id="2">2.队列基本概念</h5>
+<p><code>队列的定义</code>：队列简称队，其限制为允许在表的一端进行插入，在表的另一端进行删除。可插入的一端称为<strong>队尾</strong>，可删除的一端称为<strong>队头</strong>。插入新元素称为<strong>入队</strong>，删除元素则称为<strong>出队</strong>。</p>
+<p><code>队列的特点</code>：<strong>先进先出</strong></p>
+<p><code>队列的存储结构</code>：可以用顺序表和链表来存储队列，可分为<code>顺序队</code>和<code>链队</code>两种。</p>
+<h3 id="32">3.2 存储结构和算法应用</h3>
+<h5 id="1_1">1.栈的定义</h5>
+<p><code>顺序栈定义</code>：</p>
+<pre><code class="language-c">typedef struct
+{
+  int data[maxSize];//存放在栈中的元素
+  int top;  //栈顶指针
+}SqStack;   //顺序栈类型定义
+</code></pre>
+<p><code>链栈结点定义</code>：</p>
+<pre><code class="language-c">typedef struct LNode
+{
+  int data; //数据域
+  struct LNode *next;   //指针域
+}LNode; //链栈结点定义
+</code></pre>
+<p><img src="https://i.loli.net/2021/03/30/IGSkvjlxbBu3fCX.png" style="zoom:50%;" /></p>
+<h5 id="2_1">2.队的定义</h5>
+<p><code>顺序队定义</code>：</p>
+<pre><code class="language-c">typedef struct
+{
+  int data[maxSize];    //存放栈中的元素，maxSize是已定义常量
+  int front;    //栈顶指针
+  int rear; //队尾指针
+}SqQueue;   //顺序栈类型定义
+</code></pre>
+<p><img alt="" src="/Users/suneann/Library/Application Support/typora-user-images/截屏2021-03-30 下午7.41.27.png" /></p>
+<p><code>链队定义</code>：</p>
+<ul>
+<li>结点类型定义：</li>
+</ul>
+<pre><code class="language-c">typedef struct QNode
+{
+  int data; //数据域
+  struct QNode *next;   //指针域
+}QNode; //队结点类型的定义
+</code></pre>
+<ul>
+<li>链队类型定义：</li>
+</ul>
+<pre><code class="language-c">typedef struct
+{
+  QNode *front; //队头指针
+  QNode *rear;  //队尾指针
+}LiQueue;   //链队类型定义
+</code></pre>
+<p><img alt="" src="/Users/suneann/Library/Application Support/typora-user-images/截屏2021-03-30 下午7.47.28.png" /></p>
+<h3 id="33">3.3 顺序栈</h3>
+<h5 id="1_2">1.数据栈的要素</h5>
+<p>对于顺序栈st，一共有4个要素，包含两个特殊状态和两个操作。</p>
+<ul>
+<li>几个状态：</li>
+<li>栈空状态：st.top==-1；</li>
+<li>栈满状态：st.top==maxSize-1。由于数据下标从0开始所以要-1。</li>
+<li>两个操作：</li>
+<li>元素x进栈操作：<code>++(st.top);st.data[st.top]=x</code>。既然规定链top为-1时栈为空，则元素进栈操作必须是先移动指针，再进入元素，因为数组下标不存在-1；</li>
+<li>元素x出栈操作：<code>x=st.data[st.top];--(st.top);</code>。进栈操作次序决定链出栈操作次序，由于进栈操作是先变动栈顶指针，再存入元素，因此出栈操作必须先取出元素，再变动指针。</li>
+</ul>
+<h5 id="2_2">2.栈的初始化</h5>
+<p>初始化一个栈，需将栈顶指针置为-1即可：</p>
+<pre><code class="language-c">void initStack(SqStack &amp;st) //初始化栈
+{
+  st.top==-1;   //只需将栈顶指针设置为-1
+}
+</code></pre>
+<h5 id="3">3.判断栈空代码</h5>
+<p>栈st为空时返回1，否则返回0，其对应代码如下：</p>
+<pre><code class="language-c">int isEmpty(SqStack)
+{
+  if(st.top==-1)
+    return 1;
+  else
+    return 0;
+}
+</code></pre>
+<h5 id="4">4.进栈代码</h5>
+<pre><code class="language-c">void push(LNode *lst,int x)
+{
+  LNode *p;
+  p=(LNode*)malloc(sizeof(LNode));
+  p-&gt;next=NULL;
+
+  /*链表的头插法*/
+  p-&gt;data=x;
+  p-&gt;next=lst-&gt;next;
+  lst-&gt;next=p;
+}
+</code></pre>
+<h5 id="5">5.出栈代码</h5>
+<p>在栈不空的情况下可执行，返回1；否则返回0；</p>
+<pre><code class="language-c">int pop(LNode *lst,int &amp;x)  //需要改变变量要用引用型
+{
+  LNode *p;
+  if(lst-&gt;next==NULL)
+  {
+    return 0;
+  }
+  /*链表的删除*/
+  p=lst-&gt;next;
+  x=p-&gt;data;
+  lst-&gt;next=p-&gt;next;
+  free(p);
+  return 1;
+}
+</code></pre>
+<p>【考研中考查链栈代码的频率要比顺序栈少得多，顺序栈定义简单，操作也简单得多。所以对于程序设计题，如果有10份时间，建议把7份用在顺序栈，3份用在链栈上（成年人当然都要）。】</p>
+<h5 id="6">6.相关例题</h5>
+<p>【例1】C语言中算术表达式中的括号只有小括号。编写算法，判断一个表达式中的括号是否正确配对，表达式已经存入的字符数组exp[]中，表达式中的字符个数为n。</p>
+<p>【分析】在解决问题中出现子问题，但凭现有条件不能解决它，需要记下，等待之后出现可解决它的条件后返回来解决。</p>
+<p>​   具有这种特性的问题通常要用栈来解决，栈具有记忆功能，这是栈的FILO特性所延伸出来的一种特性。</p>
+<p>【代码】</p>
+<pre><code class="language-c++">int match (char exp[],int n)
+{
+  char stack[maxSize];int top=-1;
+ //用这种方式对栈进行初始化比较节约时间
+
+  int i;
+  for(i=0;i&lt;n;i++)
+  {
+    if(exp[i]=='(')
+      stack[++top]='(';
+    if(exp[i]==')')
+    {
+      if(top==-1)
+        return 0;//栈已空，说明括号不匹配
+      else
+        --top;
+    }
+  }
+  if(top==-1)
+    return 1;//栈空，说明括号匹配
+  else return 0;
+}
+</code></pre>
+<p>【例2】编写一个函数，求后缀式数值，其中后缀式存于一个字符数组exp中，exp中最后一个字符"\0",作为结束符，并且假设后缀式中数字都只有一位。本题中所出现的除法运算，皆为整除运算，如2/3结果为0、3/2结果为1。</p>
+<p>【分析】首先要先区分三种表达式：</p>
+<p>如现有一个中缀表达式：
+$$
+(a+b+c\times d)/e
+$$</p>
+<ul>
+<li>
+<p>转化为前缀表达式：
+  $$
+  /++ab\times cde
+  $$</p>
+</li>
+<li>
+<p>转化为后缀表达式：</p>
+</li>
+</ul>
+<div class="arithmatex">\[
+abcd\times++e
+\]</div>
+<blockquote>
+<p>​ 中缀表达式转化成后缀或者前缀，结果并不一定唯一。后缀式和前缀式都只有唯一的一种运算次序，而中缀式却不一定，因此对于一个中缀表达式可能有多种后缀式和前缀式。</p>
+</blockquote>
+<p>对于一个后缀式，当从左向右扫描到一个数值时，具体运算暂时还不知道，需要扫描到后边运算符才知道，所以必须先存起来。</p>
+<p>所以整个执行过程为：<strong>当遇到数值的时候入栈，当遇到运算符的时候，连续出两次栈，将两个出栈元素结合当前运算符进行运算后产生的新结果作为新数值入栈。</strong></p>
+<p>【代码】</p>
+<pre><code class="language-c++">//用于实现“a OP b”的运算
+int op(int a,char Op,int b)
+{
+  if(Op=='+') return a+b;
+  if(Op=='-') return a-b;
+  if(Op=='*') return a*b;
+  if(Op=='/')
+  {
+    if(b==0)//考虑除数等于0的情况
+    {
+      cout&lt;&lt;&quot;ERROR&quot;&lt;&lt;endl;
+      return 0;
+    }
+    else
+      return a/b;
+  }
+}
+
+int com(char exp[])//后缀式计算
+{
+  int i,a,b,c;//a、b操作数，c保存结果，数字跟符号统一用ASCll码转化
+  int stack[maxSize];int top=-1;
+
+  char Op;
+  for(i=0;exp[i]!='\0';++i)
+  {
+    //如果是数字就放入堆栈
+    if(exp[i]&gt;='0'&amp;&amp;exp[i]&lt;='9')
+      stack[++top]=exp[i]-'0';
+    //如果是运算符，抽出两个数字进行运算再将结果放到对栈中
+    else 
+    {
+      Op=exp[i];
+      b=stack[top--];
+
+      a=stack[top--];
+      c=op(a,Op,b);
+      stack[++top]=c;
+    }
+  }
+  return stack[top];
+}
+</code></pre>
+<p>【例3】用不带头结点的单链表存储链栈，设计初始化栈、判断栈是否为空、进栈和出栈相应算法。</p>
+<p>【分析】</p>
+<p>不带头结点的单链表lst为空的条件是lst==NULL，进栈和出栈操作都是在表头进行。</p>
+<p>【代码】</p>
+<pre><code class="language-c++">void initStackl(LNode *&amp;lst) //初始化栈
+{
+  lst=NULL;
+}
+
+int isEmpty(LNode *lst) //判断链表是否为空
+{
+  if(lst==NULL)
+    return 1;
+  else
+    return 0;
+}
+
+void pushl(LNode *&amp;lst,int x)//进栈
+{
+  LNode *p;
+  p=(LNode *)malloc(sizrof(LNode));
+  p-&gt;next=NULL;
+  p-&gt;data=x;
+
+  p-&gt;next=lst;
+  lst=p;
+}
+
+int popl(LNode* &amp;lst,int &amp;x)//出栈
+{
+  LNode *p;
+  if(lst==NULL)
+    return 0;
+  p=lst;
+  x=p-&gt;data;
+  lst=p-&gt;next;
+  free(p);
+  return 1;
+}
+</code></pre>
+<h3 id="34">3.4 顺序队</h3>
+<h5 id="1_3">1.循环队列</h5>
+<p>​   在顺序队列中，通常让尾部指针rear指向刚入队的元素位置，让首部指针front指向刚出队的队列元素位置。此时，元素进队时，rear要向后移，元素出队时，front也要向后移。</p>
+<p>经过一系列入队出队操作后，两指针会到达数组的末端maxSize-1，虽然队中已经没有元素，但仍然无法让元素进队，造成“假溢出”。解决这个问题可以把数组弄成一个环。</p>
+<p><img alt="截屏2021-04-03 下午1.36.53" src="https://i.loli.net/2021/04/03/q4zA6egiN1vnRtZ.png" /></p>
+<p>①由空队进队两个元素，此时front指向0，rear指向2；</p>
+<p>②进队4个元素，出队3个元素，此时front指向3，rear指向6；</p>
+<p>③进队2个元素，出队4个元素，此时front指向7，rear指向（6+2）%8；</p>
+<p><strong>循环队列的两个状态：</strong></p>
+<ul>
+<li>队空状态：qu.rear==qu.front;</li>
+<li>队满状态：(qu.front+1)%masSize==qu.rear;</li>
+</ul>
+<p><img alt="" src="https://i.loli.net/2021/04/03/5hqLpAyH24VCvPT.png" /></p>
+<p><strong>循环队列的两个操作：</strong></p>
+<ul>
+<li>元素x进队操作（移动队尾指针）</li>
+</ul>
+<p><code>c++
+  qu.rear=(qu.rear+1)%maxSize;
+  qu.data[qu.rear]=x;</code></p>
+<ul>
+<li>元素x出队操作(移动队首指针)</li>
+</ul>
+<p><code>c++
+  qu.front=(qu.front+1)%maxSize;
+  x=qu.data[qu.front];</code></p>
+<h5 id="2_3">2.初始化队列算法</h5>
+<pre><code class="language-c++">void initQueue(SqQueue &amp;qu)
+{
+  qu.front=qu.rear=0;//队首和队尾重合，并且指向0
+}
+</code></pre>
+<h5 id="3_1">3.判断队空算法</h5>
+<pre><code class="language-c++">int isQueueEmpty(SqQueue qu)
+{
+  if(qu.front==qu.rear)
+    return 1;
+  else
+    return 0;
+}
+</code></pre>
+<h5 id="4_1">4.进队出队算法</h5>
+<pre><code class="language-c++">//进队
+int enQueue(SqQueue &amp;qu,int x)
+{
+  if((qu.rear+1)%maxSize==qu.front)//队满则无法进队
+    return 0;
+  qu.rear=(qu.rear+1)%maxSize;
+  qu.data[qu.rear]=x;
+  return 1;
+}
+//出队
+int deQueue(SqQueue* &amp;qu,int &amp;x)
+{
+  if(qu.rear==qu.front)//队空则无法入队
+    return 0;
+  qu.rear=(qu.front+1)%masSize;
+  x=qu.data[qu.front];
+  return 1;
+}
+</code></pre>
+<h3 id="35">3.5 链队</h3>
+<h5 id="1_4">1.链队</h5>
+<p>​   链队就是采用链式存储结构队存储队列，这里采用单链表来实现。链队的特点就是不存在队列满上溢的情况（当然，内存满了就满上溢了）。</p>
+<p><strong>两个状态：</strong></p>
+<ul>
+<li>队空：</li>
+</ul>
+<p><code>c++
+  lqu-&gt;rear==NULL;
+  //或者
+  lqu-&gt;front==NULL;</code></p>
+<ul>
+<li>队满：</li>
+</ul>
+<p>不存在队满状态（假设在内存无限大的情况下）；</p>
+<p><strong>两个操作：</strong></p>
+<ul>
+<li>元素进队操作：</li>
+</ul>
+<pre><code class="language-c++">lqu-&gt;rear-&gt;next=p;//p为进队元素
+lqu-&gt;reat=p;
+</code></pre>
+<ul>
+<li>元素出队操作：</li>
+</ul>
+<pre><code class="language-c++">p=lqu-&gt;front;
+lqu-&gt;front=p-&gt;next;
+x=p-&gt;data;
+free(p);
+</code></pre>
+<p><img alt="" src="https://i.loli.net/2021/04/03/54tZpU8OHGKkiJz.png" /></p>
+<h5 id="2_4">2.初始化队列算法</h5>
+<pre><code class="language-c++">void initQueue(LiQueue* &amp;lqu)
+{
+  lqu=(LiQueue*)malloc(sizeof(LiQueue));
+  lqu-&gt;front=lqu-&gt;rear=NUll;
+}
+</code></pre>
+<h5 id="3_2">3.判断队列空算法</h5>
+<pre><code class="language-c++">int isQueueEmpty(SqQueue qu)
+{
+  if(qu-&gt;front==NULL||qu-&gt;rear==NULL)
+    return 1;
+  else 
+    return 0;
+}
+</code></pre>
+<h5 id="4_2">4.进队出队算法</h5>
+<pre><code class="language-c++">//进队
+int enQueue(SqQueue &amp;qu,int x)
+{
+  QNode *p;
+  p=(QNode*)malloc(sizeof(QNode));
+  p-&gt;data=x;
+  p-&gt;next=NULL;
+  if(lqu-&gt;rear==NULL)
+    lqu-&gt;front=lqu-&gt;rear=p;
+  else
+  {
+    lqu-&gt;rear-&gt;next=p;
+    lqu-&gt;rear=p;
+  }
+}
+
+//出队
+int deQueue(LiQueue *lqu,int &amp;x)
+{
+  QNode *p;
+  if(lqu-&gt;rear==NULL)//队空无法出队
+    return 0;
+  else
+    p=lqu-&gt;front;
+  if(lqu-&gt;front==lqu-&gt;rear)//队列中只有一个元素
+    lqu-&gt;front=lqu-&gt;rear=NULL;
+  else
+    lqu-&gt;front=lqu-&gt;front-&gt;next;
+  x=p-&gt;data;
+  free(p);
+  return 1;
+}
+</code></pre>
+<blockquote>
+<p>说明：</p>
+<p>​ 1.以上代码不需要记忆，只需要理解每一步操作即可；</p>
+<p>​ 2.顺序队队定义以及操作要比链队简单，所以在考研程序设计中，尽量使用顺序队来解决问题，除非题目明确要求使用链队。</p>
+</blockquote>
+<h3 id="36">3.6 共享栈与双端队列</h3>
+<h5 id="1_5">1.共享栈</h5>
+<p>​   共享栈主要是为了提高内存利用率和减少溢出可能性而设计的。</p>
+<p>【例】</p>
+<p>​   为了增加内存空间的利用率和减少溢出的可能性，当两个栈共享一片连续空间时，应将两栈（①）分别设置在内存空间的两端，这样当（②）时，才产生上溢。</p>
+<p>①        A.长度   B.深度    C.栈顶    ==D.栈底==</p>
+<p>②        A.两个栈栈顶同时到达栈空间的中心点；</p>
+<p>​            B.其中一个栈顶栈顶到达栈空间的中心点；</p>
+<p>​            ==C.两个栈的栈顶在栈空间的某一位置相遇；==</p>
+<p>​            D.两个栈均不空，并且一个栈的栈顶到达另外一个栈顶栈底</p>
+<h5 id="2_5">2.双端队列</h5>
+<p>​   双端队列是一种插入和删除操作在两端均可进行的线性表。可以把双端队列看成栈底连在一起的两个栈。</p>
+<p>​   需要在两边栈顶设置两个指针：end1和end2，分别指向双端队列中两端元素。</p>
+<p><strong>受限双端队列：</strong></p>
+<ul>
+<li>输入受限双端队列：允许在一端进行插入和删除（进队和出队），另一端只允许删除。</li>
+</ul>
+<p><img alt="截屏2021-04-03 下午3.55.38" src="https://i.loli.net/2021/04/03/3r7bZtfCuqNdQUM.png" /></p>
+<ul>
+<li>输出受限双端队列：允许在一端行插入和删除（进队和出队），另一端只允许插入。</li>
+</ul>
+<p><img alt="截屏2021-04-03 下午3.55.53" src="https://i.loli.net/2021/04/03/5cKldtwXhP6FAme.png" /></p>
+<h3 id="37">3.7 队列配置问题</h3>
+<p>​   队列的具体配置可以根据实际应用来决定。（比如队满队空条件，先入队（出队）元素再移动指针还是先移动指针在进行入队（出队））。</p>
+<h5 id="1_6">1.正常配置</h5>
+<p>正常配置下：</p>
+<pre><code class="language-c++">//队空
+front==rear;
+//队满
+front==(rear+1)%maxSize;
+//入队
+rear=(rear+1)%maxSize;
+queue[rear]=x;
+//出队
+front==(rear+1)%maxSize;
+x=queue[front];
+//元素个数
+(rear-front+maxSize)%maxSize
+</code></pre>
+<h5 id="2_6">2.非正常配置</h5>
+<p>非正常配置下：</p>
+<p>（有很多种，目前只讲408中出现的一种）</p>
+<p><img alt="截屏2021-04-03 下午4.04.00" src="https://i.loli.net/2021/04/03/OhaQlZtIo5GwysD.png" /></p>
+<pre><code class="language-c++">//队空
+front==(rear+1)%maxSize;
+//队满
+front==(rear+2)%maxSizr;
+//入队
+rear=(rear+1)%maxSize;
+queue[rear]=x;
+//出队
+x=queue[front];
+front=(front+1)%maxSize;
+//非正常配置下元素的个数
+(rear-front+1+maxSize)%maxSize
+</code></pre>
+<p>【例】已知循环队列存储在一维数组A[0,...,n-1]中，且==队列非空时front和rear分别指向队头和队尾元素==。若初始时队列为空，且要求第一个进入队列队元素存储在A[0]处，则初始时front和rear的值分别是()。</p>
+<p>A.0,0   ==B.0,n-1== C.n-1,0 D.n-1,n-1</p>
+<h3 id="38-adt">3.8 抽象数据类型（ADT）</h3>
+<h5 id="1adt">1.ADT基本概念</h5>
+<p>一个<strong>抽象数据类型（Abstract Data Tyep）</strong>，可以看作一些数据对象以及附加在这些数据对象上的操作集合。</p>
+<p>​   对于栈来说，数据对象为集存储在栈内的数据元素；操作集为元素进栈、元素出栈、判断栈是否为空等操作。栈ADT可以描述为：插入删除操作只能在一端进行的线性表；队列ADT可以描述为：插入元素只能在一端进行，而删除元素只能在另一端进行的线性表。</p>
+<p>ADT重在对功能的描述而不关心具体实现。</p>
+<h5 id="2adt">2.考研中ADT问题</h5>
+<ul>
+<li>关于对ADT概念的理解</li>
+</ul>
+<p>​ 数据对象集、数据关系和操作集。其实数据关系集指的是数据对象的组织方法。</p>
+<ul>
+<li>关于ADT的应用</li>
+</ul>
+<p>​ 若出现则多数是一些设计题，对于简单ADT可以用简单的语言描述。如上述栈和队列的ADT。较为复杂的最好用类结构体方法描述。</p>
+<p>【例】设计一个图书馆ADT。</p>
+<p><img alt="" src="https://i.loli.net/2021/04/03/ZU1zMlcgAGfQFWq.png" /></p>
+<p>设计ADT时需要注意以下几点：</p>
+<ul>
+<li>注意ADT结构格式，类似于C语言的结构体的写法，如上题的书的ADT设计；</li>
+<li>ADT大括号内用数据对象集、数据关系集和操作集分开，如上题图书馆ADT设计；</li>
+<li>考研中出现的题目，一般具有数据对象集；</li>
+<li>如果数据对象之间具有很强的关联性，则应写出合适的数据关系集，如上题书架ADT中顺序结构关系排列。</li>
+<li>若有操作集，则写出；</li>
+<li>不同数据对象类型，自上而下依次列出，如上题书ADT；</li>
+<li>相同类型的数据对象，用集合表示法写出，一般考研中涉及的题目用集合列举法表示即可，如上题的书架ADT中书的数据对象；</li>
+<li>不同操作自上而下依次列出。</li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E2%80%94%E2%80%94%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E7%BA%BF%E6%80%A7%E8%A1%A8/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              数据结构——第二章 线性表
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.217ffd95.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.926459b3.min.js"></script>
+      
+        <script src="../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

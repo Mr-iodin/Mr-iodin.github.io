@@ -14,7 +14,7 @@
     
     
       
-        <title>多项式求值——霍纳法则(Horner's rule) - Mr.Iodin</title>
+        <title>MLPRegressor 神经网络搭建 - Mr.Iodin</title>
       
     
     
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#horners-rule" class="md-skip">
+        <a href="#mlpregressor" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              多项式求值——霍纳法则(Horner's rule)
+              MLPRegressor 神经网络搭建
             
           </span>
         </div>
@@ -175,14 +175,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" >
       
       <label class="md-nav__link" for="nav-1">
         算法
@@ -199,14 +197,12 @@
             
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-1" type="checkbox" id="nav-1-1" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-1" type="checkbox" id="nav-1-1" >
       
       <label class="md-nav__link" for="nav-1-1">
         数论
@@ -223,69 +219,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          多项式求值——霍纳法则(Horner's rule)
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../%E9%9C%8D%E7%BA%B3%E6%B3%95%E5%88%99/" class="md-nav__link">
         多项式求值——霍纳法则(Horner's rule)
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    基本概念
-  </a>
-  
-    <nav class="md-nav" aria-label="基本概念">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    求解步骤
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    代码
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -483,12 +421,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
       
       <label class="md-nav__link" for="nav-3">
         神经网络
@@ -517,11 +457,91 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../MLPRegressor%20%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          MLPRegressor 神经网络搭建
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         MLPRegressor 神经网络搭建
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1.数据准备
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2.描述性统计
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3.数据标准化与测试集训练集分割
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4sklearnmlp" class="md-nav__link">
+    4.使用sklearn库搭建MLP神经网络
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5.模型评分
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6.可视化部分（对测试集的可视化）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    7.训练后神经网络连接权重
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -652,28 +672,50 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    基本概念
+  <a href="#1" class="md-nav__link">
+    1.数据准备
   </a>
-  
-    <nav class="md-nav" aria-label="基本概念">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    求解步骤
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    代码
+  <a href="#2" class="md-nav__link">
+    2.描述性统计
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3.数据标准化与测试集训练集分割
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4sklearnmlp" class="md-nav__link">
+    4.使用sklearn库搭建MLP神经网络
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5.模型评分
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6.可视化部分（对测试集的可视化）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    7.训练后神经网络连接权重
   </a>
   
 </li>
@@ -691,272 +733,53 @@
               
                 
                 
-                <h1 id="horners-rule">多项式求值——霍纳法则(Horner's rule)</h1>
-<h3 id="_1">基本概念</h3>
-<p>次数为n的一般多项式可以写成
-$$
-P\left( x \right) =a_0+a_1x+a_2x^2+...+a_nx^n=\sum_{i=0}^n{a_ix^i}
-$$
-其中 x 是底数， n 是指数， <span class="arithmatex">\(a_i\)</span> 是每一项前面的系数， 0 ≤ i ≤ n ，并且最高次项前面的系数不为 0。</p>
-<p>如果使用Newton-Raphson方法来找到多项式的根，需要针对任何x评估<span class="arithmatex">\(P（r）\)</span>及其导数<span class="arithmatex">\(P"（x）\)</span>，效率非常低。</p>
-<p><strong>霍纳法则：</strong></p>
-<p>霍纳将多项式进行变形：
-$$
-P\left( x \right) =a_0+a_1x+a_2x^2+...+a_nx^n=(((...(((a_nx+a_{n-1})x+a_{n-2})x+a_{n-3})x)+...)x+a_1)x+a_0
-$$
-这样执行多项式求值，每一次的结果都能得到充分的利用，时间复杂度是 O( n )。</p>
-<p>所以可以构造序列:
-$$
-b_n:=a_n
-\
-b_{n-1}:=a_{n-1}+b_xx_0
-\
-...
-\
-b_0:=a_0+b_1x_0
-$$
-<strong>余数定理：</strong></p>
-<p><em>f</em>(<em>x</em>) 是一个N次多项式：
-$$
-f\left( x \right) =a_0+a_1x+a_2x^2+...+a_nx^n
-$$
-那么f(x)被(x-c)除得到的商等于f(c)。也就是如果
-$$
-f(x)=Q(x)(X-c)+r
-$$
-那么
-$$
-r=f(c)
-$$
-利用这个定理，可以将计算 f ( c )转化为计算 r 。如果计算 r有快速算法，那么就可以快速计算出 f ( c )。</p>
-<h5 id="_2">求解步骤</h5>
-<p>设：
-$$
-f\left( x \right) =\sum_{i=0}^N{a_ix^i}
-\
-Q\left( x \right) =\sum_{i=0}^{N-1}{b_ix^i}
-$$
-那么有：
-$$
-\sum_{i=0}^N{a_ix^i}=\left( x-c \right) \sum_{i=0}^{N-1}{b_ix^i}+r
-\
-=b_{N-1}x^N+\sum_{i=1}^{N-1}{\left( b_{i-1}-cb_i \right) x^i-b_0c}+r
-$$
-两边同幂次的项相等：
-$$
-a_N=b_{N-1}
-\
-a_i=b_{i-1}-cb_i,\left( i=1,2,...N-1 \right) 
-\
-a_0=-cb_0+r
-$$
-所以：
-$$
-b_{N-1}:=a_N
-\
-b_i:=a_{i+1}+cb_{i+1}
-\
-r:=a_0+cb_0
-\
-$$
-其本质就是Horner 公式的另一种解释方法。</p>
-<p><strong>例如:</strong>
-$$
-P(x)=2x^2+2x+1
-$$
-当x=2时:
-$$
-P(2)=2×2^2+2×2+1=13
-$$
-除以(x-1),得到转化后的式子:
-$$
-P(x)=(x-1)×2x^1+(x-1)×4x^0+5
-$$
-验证,当x=2时:
-$$
-P(2)=(2-1)×2×2^1+(2-1)×4×2^0+5=4+4+5=13
-$$
-所以除以(x-1)时的商为<span class="arithmatex">\(2x^1+4\)</span>,余数为5。</p>
-<h3 id="_3">代码</h3>
-<ul>
-<li>霍纳法则</li>
-</ul>
-<pre><code class="language-c++">int honour_rule(vector&lt;double&gt; &amp;coefficient, double x, int n) {
-    double sum = coefficient[0];
-    for (int i = 1; i &lt;= n; ++i) {
-        sum = x * sum + coefficient[i];
-    }
-    return sum;
-}
+                <h1 id="mlpregressor">MLPRegressor 神经网络搭建</h1>
+<p>​    <strong>多层感知器(MLP)</strong>是一种监督学习算法，前馈人工神经网络模型，本质上是一个<em>全连接神经网络</em>。</p>
+<p>​   在输入样本后，样本在MLP在网络中逐层前馈（从输入层到隐藏层到输出层，逐层计算结果，即所谓前馈），得到最终输出值。</p>
+<pre><code class="language-python">#所用到的库
+import tensorflow as tf
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.neural_network import MLPRegressor
+from sklearn import preprocessing
+import pandas as pd
+import random
 </code></pre>
+<h5 id="1">1.数据准备</h5>
+<p><strong>随机</strong>测试数据100组，每组有7个自变量1个因变量，并保存到“all_data.csv”文件下。</p>
+<p><img alt="截屏2021-03-22 下午4.46.21" src="https://i.loli.net/2021/04/03/r7NP3QoI8msXySF.png" /></p>
+<p>读取数据文件：</p>
+<p><img alt="" src="https://i.loli.net/2021/04/03/ROhYZrfDVstlKad.png" /></p>
+<h5 id="2">2.描述性统计</h5>
+<p><img alt="截屏2021-03-22 下午4.39.36" src="https://i.loli.net/2021/04/03/Zod3AeT6P7bB8Vs.png" /></p>
+<h5 id="3">3.数据标准化与测试集训练集分割</h5>
+<p>随机划分80%的训练集（这里为80组数据）与20%的测试集（这里为20组）。</p>
+<p><img alt="" src="https://i.loli.net/2021/04/03/p9BsmPxH4oDGXJr.png" />划分后数据规模：</p>
+<p><img alt="" src="https://i.loli.net/2021/04/03/RaEPtdxcWHkpFNJ.png" /></p>
+<h5 id="4sklearnmlp">4.使用sklearn库搭建MLP神经网络</h5>
+<p>参照文献中神经网络的构建：</p>
 <ul>
-<li>余数定理</li>
+<li>输出层（一层）：共7个神经元；</li>
+<li>隐藏层（共两层）：第一层15个神经元，第二层共5个神经元；</li>
+<li>输出层（一层）：共1个神经元；</li>
 </ul>
-<pre><code class="language-c++">double polydiv(vector&lt;double&gt;&amp;p, int n, double a, vector&lt;double&gt;&amp;q)
-{
-    q[n] = p[0];
-    for(int i = n-1; i&gt;=0; i--)
-    {
-        q[i] = p[n-i] + a * q[i+1];
-    }
-    return q[0];
-}
-</code></pre>
-<ul>
-<li>main</li>
-</ul>
-<pre><code class="language-c++">int main() {
-    double x, result;
-    double a,r;
-    int n;
-    cout &lt;&lt; &quot;Enter n : &quot;;
-    cin &gt;&gt; n ;
-    vector&lt;double&gt; coefficients;
-    vector&lt;double&gt; q;
-
-    //随机生成多项式 
-    for (int i = 0; i &lt;= n; ++i) {
-        int current_num;
-        current_num=M;
-
-        coefficients.push_back(current_num);
-        q.push_back(current_num);
-    } 
-    //for (int i = 0; i != coefficients.size(); ++i) cout &lt;&lt; coefficients[i] &lt;&lt; &quot; &quot;;
-    //cout&lt;&lt;endl; 
-
-    cout&lt;&lt; &quot;P(x)=&quot;;
-    for (int i =0; i&lt;coefficients.size()-1 ; i++) 
-    {
-        if(coefficients[i]==0) continue;
-
-        cout &lt;&lt; coefficients[i];
-        if(n-i!=1) cout&lt;&lt; &quot;x^&quot;&lt;&lt;n-i&lt;&lt;&quot;+&quot;;
-        else cout&lt;&lt; &quot;x&quot;&lt;&lt;&quot;+&quot;;
-    }
-    cout &lt;&lt; coefficients[coefficients.size()-1]&lt;&lt;endl;
-
-    //计算x=a时多项式p（x）的值 
-    cout &lt;&lt; &quot;\nEnter a : &quot; ;
-    cin&gt;&gt;a;
-    result = honour_rule(coefficients, a, n);
-    cout &lt;&lt; &quot;P(1)=&quot; &lt;&lt; result &lt;&lt; endl;
-
-    //计算p（x）除以x-a的商和余数 
-    r=polydiv(coefficients,n,a,q);  
-    result = honour_rule(q, x, n-1);
-    //for (int i = 0; i != q.size(); ++i) cout &lt;&lt; q[i] &lt;&lt; &quot; &quot;;
-    cout &lt;&lt; &quot;Division of P(x) by x - &quot; &lt;&lt; a &lt;&lt; &quot;:\n&quot;;
-    cout &lt;&lt; &quot;\tquotient=&quot;;
-    for (int i = q.size()-1; i &gt;1 ; i--) 
-    {
-        if(q[i]==0) continue;
-        cout &lt;&lt; q[i];
-        if(i-1!=1) cout&lt;&lt; &quot;x^&quot;&lt;&lt;i-1&lt;&lt;&quot;+&quot;;
-        else cout&lt;&lt; &quot;x&quot;&lt;&lt;&quot;+&quot;;
-    }
-    cout &lt;&lt; q[1]&lt;&lt;endl;
-    cout&lt;&lt;&quot;\tremainder=&quot;&lt;&lt;r&lt;&lt;&quot;\n&quot;;  
-
-    return 0;
-}
-</code></pre>
-<ul>
-<li>完整代码</li>
-</ul>
-<pre><code class="language-c++">#include&lt;vector&gt;
-#include&lt;cstdio&gt;
-#include&lt;fstream&gt;
-#include&lt;iostream&gt;
-#include&lt;math.h&gt;
-#include&lt;stdio.h&gt;
-#include &lt;time.h&gt; 
-#include &lt;stdlib.h&gt;
-#include &lt;string&gt;
-
-#define random(a,b) (rand()%(b-a)+a)
-#define M random(0,10)//控制元素大小范围 
-
-using namespace std;
-
-int honour_rule(vector&lt;double&gt; &amp;coefficient, double x, int n) {
-    double sum = coefficient[0];
-    for (int i = 1; i &lt;= n; ++i) {
-        sum = x * sum + coefficient[i];
-    }
-    return sum;
-}
-
-double polydiv(vector&lt;double&gt;&amp;p, int n, double a, vector&lt;double&gt;&amp;q)
-{
-    q[n] = p[0];
-    for(int i = n-1; i&gt;=0; i--)
-    {
-        q[i] = p[n-i] + a * q[i+1];
-    }
-    return q[0];
-}
-
-
-int main() {
-
-    double x, result;
-    double a,r;
-    int n;
-    cout &lt;&lt; &quot;Enter n : &quot;;
-    cin &gt;&gt; n ;
-    vector&lt;double&gt; coefficients;
-    vector&lt;double&gt; q;
-
-    //随机生成多项式 
-    for (int i = 0; i &lt;= n; ++i) {
-        int current_num;
-        current_num=M;
-
-        coefficients.push_back(current_num);
-        q.push_back(current_num);
-    } 
-    //for (int i = 0; i != coefficients.size(); ++i) cout &lt;&lt; coefficients[i] &lt;&lt; &quot; &quot;;
-    //cout&lt;&lt;endl; 
-
-    cout&lt;&lt; &quot;P(x)=&quot;;
-    for (int i =0; i&lt;coefficients.size()-1 ; i++) 
-    {
-        if(coefficients[i]==0) continue;
-
-        cout &lt;&lt; coefficients[i];
-        if(n-i!=1) cout&lt;&lt; &quot;x^&quot;&lt;&lt;n-i&lt;&lt;&quot;+&quot;;
-        else cout&lt;&lt; &quot;x&quot;&lt;&lt;&quot;+&quot;;
-    }
-    cout &lt;&lt; coefficients[coefficients.size()-1]&lt;&lt;endl;
-
-    //计算x=a时多项式p（x）的值 
-    cout &lt;&lt; &quot;\nEnter a : &quot; ;
-    cin&gt;&gt;a;
-    result = honour_rule(coefficients, a, n);
-    cout &lt;&lt; &quot;P(1)=&quot; &lt;&lt; result &lt;&lt; endl;
-
-    //计算p（x）除以x-a的商和余数 
-    r=polydiv(coefficients,n,a,q);  
-    result = honour_rule(q, x, n-1);
-    //for (int i = 0; i != q.size(); ++i) cout &lt;&lt; q[i] &lt;&lt; &quot; &quot;;
-    cout &lt;&lt; &quot;Division of P(x) by x - &quot; &lt;&lt; a &lt;&lt; &quot;:\n&quot;;
-    cout &lt;&lt; &quot;\tquotient=&quot;;
-    for (int i = q.size()-1; i &gt;1 ; i--) 
-    {
-        if(q[i]==0) continue;
-        cout &lt;&lt; q[i];
-        if(i-1!=1) cout&lt;&lt; &quot;x^&quot;&lt;&lt;i-1&lt;&lt;&quot;+&quot;;
-        else cout&lt;&lt; &quot;x&quot;&lt;&lt;&quot;+&quot;;
-    }
-    cout &lt;&lt; q[1]&lt;&lt;endl;
-    cout&lt;&lt;&quot;\tremainder=&quot;&lt;&lt;r&lt;&lt;&quot;\n&quot;;  
-
-    return 0;
-}
-</code></pre>
-<p><strong>运行结果:</strong></p>
-<p><img alt="" src="https://i.loli.net/2021/02/23/xFZ7k2jrQz6bhCy.png" /></p>
+<p><img alt="" src="https://i.loli.net/2021/03/25/XBlStUC98T15kaP.png" /></p>
+<p>采用全链接构建神经网络，网络结构如下：</p>
+<p><img alt="" src="https://i.loli.net/2021/03/25/OIeWLbmr4VyRYpq.png" /></p>
+<p>采用MLPRegressor函数构建神经网络用于回归。</p>
+<p><img alt="" src="https://i.loli.net/2021/04/03/QFMaXdf8eGA63Eo.png" /></p>
+<h5 id="5">5.模型评分</h5>
+<p>对训练后模型进行回归结果评分，共计算4个指标（RMSE、MAE、MSE、R<sup>2</sup>)</p>
+<p><img alt="截屏2021-03-22 下午5.33.49" src="https://i.loli.net/2021/04/03/2zyhOxIHJWfXQ79.png" /></p>
+<p>（对测试集测试的指标效果比较差的原因应该是随机生成数据集的问题，之后还可以调参优化）</p>
+<h5 id="6">6.可视化部分（对测试集的可视化）</h5>
+<p><img alt="截屏2021-03-22 下午5.39.17" src="https://i.loli.net/2021/04/03/vjMWStK31kZomHb.png" /></p>
+<p><img alt="截屏2021-03-22 下午5.40.03" src="https://i.loli.net/2021/04/03/Yx1NLctXpnPIqf6.png" /></p>
+<h5 id="7">7.训练后神经网络连接权重</h5>
+<p><img alt="截屏2021-03-22 下午5.41.14" src="https://i.loli.net/2021/04/03/NHL6etwxKIUcrTb.png" /></p>
+<p><img alt="" src="https://i.loli.net/2021/04/03/DfQUcg9nyVAN3Wr.png" /></p>
                 
               
               
@@ -974,14 +797,28 @@ int main() {
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
+        <a href="../%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E2%80%94%E2%80%94%E5%9F%BA%E7%A1%80%E7%90%86%E8%AE%BA/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              神经网络——基本理论文档
+            </div>
+          </div>
+        </a>
       
-        <a href="../%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83%E6%B3%95/" class="md-footer__link md-footer__link--next" rel="next">
+      
+        <a href="../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E2%80%94%E2%80%94%E7%AC%AC%E4%B8%80%E7%AB%A0%20%E6%A6%82%E8%AE%BA/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              高斯消元法—求解线性方程组
+              数据结构——第一章 概论
             </div>
           </div>
           <div class="md-footer__button md-icon">
