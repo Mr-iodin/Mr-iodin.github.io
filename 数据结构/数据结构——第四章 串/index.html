@@ -1,0 +1,1356 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.0">
+    
+    
+      
+        <title>数据结构——第四章 串 - Mr.Iodin</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a3f8f96a.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.7fa14f5b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="indigo">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Mr.Iodin" class="md-header__button md-logo" aria-label="Mr.Iodin">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mr.Iodin
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              数据结构——第四章 串
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Mr.Iodin" class="md-nav__button md-logo" aria-label="Mr.Iodin">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Mr.Iodin
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" >
+      
+      <label class="md-nav__link" for="nav-1">
+        算法
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="算法" data-md-level="1">
+        <label class="md-nav__title" for="nav-1">
+          <span class="md-nav__icon md-icon"></span>
+          算法
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-1" type="checkbox" id="nav-1-1" >
+      
+      <label class="md-nav__link" for="nav-1-1">
+        STL库
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="STL库" data-md-level="2">
+        <label class="md-nav__title" for="nav-1-1">
+          <span class="md-nav__icon md-icon"></span>
+          STL库
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../STL%E5%BA%93/sort%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%92%E5%BA%8F/" class="md-nav__link">
+        sort自定义排序
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../STL%E5%BA%93/iterator%E4%B8%8Evector/" class="md-nav__link">
+        STL库—iterator与vector
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-2" type="checkbox" id="nav-1-2" >
+      
+      <label class="md-nav__link" for="nav-1-2">
+        数论
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="数论" data-md-level="2">
+        <label class="md-nav__title" for="nav-1-2">
+          <span class="md-nav__icon md-icon"></span>
+          数论
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%9C%8D%E7%BA%B3%E6%B3%95%E5%88%99/" class="md-nav__link">
+        多项式求值——霍纳法则(Horner's rule)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83%E6%B3%95/" class="md-nav__link">
+        高斯消元法—求解线性方程组
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-3" type="checkbox" id="nav-1-3" >
+      
+      <label class="md-nav__link" for="nav-1-3">
+        高级数据结构
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="高级数据结构" data-md-level="2">
+        <label class="md-nav__title" for="nav-1-3">
+          <span class="md-nav__icon md-icon"></span>
+          高级数据结构
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%8F%AF%E6%8C%81%E4%B9%85%E5%8C%96%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%80/" class="md-nav__link">
+        可持久化数据结构
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
+      
+      <label class="md-nav__link" for="nav-2">
+        数学建模
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="数学建模" data-md-level="1">
+        <label class="md-nav__title" for="nav-2">
+          <span class="md-nav__icon md-icon"></span>
+          数学建模
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" >
+      
+      <label class="md-nav__link" for="nav-2-1">
+        评价模型
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="评价模型" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-1">
+          <span class="md-nav__icon md-icon"></span>
+          评价模型
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/" class="md-nav__link">
+        层次分析法
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2" >
+      
+      <label class="md-nav__link" for="nav-2-2">
+        回归模型
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="回归模型" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-2">
+          <span class="md-nav__icon md-icon"></span>
+          回归模型
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" class="md-nav__link">
+        回归分析
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%9B%9E%E5%BD%92%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87/" class="md-nav__link">
+        回归评价指标
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
+      
+      <label class="md-nav__link" for="nav-3">
+        神经网络
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="神经网络" data-md-level="1">
+        <label class="md-nav__title" for="nav-3">
+          <span class="md-nav__icon md-icon"></span>
+          神经网络
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E2%80%94%E2%80%94%E5%9F%BA%E7%A1%80%E7%90%86%E8%AE%BA/" class="md-nav__link">
+        神经网络——基本理论文档
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MLPRegressor%20%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        MLPRegressor 神经网络搭建
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+      
+      <label class="md-nav__link" for="nav-4">
+        考研408
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="考研408" data-md-level="1">
+        <label class="md-nav__title" for="nav-4">
+          <span class="md-nav__icon md-icon"></span>
+          考研408
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1" checked>
+      
+      <label class="md-nav__link" for="nav-4-1">
+        数据结构
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="数据结构" data-md-level="2">
+        <label class="md-nav__title" for="nav-4-1">
+          <span class="md-nav__icon md-icon"></span>
+          数据结构
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E2%80%94%E2%80%94%E7%AC%AC%E4%B8%80%E7%AB%A0%20%E6%A6%82%E8%AE%BA/" class="md-nav__link">
+        数据结构——第一章 概论
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E2%80%94%E2%80%94%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E7%BA%BF%E6%80%A7%E8%A1%A8/" class="md-nav__link">
+        数据结构——第二章 线性表
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E2%80%94%E2%80%94%E7%AC%AC%E4%B8%89%E7%AB%A0%20%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/" class="md-nav__link">
+        数据结构——第三章 栈和队列
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          数据结构——第四章 串
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        数据结构——第四章 串
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1.串数据类型的定义
+  </a>
+  
+    <nav class="md-nav" aria-label="1.串数据类型的定义">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    1.串的定义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2.串的存储结构
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    2.串的基本操作
+  </a>
+  
+    <nav class="md-nav" aria-label="2.串的基本操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    1.赋值操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    2.取串长操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3.串的比较操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4.串的连接操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5.求字串操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6.串的清空操作
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    3.串的模式匹配算法
+  </a>
+  
+    <nav class="md-nav" aria-label="3.串的模式匹配算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_3" class="md-nav__link">
+    1.简单模式匹配算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2kmp" class="md-nav__link">
+    2.KMP算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3kmp" class="md-nav__link">
+    3.KMP算法改进
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1.串数据类型的定义
+  </a>
+  
+    <nav class="md-nav" aria-label="1.串数据类型的定义">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    1.串的定义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2.串的存储结构
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    2.串的基本操作
+  </a>
+  
+    <nav class="md-nav" aria-label="2.串的基本操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    1.赋值操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    2.取串长操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3.串的比较操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4.串的连接操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5.求字串操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6.串的清空操作
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    3.串的模式匹配算法
+  </a>
+  
+    <nav class="md-nav" aria-label="3.串的模式匹配算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_3" class="md-nav__link">
+    1.简单模式匹配算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2kmp" class="md-nav__link">
+    2.KMP算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3kmp" class="md-nav__link">
+    3.KMP算法改进
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="_1">数据结构——第四章 串</h1>
+<h3 id="1">1.串数据类型的定义</h3>
+<h5 id="1_1">1.串的定义</h5>
+<p>​   <strong>串上由零个或多个字符串组成的有限序列。</strong>串中的字符个数被称为串的长度，含零个元素的串被称为空串。</p>
+<p>​   串与数组关系：串通常用一个字符数组来表示。从这一角度来讲，数组str中存储的字符为'a'、'b'、'c'、'd'、'e'、'f'、'\0',其中，'\0'作为编译器识别串的结束标记。而串内字符为'a'、'b'、'c'、'd'、'e'、'f'。因此数组str长度为7，而串长度为6。</p>
+<p>​   <strong>子串</strong>：任意连续字符组成的子序列称为该串子串。</p>
+<p>​   <strong>主串</strong>：包含子串的串。</p>
+<p>​   某个字符在串中的序号称为这个字符的位置。通常第一个字符的位置作为子串在主串中的位置。</p>
+<p>​   空格也是串字符集合的一个元素，由一个或者多个空格组成的串称为空格串（<strong>空格串不是空串</strong>）。</p>
+<h5 id="2">2.串的存储结构</h5>
+<ul>
+<li>定长顺序存储</li>
+</ul>
+<p>​ 考虑到'\0'作为串结束标记在求串长的时候需要扫描整个串，时间复杂度为O(n);不如额外定义一个变量专门来存储串的长度，这样求串长就变成了时间复杂度为O(1)的操作。</p>
+<blockquote>
+<p>注：不同的参考书对于串的结构体定义有所不同。有的用'\0'作为结束标记；有的不用'\0',而是用额外定义的length变量来表示串长以及标记串的结束。</p>
+<p>本教程定义是在串尾加上结束符'\0'的同时，也设定length。</p>
+</blockquote>
+<p>​   定长顺序存储表示结构体定义如下：</p>
+<pre><code class="language-c++">typedef struct
+{
+  char str[maxSize+1];
+  /*maxSize表示串的最大长度；str数组长度定义为maxSize+1，是因为多出了一个'\0'作为结束标记*/
+  int length;
+}Str;
+</code></pre>
+<ul>
+<li>变长分配存储表示</li>
+</ul>
+<p>​ 变长分配存储表示（又叫动态分配存储表示）方法的特点是，在程序执行过程中需要动态分配。结构体定义如下</p>
+<pre><code class="language-c++">typedef struct{
+  char *ch; //指向动态分配存储区首地址字符串
+  int length;   //串长
+}Str;
+</code></pre>
+<p>​   这种存储方式在使用时，需要使用<code>malloc()</code>来分配长度为length、类型为char型的连续存储空间，分配后的空间由free()释放掉。用函数malloc()分配存储空间如果成功，则返回一个指向起始地址的指针，作为串的基地址，这个由ch指针来指向；分配失败则返回<code>NULL</code>。</p>
+<h3 id="2_1">2.串的基本操作</h3>
+<h5 id="1_2">1.赋值操作</h5>
+<p>​   将一个字符串赋值给str，赋值操作成功返回1，否则返回0；</p>
+<pre><code class="language-c++">int strassign(Str&amp; str,char* ch)
+{
+  if(str.ch)
+    free(str.ch);   //释放原串空间
+  int len=0;
+  char *c=ch;
+  while(*c) //求ch串的长度
+  {
+    ++len;
+    ++c;
+  }
+  if(len==0)//若为空串
+  {
+    str.ch=NULL;
+    str.length=0;
+    return 1;
+  }
+  else//不为空则使用循环逐一为串str赋值
+  {
+    str.ch=(char*)malloc(sizeof(char)*(len+1));
+    if(str.ch==NULL)
+      return 0;
+    else
+    {
+      c=ch;
+      for(int i=0;i&lt;=len;++i,++c)
+      /*循环中所用“&lt;=”,是为了将ch最后的'\0'复制到新串中作为结束标记*/
+      {
+        str.ch[i]=*c;
+      }
+      str.length=len;
+      return 1;
+    }
+  } 
+}
+</code></pre>
+<p>​   函数strassign()使用格式如下：</p>
+<pre><code class="language-c++">strassign(str,&quot;cur input&quot;);
+</code></pre>
+<p>​   此句执行后，str.ch的值为“cur input”，str.len的值为9。</p>
+<h5 id="2_2">2.取串长操作</h5>
+<p>直接使用str.length语句即可。统一称函数形式如下：</p>
+<pre><code class="language-c++">int strlength(Str str)
+{
+  return str.length;
+}
+</code></pre>
+<p>​   若在没有给出串长信息的情况下，求串长操作可以借鉴函数<code>stassign()</code>中求输入串长的代码来写。</p>
+<pre><code class="language-c++">  while(*c) //求ch串的长度
+  {
+    ++len;
+    ++c;
+  }
+</code></pre>
+<h5 id="3">3.串的比较操作</h5>
+<p>​   比较规则如下：设两串A和B中待比较的字符分别为a和b，如果a的ASCLl码小于b的ACSCII码，则返回A小于B的标记；如果a的ASCII码大于b的ASCII码，则返回A大于B标记；如果a的ASCII码等于b的ASCII码，则按照规则继续比较两串中下一对字符。</p>
+<pre><code class="language-c++">int strcompare(Str s1,Str s2)
+{
+  for(int i=0;i&lt;s1.length&amp;&amp;i&lt;s2.length;++i)
+    //优先比较ascii码，s1大返回正数，s2大返回负数
+    if(s1.ch[i]!=s2.ch[i])
+      return s1.ch[i]-s2.ch[i];
+  //比较ascii后再比较串长，s1大返回正数，s2大返回负数
+  return s1.length-s2.length;
+  //两串相等返回0
+}
+</code></pre>
+<h5 id="4">4.串的连接操作</h5>
+<p>​   将两个串的首位相接，合成一个新的字符串操作称为串的连接。</p>
+<pre><code class="language-c++">int concat(Str&amp;str,Str str1,Str str2)
+{
+  if(str.ch)
+  {
+    free(str.ch);//释放原串空间
+    str.ch=NULL;
+  }
+  str.ch=(char*)malloc(sizeof(char)*(str1.length+str2.length+1));
+  if(str.ch==NULL)
+    return 0;
+  int i=0;
+  while(i&lt;str1.length)
+  {
+    str.ch[i]=str1.ch[i];
+    ++i;
+  }
+  int j=0;
+  while(j&lt;=str2.length)
+  //注意，之所以用“&lt;=”是为了连同str2.ch最后的'\0'一起复制
+  {
+    str.ch[i+j]=str2.ch[j];
+    ++j;
+  }
+  str.length=str1.length+str2.length;
+  return 1;
+}
+</code></pre>
+<h5 id="5">5.求字串操作</h5>
+<p>​   求从给定串中某一位置开始到某一位置结束的串操作称为求字串操作(规定开始位置总是在结束位置之前)，如下面的代码实现了求str串中pos位置开始，长度为len的子串，子串由substr返回给用户。</p>
+<pre><code class="language-c++">int substring(Str&amp; substr,Str str,int pos,int len)
+{
+  if(pos&lt;0||pos&gt;str.length||len&lt;0||len&gt;str.length-pos)//检查输入是否合法
+    return 0;
+    if(substr.ch)//情况原空串
+  {
+    free(substr.ch);
+    substr.ch=NULL;
+  }
+  if(len==0)//若赋值的串为空
+  {
+    substr.ch=NULL;
+    substr.length=0;
+    return 1;
+  }
+  else
+  {
+        substr.ch=(char*)malloc(sizeof(char)*(len+1));
+    int i=pos;
+    int j=0;
+    while(i&lt;pos+len)
+    {
+      substr.ch[j]=str.ch[i];
+      ++i;
+        ++j;
+    }
+    substr.ch[j]='\0';
+    substr.length=len;
+    return 1;
+  }
+}
+</code></pre>
+<h5 id="6">6.串的清空操作</h5>
+<pre><code class="language-c++">int clearstring(Str&amp; str)
+{
+  if(str.ch)
+  {
+    free(str.ch);
+    str.ch=NULL;
+  }
+  str.length=0;
+  return 1;
+}
+</code></pre>
+<h3 id="3_1">3.串的模式匹配算法</h3>
+<h5 id="1_3">1.简单模式匹配算法</h5>
+<p>​   对于某一个串的某子串的定位操作称为串的<strong>模式匹配</strong>。其中待定为的子串称为<strong>模式串</strong>。</p>
+<p>​   <strong>基本思想</strong>：从主串的第一个位置开始，和模式串的第一个字符比较，如果相等，则继续逐一比较较后续字符；否则从第二个字符开始，重新用上一步的方法与模式串做比较，以此类推，直到比较完模式串中的所有字符。</p>
+<p>代码如下：</p>
+<pre><code class="language-c++">int index(Str str,Str substr)
+{
+  int i=1,j=1,k=i;//串从数组下标1位置开始存储，因此初值为1
+  while(i&lt;str.length&amp;&amp;j&lt;substr)
+    if(str.ch[i]==substr.ch[j])
+    {
+      ++i;
+      ++j;
+    }
+    else
+    {
+      j=1;
+      i=++k;
+    }
+  if(j&gt;substr.length)
+    return k;
+  else return 0;   
+}
+</code></pre>
+<p>​   展示了主串“ABABCABCACBAB”与模式串“ABCAC”的六趟匹配过程：</p>
+<p><img alt="" src="https://i.loli.net/2021/04/04/5fIBga2X9pk7blz.png" /></p>
+<h5 id="2kmp">2.KMP算法</h5>
+<p>这里不详细推倒整个过程（但并不意味着不用看），需要知道的是kmp算法简化了简单模式下匹配算法的回溯过程，而这一过程则是通过对模式串进行处理得到的。</p>
+<p>​   简单来说，在一般情况下：每当发生不匹配时，找出模式串中不匹配字符<span class="arithmatex">\(p_j\)</span>,取其之前的子串<span class="arithmatex">\(F=p_1p_2...p_{j-1}\)</span>,将模式串后移，使得F最先发生前部(<span class="arithmatex">\(F_L\)</span>)与后部(<span class="arithmatex">\(F_R\)</span>)相重合的位置，即为模式串应后移动目标位置。</p>
+<p>​   而j处发生不匹配时，j重新指向的位置恰好说F串中前后相重合子串长度+1（串<span class="arithmatex">\(F_L\)</span>或<span class="arithmatex">\(F_R\)</span>长度+1）。</p>
+<p>​   通常，我们定义一个<code>next[j]</code>数组，其中j取1～m，m为模式串的长度，表示模式串中第j个字符发生不匹配时，应从<code>next[j]</code>处字符开始重新与主串比较。</p>
+<p><strong>手工求解next数组：</strong></p>
+<p>存在两种特殊情况：</p>
+<p>​   (1)模式串中的第一个字符与主串i不匹配，应从下一个位置和模式串第一个字符继续比较；</p>
+<p>​   (2)当串F中不存在前后重合的部分时（不可将F自身视为和自身重合），则从主串中发生不匹配的字符与模式串第一个字符开始比较。</p>
+<p>​   以下表中模式串为例：</p>
+<p><img alt="" src="https://i.loli.net/2021/04/04/NWArgZTFGjBYhLE.png" /></p>
+<ul>
+<li>当j等于1时发生不匹配，属于第一种特殊情况。此时将next[1]赋值成0来表示这个特殊情况；</li>
+<li>当j等于2时发生不匹配，此时F为“A”，属于第(2)种特殊情况，即将next[2]赋值为1；</li>
+<li>当j等于3时发生不匹配，F为“AB”，属于第二种，将next[3]赋值为1；</li>
+<li>当j等于4时发生不匹配，F为”ABA“，前部子串”A“与后部子串”A“重合，长度为1，因此next[4]赋值为2（<span class="arithmatex">\(F_L\)</span>或<span class="arithmatex">\(F_R\)</span>长度+1）；</li>
+<li>当j等于5时发生不匹配，F为“ABAB”，前部“AB”与后部“AB”重合，长度为2，所以next[5]=3;</li>
+<li>当j等于6时发生不匹配，F为“ABABA”，前部“ABA”与后部“ABA”重合，长度为3，所以next[6]=4;</li>
+<li>当j等于7时发生不匹配，F为“ABABAB”，前部“ABAB”与后部“ABAB”重合，所以next[7]=5;</li>
+</ul>
+<p>最终得到next数组如下：</p>
+<p><img alt="" src="https://i.loli.net/2021/04/04/ifCJwWsSokdGBpx.png" /></p>
+<p><strong>高效求解next数组方法：</strong></p>
+<p>​   若next[j]的值已经求得，则next[j+1]的求值可以分为两种情况来分析：</p>
+<p>​   (1)若<span class="arithmatex">\(p_j\)</span>等于<span class="arithmatex">\(p_t\)</span>,显然next[j+1]=t+1,因为t为当前F最长相等前后缀长度(t为<span class="arithmatex">\(F_L\)</span>和<span class="arithmatex">\(F_R\)</span>长度)；</p>
+<p>​   (2)若<span class="arithmatex">\(p_j\)</span>不等于<span class="arithmatex">\(p_t\)</span>，将<span class="arithmatex">\(p_{j-t+1}p_{j-t+2}...p_{j}\)</span>当作主串，<span class="arithmatex">\(p_1p_2...p_t\)</span>当作子串，则又回到了由状态<span class="arithmatex">\(S_k\)</span>找<span class="arithmatex">\(S_{k+1}\)</span>的过程，所以只需将t赋值为next[t]，继续进行<span class="arithmatex">\(p_j\)</span>与<span class="arithmatex">\(p_t\)</span>的比较，如果满足(1),则求得next[j+1],不满足则重复t赋值给next[t]，并比较<span class="arithmatex">\(p_j\)</span>与<span class="arithmatex">\(p_t\)</span>过程。如果在这个过程中t出现等于0的情况，则应将next[j+1]赋值为1，</p>
+<pre><code class="language-c++">void getnext(Str substr,int next[])
+{
+  int i=1,j=0;
+  next[1]=0;//串数组下标1位置开始存储，因此i初值为1
+  while(i&lt;substr.length)
+  {
+    if(j==0||substr.ch[i]==substr.ch[j])
+      //判断条件①
+    {
+      ++i;
+      ++j;
+      next[i]=j;
+    }
+    else//判断条件②
+      j=next[j];
+  }
+}
+</code></pre>
+<p>通过下面这一模式串来理解代码：</p>
+<p><img alt="" src="/Users/suneann/Library/Application Support/typora-user-images/截屏2021-04-05 下午1.03.43.png" /></p>
+<ul>
+<li>初始状态下，i=0，substr.ch[i]等于模式串中第一个字符‘A’，j=0；</li>
+<li>由于j=0，所以首先进入第一个判断条件①，此时i=2，j=1，next[2]=1;</li>
+<li>i=2，substr.ch[i]指向第二个字符‘B’，j=1,substr.ch[j]指向第一个字符‘A’。由于substr.ch[i]!=substr.ch[j]，所以进入判断条件②，j=next[j]=next[1]=0；</li>
+<li>j=0,再进入判断条件①，i=3,j=1,next[3]=1;</li>
+<li>i=3，substr.ch[i]指向第三个字符‘A’，j=1,substr.ch[j]指向第一个字符‘A’。由于substr.ch[i]==substr.ch[j]，进入第一个判断条件后得到：i=4,j=2,next[4]=2;</li>
+<li>i=4，substr.ch[i]指向第四个字符‘B’,j=2,substr.ch[j]指向第二个字符‘B’。由于substr.ch[i]==substr.ch[j]，进入第一个判断条件后得到：i=5,j=3,next[5]=3;</li>
+<li>i=5，substr.ch[i]指向第五个字符‘A’,j=3,substr.ch[j]指向第三个字符‘A’。由于substr.ch[i]==substr.ch[j]，进入第一个判断条件后得到：i=6,j=4,next[6]=4;</li>
+<li>i=6，substr.ch[i]指向第六个字符‘A’,j=4,substr.ch[j]指向第四个字符'B'。由于substr.ch[i]!=substr.ch[j]，所以进入判断条件②，j=next[j]=next[4]=2；</li>
+<li>i=6，substr.ch[i]指向第六个字符‘A’,j=2,substr.ch[j]指向第二个字符‘B’。由于substr.ch[i]!=substr.ch[j]，所以进入判断条件②，j=next[j]=next[2]=1；</li>
+<li>i=6，substr.ch[i]指向第六个字符‘A’,j=1,substr.ch[j]指向第一个字符‘A’。由于substr.ch[i]==substr.ch[j]，进入第一个判断条件后得到：i=7,j=2,next[7]=2;</li>
+</ul>
+<p>​   在得到next数组后，将简单模式匹配算法稍作修改就可以得到由状态<span class="arithmatex">\(S_k\)</span>直接跳转到状态<span class="arithmatex">\(S_{k+1}\)</span>,代码如下：</p>
+<pre><code class="language-c++">int KMP(Str str,Str substr,int next[])
+{
+  int i=1,j=1;//串从数组下标1位置开始存储，因此初值为1；
+  while(i&lt;=str.length&amp;&amp;j&lt;=substr.length)
+  {
+    if(j==0||str.ch[i]==subsrt[j])
+    {
+      ++i;
+      ++j;
+    }
+    else
+      j=next[j];
+  }
+  if(j&gt;substr.length)
+    return i-substr.length;
+  else return 0;
+}
+</code></pre>
+<h5 id="3kmp">3.KMP算法改进</h5>
+<p><img alt="" src="https://i.loli.net/2021/04/05/S6xzedGNW5FBI1g.png" /></p>
+<p>​   观察上表情况。当j等于5时，发生不匹配，因为next[5]=4,则需要将j回溯到4上进行对比，又因为next[4]=3,则又需要将j回溯到3上进行对比...由此可见，j需要依次在5、4、3、2、1位置上进行比较，而模式串在1到5位置上字符完全相等，因此更聪明的做法是<strong>在j等于5处发生不匹配时，直接跳过1到4的多余位置比较</strong>，这就是kmp算法改进的切入点。</p>
+<p>将上诉过程推广至一般情况：</p>
+<p>​   若<span class="arithmatex">\(p_j\)</span>等于<span class="arithmatex">\(p_{k1}\)</span>(k1等于next[j]),则继续比较<span class="arithmatex">\(p_j\)</span>与<span class="arithmatex">\(p_{k2}\)</span>(k2等于next[next[j]]),若相等则继续比较下去，直到<span class="arithmatex">\(p_j\)</span>与<span class="arithmatex">\(p_{kn}\)</span>不等(kn等于next[...next[j]...],嵌套n个next）或kn等于0时，则next[j]重置为kn。一般保持next数组不变，而用名为nextval的数组来保存更新后的next数组，即当<span class="arithmatex">\(p_j\)</span>与<span class="arithmatex">\(p_{kn}\)</span>不等时，next[j]赋值为kn。</p>
+<p>【例】求模式串“ABABAAB”的next数组和nextval数组。</p>
+<p>首先求出next数组如下：</p>
+<p><img alt="" src="https://i.loli.net/2021/04/05/B4jWEmhPe2Zy6Ii.png" /></p>
+<p>接下来求nextval数组：</p>
+<ul>
+<li>
+<p>当j为1时，nextval[1]赋值为0，特殊情况标记。</p>
+</li>
+<li>
+<p>当j为2时，<span class="arithmatex">\(p_2\)</span>为B，$ p_{k1}<span class="arithmatex">\(（k1等于next[2],值为1）为A，两者相等，因此先判断k2是否为0，而\)</span>k_2$等于next[next[3]]，值为0，所以next[3]赋值为k2，值为0。</p>
+</li>
+<li>
+<p>当j为3时，<span class="arithmatex">\(p_3\)</span>为A，<span class="arithmatex">\(p_{k1}\)</span>(k1等于next[3]，值为1)为A，两者相等，因此先判断k2是否为0，而k2等于next[next[3]],值为0，所以nextval[3]赋值为k2，值为0；</p>
+</li>
+</ul>
+<blockquote>
+<p>根据这一步可以推广至一般情况：</p>
+<p>​   当<span class="arithmatex">\(p_j\)</span>等于<span class="arithmatex">\(p_{k1}\)</span>(k1等于next[j])时，只需让nextval[next[j]]即可，原因有两点：</p>
+<ul>
+<li>nextval数组时从下标1开始逐渐往后求得多，所以在求nextval[j]时，nextval[next[j]]必以求得；</li>
+<li>nextval[next[j]]为<span class="arithmatex">\(p_j\)</span>与<span class="arithmatex">\(p_{k2}\)</span>到<span class="arithmatex">\(p_{kn}\)</span>比较结果的记录，因此无需重复比较。</li>
+</ul>
+</blockquote>
+<ul>
+<li>
+<p>当j为4时，<span class="arithmatex">\(p_j\)</span>为B，$ p_{k}$（k等于next[4]）为B，两者相等，因此nextval[4]赋值为nextval[next[4]],值为1。</p>
+</li>
+<li>
+<p>当j为5时，<span class="arithmatex">\(p_j\)</span>为A，$ p_{k}$（k等于next[5]）为A，两者相等，因此nextval[5]赋值为nextval[next[5]],值为0。</p>
+</li>
+<li>
+<p>当j为6时，<span class="arithmatex">\(p_j\)</span>为A，$ p_{k}$（k等于next[5]）为B，两者不相等，因此nextval[6]赋值为next[6],值为4。</p>
+</li>
+<li>
+<p>当j为7时，<span class="arithmatex">\(p_j\)</span>为B，$ p_{k}$（k等于next[7]）为B，两者相等，因此nextval[7]赋值为nextval[next[7]],值为1。</p>
+</li>
+</ul>
+<p>最终求得的nextval如下表：</p>
+<p><img alt="" src="https://i.loli.net/2021/04/05/GcetM8X4vVqIx53.png" /></p>
+<p><strong>总结nextval一般求解步骤：</strong></p>
+<ul>
+<li>当j等于1时，nextval[j]赋值为0，作为特殊标记；</li>
+<li>当<span class="arithmatex">\(p_i\)</span>不等于<span class="arithmatex">\(p_k\)</span>时(k等于next[j]),nextval[j]赋值为k；</li>
+<li>当<span class="arithmatex">\(p_j\)</span>等于<span class="arithmatex">\(p_k\)</span>时(k等于next[j]),nextval[j]赋值为nextval[k];</li>
+</ul>
+<p>将getnext()代码进行修改：</p>
+<pre><code class="language-c++">void getnextval(Str substr,int nextval[])
+{
+  int =1,j=0;
+  nextval[1]=0;
+  while(i&lt;substr.length)
+  {
+    if(j==0||substr.ch[i]==substr.ch[j])
+    {
+      ++i;
+      ++j;
+      if(substr.ch[i]!=substr[j])
+        nextval[i]=j;
+      else
+        nextval[i]=next[j];
+    }
+    else
+      j=nextval[j];
+  }
+}
+</code></pre>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E2%80%94%E2%80%94%E7%AC%AC%E4%B8%89%E7%AB%A0%20%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              数据结构——第三章 栈和队列
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.217ffd95.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.926459b3.min.js"></script>
+      
+        <script src="../../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
