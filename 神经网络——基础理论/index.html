@@ -233,8 +233,32 @@
   
   
     <li class="md-nav__item">
-      <a href="../STL%E5%BA%93/iterator%E4%B8%8Evector/" class="md-nav__link">
-        STL库—iterator与vector
+      <a href="../STL%E5%BA%93/STL%E5%BA%93%E2%80%94iterator/" class="md-nav__link">
+        STL库—iterator
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../STL%E5%BA%93/STL%E5%BA%93%E2%80%94vector/" class="md-nav__link">
+        STL库—vector
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../STL%E5%BA%93/STL%E5%BA%93%E2%80%94map/" class="md-nav__link">
+        STL库—map
       </a>
     </li>
   
@@ -759,6 +783,18 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E2%80%94%E2%80%94%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E6%95%B0%E7%BB%84%E3%80%81%E7%9F%A9%E9%98%B5%E4%B8%8E%E5%B9%BF%E4%B9%89%E8%A1%A8/" class="md-nav__link">
+        数据结构——第五章 数组、矩阵与广义表
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -959,12 +995,12 @@
 $$
 X=W·I
 $$
-​       其中，<span class="arithmatex">\(W\)</span>是权值矩阵，<span class="arithmatex">\(I\)</span>是输入矩阵，<span class="arithmatex">\(X\)</span>是组合调节后的信号。</p>
+​       其中，$W$是权值矩阵，$I$是输入矩阵，$X$是组合调节后的信号。</p>
 <p>​       接着，将调节后的信号代入激活函数(这里用的是S函数)中：
 $$
 O = sigmoid ( X )
 $$
-​       <span class="arithmatex">\(O\)</span> 代表矩阵，这个矩阵包含了来自神经网络的最后一层中的所有输出。</p>
+​       $O$ 代表矩阵，这个矩阵包含了来自神经网络的最后一层中的所有输出。</p>
 <ul>
 <li>第3层节点是<strong>输出层</strong>。使用第2层的输出作为第3层的输入，再次进行矩阵乘法。当然，这个输出应该使用权重系数进行调节并进行组合。 </li>
 </ul>
@@ -1000,22 +1036,22 @@ $$
 <p>为来更具体说明反向传播，这里以一个具有2个输入节点和2个输出节点的简单网络为例。</p>
 <p><img src="https://i.loli.net/2021/04/03/ZKfCAUFEO24GX3q.png" style="zoom:50%;" /></p>
 <p>两个输出节点都有误差，所以在网络中，我们需要使用这两个误差值来告知如何调整内部链接权重。</p>
-<p>​   我们将第一个输出节点的误差标记为<span class="arithmatex">\(e_1\)</span> ,这个值等于由训练数据提供的所期望的输出值<span class="arithmatex">\(t_1\)</span> 与实际输出值<span class="arithmatex">\(o_1\)</span>之间的差。
+<p>​   我们将第一个输出节点的误差标记为$e_1$ ,这个值等于由训练数据提供的所期望的输出值$t_1$ 与实际输出值$o_1$之间的差。
 $$
 e_1=( t_1 -o_1 )
 $$
-​   同样，将第二个输出节点的误差标记为<span class="arithmatex">\(e_2\)</span>。</p>
-<p>​   然后，按照所连接链接的比例，也就是权重<span class="arithmatex">\(w _{1,1}\)</span> 和<span class="arithmatex">\(w _{2,1}\)</span>，我们对误差<span class="arithmatex">\(e_1\)</span>进行了分割。类似地，我们按照权重<span class="arithmatex">\(w _{1,2}\)</span>  和<span class="arithmatex">\(w _{2,2}\)</span>  的比例分割了<span class="arithmatex">\(e_2\)</span> 。</p>
+​   同样，将第二个输出节点的误差标记为$e_2$。</p>
+<p>​   然后，按照所连接链接的比例，也就是权重$w <em>{1,1}$ 和$w </em>{2,1}$，我们对误差$e_1$进行了分割。类似地，我们按照权重$w <em>{1,2}$  和$w </em>{2,2}$  的比例分割了$e_2$ 。</p>
 <p><img src="https://i.loli.net/2021/04/03/1kFDVSJdATpwYEi.png" alt="截屏2021-03-21 下午4.22.08" style="zoom:50%;" /></p>
 <p>​   也就是误差e1 要分割更大的值给较大的权重，分割较小的值给较小的权重。</p>
 <p>在明确了如何使用误差来指导在网络内部调整链接权重的原理后，我们还要考虑如何将这样的反向传播误差到更多层中 。</p>
 <p>​   接着以一个3层的简单神经网络为例。</p>
 <p><img src="https://i.loli.net/2021/04/03/4oHjMnrFg1iauO8.png" style="zoom:50%;" /></p>
-<p>​   从右手边的最终输出层开始，往回工作，我们可以看到，我们使用在输出层的误差值引导调整馈送到最终层的链接权重。更一般地，我们将输出误差标记为<span class="arithmatex">\(e_{output}\)</span> ，将在输出层和隐藏层之间的链接权重标记为<span class="arithmatex">\(w_{ho}\)</span> 。通过将误差值按权重的比例进行分割，我们计算出与每条链接相关的特定误差值。</p>
-<p>​   对于额外的新层所需要做的事情，则继续采用与隐藏层节点相关联的这些误差<span class="arithmatex">\(e_{hidden}\)</span> ，再次将这些误差按照输入层和隐藏层之间的链接权重<span class="arithmatex">\(w_{ih}\)</span> 进行分割。</p>
+<p>​   从右手边的最终输出层开始，往回工作，我们可以看到，我们使用在输出层的误差值引导调整馈送到最终层的链接权重。更一般地，我们将输出误差标记为$e_{output}$ ，将在输出层和隐藏层之间的链接权重标记为$w_{ho}$ 。通过将误差值按权重的比例进行分割，我们计算出与每条链接相关的特定误差值。</p>
+<p>​   对于额外的新层所需要做的事情，则继续采用与隐藏层节点相关联的这些误差$e_{hidden}$ ，再次将这些误差按照输入层和隐藏层之间的链接权重$w_{ih}$ 进行分割。</p>
 <p><img src="/Users/suneann/Library/Application Support/typora-user-images/截屏2021-03-21 下午4.33.36.png" style="zoom:50%;" /></p>
 <p>​   如果神经网络具有多个层，那么我们就从最终输出层往回工作，对每一层重复应用相同的思路。</p>
-<p>当然，这样的工作结构也带来率额外的问题，对 于隐藏层节点<span class="arithmatex">\(e_{hidden}\)</span> ，该如何使用什么误差呢？</p>
+<p>当然，这样的工作结构也带来率额外的问题，对 于隐藏层节点$e_{hidden}$ ，该如何使用什么误差呢？</p>
 <p>​   对于隐藏层的节点来说，我们没有目标值或所希望的输出值，我们只有最终输出层节点的目标值，这个目标值来自于训练样本数据。</p>
 <p>​   所以，我们可以换种思路考虑这个问题，隐藏层第一个节点具有两个链接，这两个链接将这个节点连接到两个输出层节点。我们知道，沿着各个链接可以分割输出误差。这意味着，对于中间层节点的每个链接，我们得到了某种误差值。</p>
 <p><img src="https://i.loli.net/2021/04/03/8hO54Bq1vTmAeZy.png" alt="截屏2021-03-21 下午4.40.21" style="zoom:50%;" /></p>
@@ -1046,7 +1082,7 @@ $$
 <p><img src="https://i.loli.net/2021/04/03/TSKZ16NYXOvinmD.png" alt="截屏2021-03-21 下午5.24.25" style="zoom:50%;" /></p>
 <p>如果使用梯度学习新的权重，一个平坦的激活函数会出带来很大问题。</p>
 <p>​   回头仔细观察关于权重变化的表达式。权重的改变取决于激活函数的梯度。小梯度意味着限制神经网络学习的能力。这就是所谓的饱和神经网络。这意味着，我们应该<strong>尽量保持小的输入</strong>。 </p>
-<p>​   一个好的建议是重新调整输入值，将其范围控制在0.0到1.0。当然，输入0会将<span class="arithmatex">\(o_j\)</span> 设置为0，这样权重更新表达式就会等于0，从而造成学习能力的丧失，因此在某些情况下，我们会将此输入加上一个小小的偏移，如0.01，避免输入0带来麻烦。 </p>
+<p>​   一个好的建议是重新调整输入值，将其范围控制在0.0到1.0。当然，输入0会将$o_j$ 设置为0，这样权重更新表达式就会等于0，从而造成学习能力的丧失，因此在某些情况下，我们会将此输入加上一个小小的偏移，如0.01，避免输入0带来麻烦。 </p>
 <h5 id="22">2.2 输出数据</h5>
 <p>​   神经网络的输出是最后一层节点弹出的信号。如果我们使用的激活函数不能生成大于1的值，那么尝试将训练目标值设置为比较大的值就有点愚蠢了（逻辑函数不能取到1.0，只能接近1.0）。</p>
 <p><img src="https://i.loli.net/2021/04/03/eWtkSyhVRu9fDrY.png" style="zoom:45%;" /></p>

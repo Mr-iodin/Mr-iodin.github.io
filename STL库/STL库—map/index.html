@@ -14,7 +14,7 @@
     
     
       
-        <title>STL库—iterator与vector - Mr.Iodin</title>
+        <title>STL库—map - Mr.Iodin</title>
       
     
     
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#stliteratorvector" class="md-skip">
+        <a href="#stlmap" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              STL库—iterator与vector
+              STL库—map
             
           </span>
         </div>
@@ -235,6 +235,30 @@
             
   
   
+  
+    <li class="md-nav__item">
+      <a href="../STL%E5%BA%93%E2%80%94iterator/" class="md-nav__link">
+        STL库—iterator
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../STL%E5%BA%93%E2%80%94vector/" class="md-nav__link">
+        STL库—vector
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
     
   
   
@@ -246,12 +270,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          STL库—iterator与vector
+          STL库—map
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        STL库—iterator与vector
+        STL库—map
       </a>
       
         
@@ -268,51 +292,78 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1stl" class="md-nav__link">
-    1.STL库
+  <a href="#1map" class="md-nav__link">
+    1.map
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2iterator" class="md-nav__link">
-    2.iterator的基本操作
+  <a href="#2map" class="md-nav__link">
+    2.map基本操作
   </a>
   
-    <nav class="md-nav" aria-label="2.iterator的基本操作">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3map" class="md-nav__link">
+    3.map的基本操作函数
+  </a>
+  
+    <nav class="md-nav" aria-label="3.map的基本操作函数">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    1.迭代器的声明
+  <a href="#1map_1" class="md-nav__link">
+    1.遍历map
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2beginend" class="md-nav__link">
-    2.begin和end操作
+  <a href="#2find" class="md-nav__link">
+    2.find()查找
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3count" class="md-nav__link">
+    3.count()判断数据是否存在
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4map" class="md-nav__link">
+    4.map在题目中的应用
+  </a>
+  
+    <nav class="md-nav" aria-label="4.map在题目中的应用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1.去重
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2key" class="md-nav__link">
+    2.排序(按照key排序问题)
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#3" class="md-nav__link">
-    3.使用迭代器遍历容器
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4iterator" class="md-nav__link">
-    4.iterator其他操作
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
-    5.实例
+    3.计数
   </a>
   
 </li>
@@ -323,50 +374,16 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3vector" class="md-nav__link">
-    3.vector的基本操作
-  </a>
-  
-    <nav class="md-nav" aria-label="3.vector的基本操作">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1vector" class="md-nav__link">
-    1.vector简介
+  <a href="#5map" class="md-nav__link">
+    5.适用于map的题型
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    2.声明与初始化
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6.实例
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3vector_1" class="md-nav__link">
-    3.vector的基本操作
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4vector" class="md-nav__link">
-    4.选用vector的情况
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5_1" class="md-nav__link">
-    5.实例
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -755,6 +772,18 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E2%80%94%E2%80%94%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E6%95%B0%E7%BB%84%E3%80%81%E7%9F%A9%E9%98%B5%E4%B8%8E%E5%B9%BF%E4%B9%89%E8%A1%A8/" class="md-nav__link">
+        数据结构——第五章 数组、矩阵与广义表
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -792,51 +821,78 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1stl" class="md-nav__link">
-    1.STL库
+  <a href="#1map" class="md-nav__link">
+    1.map
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2iterator" class="md-nav__link">
-    2.iterator的基本操作
+  <a href="#2map" class="md-nav__link">
+    2.map基本操作
   </a>
   
-    <nav class="md-nav" aria-label="2.iterator的基本操作">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3map" class="md-nav__link">
+    3.map的基本操作函数
+  </a>
+  
+    <nav class="md-nav" aria-label="3.map的基本操作函数">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    1.迭代器的声明
+  <a href="#1map_1" class="md-nav__link">
+    1.遍历map
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2beginend" class="md-nav__link">
-    2.begin和end操作
+  <a href="#2find" class="md-nav__link">
+    2.find()查找
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3count" class="md-nav__link">
+    3.count()判断数据是否存在
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4map" class="md-nav__link">
+    4.map在题目中的应用
+  </a>
+  
+    <nav class="md-nav" aria-label="4.map在题目中的应用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1.去重
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2key" class="md-nav__link">
+    2.排序(按照key排序问题)
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#3" class="md-nav__link">
-    3.使用迭代器遍历容器
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4iterator" class="md-nav__link">
-    4.iterator其他操作
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
-    5.实例
+    3.计数
   </a>
   
 </li>
@@ -847,50 +903,16 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3vector" class="md-nav__link">
-    3.vector的基本操作
-  </a>
-  
-    <nav class="md-nav" aria-label="3.vector的基本操作">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1vector" class="md-nav__link">
-    1.vector简介
+  <a href="#5map" class="md-nav__link">
+    5.适用于map的题型
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    2.声明与初始化
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6.实例
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3vector_1" class="md-nav__link">
-    3.vector的基本操作
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4vector" class="md-nav__link">
-    4.选用vector的情况
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5_1" class="md-nav__link">
-    5.实例
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -907,215 +929,453 @@
               
                 
                 
-                <h1 id="stliteratorvector">STL库—iterator与vector</h1>
-<h3 id="1stl">1.STL库</h3>
-<p>​   STL库中，大体可以分为容器(顺序容器、关系容器)、迭代器、算法三大类。</p>
-<p>​   iterator可以看作是STL容器的指针，可以更为方便地访问容器中的元素。</p>
-<h3 id="2iterator">2.iterator的基本操作</h3>
-<h5 id="1">1.迭代器的声明</h5>
-<p>每个标准库容器都定义了一个名为iterator的成员，所以声明迭代器的时候要用
-$$
-容器名：：iterator\quad  变量名
-$$
-这种形式来定义迭代器，如：</p>
-<pre><code class="language-c++">vector&lt;int&gt;::iterator iter;
-</code></pre>
-<p>这句语句声明来一个名为iter的变量，它的数据类型是由<code>vector&lt;int&gt;</code>定义的<code>iterator</code>类型。</p>
-<h5 id="2beginend">2.begin和end操作</h5>
-<p>​   每种容器都定义了一对名为begin和end的函数，用于返回迭代器。如果容器中有元素的话，由begin返回指向第一个元素的迭代器。</p>
-<pre><code class="language-c++">vector&lt;int&gt;::iterator iter=ivec.begin();
-</code></pre>
-<p>​   上述语句把迭代器iter初始化为名为begin的vector操作的返回值。如果vector非空，初始化后，iter即指该元素为ivec[0]。</p>
-<p>​   由end操作返回的一个指向vector的末端的元素的下一个迭代器。称为“超出末端迭代器”，表明它指向了一个不存在的元素。如果vector为空，begin返回的迭代器与end返回的迭代器相同。</p>
-<h5 id="3">3.使用迭代器遍历容器</h5>
-<pre><code class="language-c++">for(iter=容器.begin();iter!=容器.end();iter++)
-{
-  cout&lt;&lt;*iter&lt;&lt;'';
-}
-</code></pre>
-<p>注：在关系容器（例如map）中，初始化iter为m.begin(),这时候如果输出*iter则会报错。因为此时map内部存储的是多个pair，此时的*iter指向的将会是map里第一个pair。</p>
-<p><code>(*it).first</code> 会得到key，<code>(*it).second</code>会得到value。这等同于<code>it-&gt;first</code>和<code>it-&gt;second</code>。一般用<code>-&gt;</code>来访问关联容器中的元素。</p>
-<h5 id="4iterator">4.iterator其他操作</h5>
+                <h1 id="stlmap">STL库—map</h1>
+<h3 id="1map">1.map</h3>
+<p><strong>map简介：</strong></p>
 <ul>
-<li>iter+n :迭代器指向原来+n个位置元素；</li>
-<li>iter1==iter2 :如果两迭代器指向位置相同，返回true；</li>
-<li>iter1=iter2 ：将iter2指向的位置赋值给iter1；</li>
-<li>Iter1-iter2 ：返回iter1和iter2在容器内位置的差值；</li>
+<li>map是STL库中的一个关联式容器，可以建立key(first)和value(second)一对一联系，由key映射到value；</li>
+<li>map内部自建了一颗红黑树，可以对数据进行自动排序，所以map里的数据都是有序的，这也是我们通过map来简化代码的原因；</li>
+<li>使用map声明头文件：<code>#include &lt;map&gt;</code></li>
 </ul>
-<h5 id="5">5.实例</h5>
-<p>iterater二分查找：</p>
-<pre><code class="language-c++">//
-//  main.cpp
-//  iterator
-//
-//  Created by suneann on 2021/4/3.
-//
+<p><strong>map特点：</strong></p>
+<ul>
+<li>自动建立<code>key-value</code>的对应关系，key和value可以是你需要的任何类型；</li>
+<li>快速查找、删除记录，根据key值查找的复杂度很低；</li>
+<li>key和value一一对应关系可以去重；</li>
+</ul>
+<h3 id="2map">2.map基本操作</h3>
+<ul>
+<li>构造map</li>
+</ul>
+<pre><code class="language-c++">map&lt;int,string&gt; map_student;
+//定义了一个由int映射到string的map，并命名为map_student
+</code></pre>
+<p>这里的first和second的数据类型可以是任意数据类型，包括自定义数据类型。</p>
+<ul>
+<li>向map中插入数据</li>
+</ul>
+<p>方法一：把map用数组方式插入数据</p>
+<pre><code class="language-c++">#include &lt;map&gt;
 #include &lt;iostream&gt;
-using namespace std;
-#include &lt;iterator&gt;
-#include &lt;vector&gt;
-
-int main()
-{
-  vector &lt;int&gt; v;
-  v.push_back(2);
-  v.push_back(5);
-  v.push_back(20);
-  int temp = 0;
-  cin&gt;&gt;temp;
-  sort(v.begin(),v.end());//使用排列函数对容器vector中元素进行排序
-
-  vector&lt;int&gt;::iterator beg=v.begin();
-  vector&lt;int&gt;::iterator end=v.end();
-  vector&lt;int&gt;::iterator mid=v.begin()+(end-beg)/2;
-
-  while(mid!=end&amp;&amp;*mid!=temp)
-  {
-    if(temp&lt;*mid)
-      end=mid;
-    else
-      beg=mid+1;
-
-    mid=beg+(end-beg)/2;
-  }
-
-  if(*mid==temp)
-    cout&lt;&lt;&quot;find&quot;&lt;&lt;endl;
-  else
-    cout&lt;&lt;&quot;not fins&quot;&lt;&lt;endl;
-
-  return 0;
-}
-</code></pre>
-<h3 id="3vector">3.vector的基本操作</h3>
-<h5 id="1vector">1.vector简介</h5>
-<ul>
-<li>vector是表示可变大小的数组的序列容器。vector采用连续存储空间来存储元素。可以用数组下标来访问vector元素；</li>
-<li>刚开始vector会自动分配一段连续存储空间，在存储空间的元素超过了预配空间时，vector会重新配置空间，元素移动，释放旧内存空间，从而达到动态存储的效果；</li>
-<li>vector可以高效的访问元素、在末尾添加和删除元素。但vector对元素操作的复杂度上是根据到末尾距离成正比。</li>
-</ul>
-<h5 id="2">2.声明与初始化</h5>
-<pre><code class="language-c++">vector&lt;int&gt; ivec;   //声明一个int型的空向量
-vector&lt;int&gt; ivec(5);    //声明一个大小为5的int向量
-vector&lt;int&gt; ivec(10,1); //声明一个大小为10，且值都为1的向量
-vector&lt;int&gt; ivec(tmp);  //声明并且用tmp向量初始化ivec向量
-vector&lt;int&gt; ivec(tmp.begin(),tmp.begin()+3);    //用向量tmp的第0个到第2个值初始化ivec
-
-//注意点是，vector不能像数组一样用   {}来初始化
-int arr[5]={1,2,3,4,5};
-vector&lt;int&gt; ivec(arr,arr+5);//将数组arr元素用于初始化vec向量
-//这里的初始化不包括arr[4]的元素，括号内的第二个变量表示地是ivec.end(),末尾迭代器都是指结束元素的下一个元素
-
-vector&lt;int&gt; vec(&amp;arr[2],&amp;arr[4]);//将arr[2]~arr[4]范围内的元素作为vec的初始值。
-vector&lt;vector&lt;int&gt;&gt; Array;//类似于二维数组
-</code></pre>
-<h5 id="3vector_1">3.vector的基本操作</h5>
-<ul>
-<li>
-<p>末尾添加元素：vec.push_back();   //括号内的值为要添加的元素</p>
-</li>
-<li>
-<p>尾部删除元素：vec.pop_back();</p>
-</li>
-<li>
-<p>向量大小：vec.size();    //返回int值，向量内元素个数</p>
-</li>
-<li>
-<p>向量判空：vec.empty();    //返回0或1</p>
-</li>
-<li>
-<p>插入元素：vec.insert(pos,elem);    //在pos插入一个elem元素的拷贝，返回新数据的位置。</p>
-</li>
-<li>
-<p>vec.insert(pos, beg,end); //在pos位置插入[beg,end)区间的数据，无返回值；</p>
-</li>
-<li>
-<p>reserve(pos1,pos2); 将vector中的pos1～pos2元素逆序存储；</p>
-</li>
-<li>
-<p>vec.clear()；//清空vector</p>
-</li>
-</ul>
-<p>注：如果要求多组输出的情况，一定要在输出后加上clear，否则原来的数据会保留在vector中。</p>
-<h5 id="4vector">4.选用vector的情况</h5>
-<ul>
-<li>
-<p>在需要使用数组的情况下，可以考虑用vector；</p>
-</li>
-<li>
-<p>有丰富的操作（例如反转）；</p>
-</li>
-<li>无需考虑容器大小和数组越界之类的错位</li>
-</ul>
-<h5 id="5_1">5.实例</h5>
-<p>【斐波拉切数列】</p>
-<pre><code class="language-c++">#include &lt;iostream&gt;
-#include &lt;vector&gt;
-using namespace std;
-int main()
-{
-  vector &lt;unsigned long long&gt; v;
-  unsigned int n;
-  v.push_back(0);
-  v.push_back(1);
-  for(int i=2;i&lt;50;i++)
-  {
-    v.push_back(v[i-1]+v[i-2]);
-  }
-  while(cin&gt;&gt;n)
-  {
-    cout&lt;&lt;v[n]&lt;&lt;endl;
-  }
-  return 0;
-}
-</code></pre>
-<p>【判断是否存在回文串】</p>
-<p>有些字符串是对称的，有些不是对称的，请将那些对称的字符串从小到大输出，字符串先以长度论大小，如果字符串相等，再以Ascll码值为排序标准；</p>
-<ul>
-<li>输入描述：输入一个n，表示接下来有n组字符串，串长&lt;=256;n&lt;=1000;</li>
-<li>输出描述：根据每个字符串，输出对称的那些串，并且要按从小到大的顺序输出；</li>
-</ul>
-<pre><code class="language-c++">#include &lt;iostream&gt;
-#include &lt;vector&gt;
 #include &lt;string&gt;
-#include &lt;algorithm&gt;
 
 using namespace std;
-
-bool cmp(const string &amp;s1,const string &amp;s2)
-{
-    return s1.length()!=s2.length()?s1.length()&lt;s2.length():s1&lt;s2;
-}
 int main()
 {
-  int n;
-  string w,t;
-  cin&gt;&gt;n;
-  vector&lt;string&gt; huiw1,v;
+  map&lt;int,string&gt; map_student;
+  map_student[1]=&quot;student1&quot;;
+  map_student[2]=&quot;student2&quot;;
+  map_student[1]=&quot;student1_1&quot;;
 
-  for(int i=0;i&lt;n;i++)
+  map&lt;int,string&gt;::iterator iter;
+  for(iter=map_student.begin();iter!=map_student.end();iter++)
   {
-      if(cin&gt;&gt;w)
-        huiw1.push_back(w);
+    cout&lt;&lt;iter-&gt;first&lt;&lt;&quot;\t&quot;&lt;&lt;iter-&gt;second&lt;&lt;endl;
   }
-  vector&lt;string&gt;::iterator iter;
-  for (iter=huiw1.begin(); iter!=huiw1.end();iter++)
-    {
-      t=*iter;
-      reverse(t.begin(),t.end());
-      if(t==*iter)
-      {
-          v.push_back(*iter);
-      }
-  }
-    sort(v.begin(),v.end(),cmp);
-    for(iter=v.begin();iter!=v.end();iter++)
-    {
-        cout&lt;&lt;*iter&lt;&lt;endl;
-    }
   return 0;
 }
 
+/*
+output:
+
+1   student1_1
+2   student2
+Program ended with exit code: 0
+
+*/
+
+</code></pre>
+<p>​   方法二：用insert()插入数据（两种方法等价）</p>
+<p>​       (1)<code>insert(map&lt;int,string&gt;::value_type(1,"student1"));</code></p>
+<p>​       (2)<code>insert(make_pair(1,"student1"));</code></p>
+<p>​       与方法一不同的是，<code>insert()</code>函数体现了映射的一一对应这一特性，即当map中有这个key时，就不能用insert插入这个数据了，但用方法一是可以覆盖原数据的。</p>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;map&gt;
+#include &lt;string&gt;
+using namespace std;
+int main()
+{
+  map&lt;int,string&gt;map_student;
+  map_student.insert(map&lt;int,string&gt;::value_type(1,&quot;student1&quot;));
+  map_student.insert(make_pair(1,&quot;student2&quot;));
+  map_student.insert(make_pair(2,&quot;student2&quot;));
+  map_student.insert(make_pair(3,&quot;student3&quot;));
+
+  map&lt;int,string&gt;::iterator iter;
+  for(iter=map_student.begin();iter!=map_student.end();iter++)
+  {
+    cout&lt;&lt;iter-&gt;first&lt;&lt;&quot;\t&quot;&lt;&lt;iter-&gt;second&lt;&lt;endl;
+  }
+  return 0;
+}
+
+/*
+output:
+
+1   student1
+2   student2
+3   student3
+Program ended with exit code: 0
+*/
+</code></pre>
+<h3 id="3map">3.map的基本操作函数</h3>
+<ul>
+<li><code>begin()</code>:返回指向map首部的迭代器；</li>
+<li><code>end()</code>:返回指向map尾部的迭代器；</li>
+<li><code>empty()</code>:如果map为空就返回true，反之返回false；</li>
+<li><code>find(n)</code>:返回指向元素n的迭代器；</li>
+<li><code>count()</code>:统计n的出现次数（0或1）；</li>
+<li><code>size()</code>：返回map中元素个数；</li>
+</ul>
+<h5 id="1map_1">1.遍历map</h5>
+<ul>
+<li>使用<code>begin()</code>和<code>end()</code></li>
+</ul>
+<pre><code class="language-c++">include &lt;iostream&gt;
+#include &lt;map&gt;
+#include &lt;string&gt;
+using namespace std;
+int main()
+{
+  map&lt;int,string&gt;map_student;
+  map_student.insert(map&lt;int,string&gt;::value_type(1,&quot;student1&quot;));
+  map_student.insert(make_pair(1,&quot;student2&quot;));
+  map_student.insert(make_pair(2,&quot;student2&quot;));
+  map_student.insert(make_pair(3,&quot;student3&quot;));
+
+  map&lt;int,string&gt;::iterator iter;
+  for(iter=map_student.begin();iter!=map_student.end();iter++)
+  {
+    cout&lt;&lt;iter-&gt;first&lt;&lt;&quot;\t&quot;&lt;&lt;iter-&gt;second&lt;&lt;endl;
+  }
+  return 0;
+}
+</code></pre>
+<ul>
+<li>使用类似于数组的方法</li>
+</ul>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;map&gt;
+#include &lt;string&gt;
+using namespace std;
+int main()
+{
+  map&lt;int,string&gt;map_student;
+  map_student.insert(map&lt;int,string&gt;::value_type(1,&quot;student1&quot;));
+  map_student.insert(make_pair(1,&quot;student2&quot;));
+  map_student.insert(make_pair(2,&quot;student2&quot;));
+  map_student.insert(make_pair(3,&quot;student3&quot;));
+
+  for(int i=1;i&lt;=map_student.size();i++)
+   //map_student是从0开始的
+  {
+    cout&lt;&lt;i&lt;&lt;&quot;\t&quot;&lt;&lt;map_student[i]&lt;&lt;endl;
+  }
+  return 0;
+}
+</code></pre>
+<h5 id="2find">2.find()查找</h5>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;map&gt;
+
+using namespace std;
+int main()
+{
+  map&lt;char,int&gt; my_map;
+  map&lt;char,int&gt;::iterator iter;
+
+  my_map['a']=50;
+  my_map['b']=100;
+  my_map['c']=150;
+  my_map['d']=200;
+
+  cout&lt;&lt;'a'&lt;&lt;&quot;\t&quot;&lt;&lt;my_map.find('a')-&gt;second&lt;&lt;endl;
+  cout&lt;&lt;'b'&lt;&lt;&quot;\t&quot;&lt;&lt;my_map.find('b')-&gt;second&lt;&lt;endl;
+  cout&lt;&lt;'c'&lt;&lt;&quot;\t&quot;&lt;&lt;my_map.find('c')-&gt;second&lt;&lt;endl;
+  cout&lt;&lt;'d'&lt;&lt;&quot;\t&quot;&lt;&lt;my_map.find('d')-&gt;second&lt;&lt;endl;
+  cout&lt;&lt;'e'&lt;&lt;&quot;\t&quot;&lt;&lt;my_map.find('e')-&gt;second&lt;&lt;endl;
+  cout&lt;&lt;&quot;end&quot;&lt;&lt;&quot;\t&quot;&lt;&lt;my_map.end()-&gt;second&lt;&lt;endl;
+  return 0;
+}
+
+/*
+output:
+
+a   50
+b   100
+c   150
+d   200
+e   1746820297
+end 1746820297
+
+*/
+</code></pre>
+<p>用<code>find函数</code>来定位数据出现位置它返回的一个迭代器；</p>
+<p>当数据出现时，它返回数据所在位置的迭代器；</p>
+<p>如果map中没有要查找的数据，它返回的迭代器等于<code>end()</code>函数返回的迭代器；</p>
+<h5 id="3count">3.count()判断数据是否存在</h5>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;map&gt;
+using namespace std;
+
+int main()
+{
+  map&lt;int,string&gt; map_student;
+  map_student[1]=&quot;student1&quot;;
+  map_student[2]=&quot;student2&quot;;
+  map_student[1]=&quot;student3&quot;;
+
+  if(map_student.find(4)==map_student.end())
+    cout&lt;&lt;&quot;没有4这个数据&quot;&lt;&lt;endl;
+
+  map_student.insert(make_pair(4,&quot;student4&quot;));
+
+  if(map_student.find(4)==map_student.end())
+    cout&lt;&lt;&quot;没有4这个数据&quot;&lt;&lt;endl;
+  else
+    cout&lt;&lt;4&lt;&lt;&quot;\t&quot;&lt;&lt;map_student[4]&lt;&lt;endl;
+
+  return 0;
+}
+/*
+output:
+
+没有4这个数据
+4   student4
+Program ended with exit code: 0
+
+*/
+</code></pre>
+<p><code>count()</code>方法返回值是一个整数，1表示有这个元素，0表示没有这个元素。但无法定位数据的具体位置。</p>
+<h3 id="4map">4.map在题目中的应用</h3>
+<ul>
+<li>
+<p>去重；</p>
+</li>
+<li>
+<p>排序；</p>
+</li>
+<li>
+<p>计数；</p>
+</li>
+</ul>
+<h5 id="1">1.去重</h5>
+<p>​   利用映射一一对应性，把可能出现的重复数据设置为key值以 达到去重的目的。</p>
+<h5 id="2key">2.排序(按照key排序问题)</h5>
+<p>​   map是STL的一个模版类，以下是map定义：</p>
+<pre><code class="language-c++">template &lt;class Key,class T,class Compare = less&lt;Key&gt;,class Allocator=allocator&lt;pair&lt;const Key,T&gt;&gt;&gt; class map;
+</code></pre>
+<p>​   其实map&lt;&gt;里应该有三个变量，而第三个变量是排序方式，如果我们不指定排序方式的话，按照平时的写法，map就会按照模版中的less\<Key>进行排序。</p>
+<p><strong>自定义Compare类：</strong></p>
+<p>​   我们可以自定义一个Compare类，把这个类按照map模版，加在本该Compare类的位置上，就可以自定义key的排序方式了。</p>
+<p>​   比如我建了一个学生-成绩map，原先是按照学生名字字典排序的。如果像按照降序、名字长度排序该如何实现呢？</p>
+<ul>
+<li>默认cmp输出：</li>
+</ul>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;map&gt;
+using namespace std;
+
+int main()
+{
+  map&lt;string,int&gt;map_student;
+  map&lt;string,int&gt;::iterator iter;
+
+  map_student.insert(make_pair(&quot;ccc&quot;,100));
+  map_student.insert(make_pair(&quot;bb&quot;,60));
+  map_student.insert(make_pair(&quot;aaa&quot;,99));
+
+  for(iter=map_student.begin();iter!=map_student.end();iter++)
+  {
+    cout&lt;&lt;iter-&gt;first&lt;&lt;&quot;\t&quot;&lt;&lt;iter-&gt;second&lt;&lt;endl;
+  }
+  return 0;
+}
+/*
+output:
+aaa 99
+bb  60
+ccc 100
+*/
+</code></pre>
+<ul>
+<li>降序输出</li>
+</ul>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;map&gt;
+using namespace std;
+
+int main()
+{
+  map&lt;string,int,greater&lt;string&gt;&gt;map_student;//加上greater&lt;string&gt;
+  map&lt;string,int&gt;::iterator iter;
+
+  map_student.insert(make_pair(&quot;ccc&quot;,100));
+  map_student.insert(make_pair(&quot;bb&quot;,60));
+  map_student.insert(make_pair(&quot;aaa&quot;,99));
+
+  for(iter=map_student.begin();iter!=map_student.end();iter++)
+  {
+    cout&lt;&lt;iter-&gt;first&lt;&lt;&quot;\t&quot;&lt;&lt;iter-&gt;second&lt;&lt;endl;
+  }
+  return 0;
+}
+
+/*
+
+output:
+ccc 100
+bb  60
+aaa 99
+
+*/
+</code></pre>
+<ul>
+<li>自定义cmp按照长度升序输出</li>
+</ul>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;map&gt;
+using namespace std;
+
+class cmp
+{
+public:
+    bool operator()(string a,string b) const
+      //注意加const
+      {
+        return a.length()&lt;=b.length();
+      //注意加=，不然输出与预期不符
+      };
+};
+
+int main()
+{
+  map&lt;string,int,cmp&gt;map_student;
+  map&lt;string,int&gt;::iterator iter;
+
+  map_student.insert(make_pair(&quot;ccc&quot;,100));
+  map_student.insert(make_pair(&quot;bb&quot;,60));
+  map_student.insert(make_pair(&quot;aaa&quot;,99));
+
+  for(iter=map_student.begin();iter!=map_student.end();iter++)
+  {
+    cout&lt;&lt;iter-&gt;first&lt;&lt;&quot;\t&quot;&lt;&lt;iter-&gt;second&lt;&lt;endl;
+  }
+  return 0;
+}
+
+/*
+output:
+bb  60
+aaa 99
+ccc 100
+*/
+</code></pre>
+<h5 id="3">3.计数</h5>
+<ul>
+<li>假设定义一个map\<string,int>map,输入数据s，计为first，map[s]++;</li>
+</ul>
+<h3 id="5map">5.适用于map的题型</h3>
+<ul>
+<li>去重计数类题型；</li>
+<li>可以打乱重新排列的问题；</li>
+<li>有清晰的一对一关系；</li>
+</ul>
+<h3 id="6">6.实例</h3>
+<p>【密文搜索】</p>
+<p>福尔摩斯从X星收到一份资料，全部是小写字母组成。
+他的助手提供了另一份资料：许多长度为8的密码列表。
+福尔摩斯发现，这些密码是被打乱后隐藏在先前那份资料中的。
+请你编写一个程序，从第一份资料中搜索可能隐藏密码的位置。要考虑密码的所有排列可能性。
+<strong>数据格式：</strong>
+输入第一行：一个字符串s，全部由小写字母组成，长度小于1024<em>1024；
+紧接着一行是一个整数n,表示以下有n行密码，1&lt;=n&lt;=1000
+紧接着是n行字符串，都是小写字母组成，长度都为8
+</em><em>要求输出：</em>*
+一个整数, 表示每行密码的所有排列在s中匹配次数的总和。</p>
+<p><strong>样例输入：</strong></p>
+<pre><code>aaaabbbbaabbcccc
+2
+aaaabbbb
+abcabccc
+</code></pre>
+<p><strong>样例输出：</strong></p>
+<pre><code>4
+</code></pre>
+<p>这是因为：第一个密码匹配了3次，第二个密码匹配了1次，一共4次。</p>
+<p><strong>代码：</strong></p>
+<p>自我感觉逻辑上没问题（反正跑样例没问题</p>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;map&gt;
+#include &lt;string.h&gt;
+#define Max 10001
+using namespace std;
+
+struct {
+    char subw[10];
+    map&lt;char,int&gt; char_num;
+}count_num[Max];
+
+int main(){
+
+    string w;
+    cin&gt;&gt;w;
+    int n;
+    int j;
+    for(j=0;j&lt;w.length()-8+1;j++)
+    {
+        w.copy(count_num[j].subw,8,j);
+    }
+
+    for(int i=0;i&lt;j;i++)
+    {
+        for(int k=0;k&lt;8;k++)
+        {
+            char a=count_num[i].subw[k];
+            if(count_num[i].char_num.find(a)-&gt;first)
+            {
+                count_num[i].char_num[a]++;
+            }
+            else count_num[i].char_num.insert(make_pair(a,1));
+        }
+    }
+
+    cin&gt;&gt;n;
+
+    int result=0;
+    map&lt;char,int&gt; ::iterator iter;
+    for(int i=0;i&lt;n;i++)
+    {
+        map&lt;char,int&gt; sub_cum;
+        string subw1;
+        cin&gt;&gt;subw1;
+        for(int k=0;k&lt;8;k++)
+        {
+            char a=subw1[k];
+            if(sub_cum.find(a)-&gt;first)
+            {
+                sub_cum[a]++;
+            }
+            else sub_cum.insert(make_pair(a,1));
+        }
+
+        for(int s=0;s&lt;j;s++)
+        {
+            bool p=true;
+            for(iter=sub_cum.begin();iter!=sub_cum.end();iter++)
+            {
+                if(iter-&gt;second!=count_num[s].char_num[iter-&gt;first])
+                    p=false;
+            }
+            if(p)
+                result++;
+        }
+        sub_cum.clear();
+    }
+
+    cout&lt;&lt;result&lt;&lt;endl;
+    return 0;
+}
 </code></pre>
                 
               
@@ -1134,7 +1394,7 @@ int main()
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../sort%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%92%E5%BA%8F/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../STL%E5%BA%93%E2%80%94vector/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1143,7 +1403,7 @@ int main()
               <span class="md-footer__direction">
                 Previous
               </span>
-              sort自定义排序
+              STL库—vector
             </div>
           </div>
         </a>
