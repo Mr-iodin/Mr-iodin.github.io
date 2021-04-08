@@ -1,0 +1,1868 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.0">
+    
+    
+      
+        <title>PAT刷题记录（1-16） - Mr.Iodin</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.a3f8f96a.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.7fa14f5b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="indigo">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#pat1-16" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Mr.Iodin" class="md-header__button md-logo" aria-label="Mr.Iodin">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mr.Iodin
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              PAT刷题记录（1-16）
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Mr.Iodin" class="md-nav__button md-logo" aria-label="Mr.Iodin">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Mr.Iodin
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" checked>
+      
+      <label class="md-nav__link" for="nav-1">
+        算法
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="算法" data-md-level="1">
+        <label class="md-nav__title" for="nav-1">
+          <span class="md-nav__icon md-icon"></span>
+          算法
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-1" type="checkbox" id="nav-1-1" >
+      
+      <label class="md-nav__link" for="nav-1-1">
+        STL库
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="STL库" data-md-level="2">
+        <label class="md-nav__title" for="nav-1-1">
+          <span class="md-nav__icon md-icon"></span>
+          STL库
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../STL%E5%BA%93/sort%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%92%E5%BA%8F/" class="md-nav__link">
+        sort自定义排序
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../STL%E5%BA%93/STL%E5%BA%93%E2%80%94iterator/" class="md-nav__link">
+        STL库—iterator
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../STL%E5%BA%93/STL%E5%BA%93%E2%80%94vector/" class="md-nav__link">
+        STL库—vector
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../STL%E5%BA%93/STL%E5%BA%93%E2%80%94map/" class="md-nav__link">
+        STL库—map
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-2" type="checkbox" id="nav-1-2" >
+      
+      <label class="md-nav__link" for="nav-1-2">
+        数论
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="数论" data-md-level="2">
+        <label class="md-nav__title" for="nav-1-2">
+          <span class="md-nav__icon md-icon"></span>
+          数论
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%9C%8D%E7%BA%B3%E6%B3%95%E5%88%99/" class="md-nav__link">
+        多项式求值——霍纳法则(Horner's rule)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83%E6%B3%95/" class="md-nav__link">
+        高斯消元法—求解线性方程组
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-3" type="checkbox" id="nav-1-3" >
+      
+      <label class="md-nav__link" for="nav-1-3">
+        高级数据结构
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="高级数据结构" data-md-level="2">
+        <label class="md-nav__title" for="nav-1-3">
+          <span class="md-nav__icon md-icon"></span>
+          高级数据结构
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%8F%AF%E6%8C%81%E4%B9%85%E5%8C%96%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%80/" class="md-nav__link">
+        可持久化数据结构
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-4" type="checkbox" id="nav-1-4" checked>
+      
+      <label class="md-nav__link" for="nav-1-4">
+        刷题记录
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="刷题记录" data-md-level="2">
+        <label class="md-nav__title" for="nav-1-4">
+          <span class="md-nav__icon md-icon"></span>
+          刷题记录
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          PAT刷题记录（1-16）
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        PAT刷题记录（1-16）
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1l1-001-hello-world-5" class="md-nav__link">
+    1.L1-001 Hello World! (5 分)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2l1-002-20" class="md-nav__link">
+    2.L1-002 打印沙漏 (20 分)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3l1-003-15" class="md-nav__link">
+    3.L1-003 个位数统计 (15 分)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4l1-004-5" class="md-nav__link">
+    4.L1-004 计算摄氏温度 (5 分)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5l1-005-15" class="md-nav__link">
+    5.L1-005 考试座位号 (15 分)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6l1-006-20-18" class="md-nav__link">
+    6.L1-006 连续因子 (20分-18分)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7l1-007-10" class="md-nav__link">
+    7.L1-007 念数字 (10 分)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-l1-008-10" class="md-nav__link">
+    8. L1-008 求整数段和 (10 分)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9l1-009-n-20" class="md-nav__link">
+    9.L1-009 N个数求和 (20 分)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10l1-010-10" class="md-nav__link">
+    10.L1-010 比较大小 (10 分)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11l1-011-a-b-20" class="md-nav__link">
+    11.L1-011 A-B (20 分)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12l1-012-5" class="md-nav__link">
+    12.L1-012 计算指数 (5 分)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13l1-013-10" class="md-nav__link">
+    13.L1-013 计算阶乘和 (10 分)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14l1-014-5" class="md-nav__link">
+    14.L1-014 简单题 (5 分)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15l1-015-15" class="md-nav__link">
+    15.L1-015 跟奥巴马一起画方块 (15 分)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16l1-016-15" class="md-nav__link">
+    16.L1-016 查验身份证 (15 分)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
+      
+      <label class="md-nav__link" for="nav-2">
+        数学建模
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="数学建模" data-md-level="1">
+        <label class="md-nav__title" for="nav-2">
+          <span class="md-nav__icon md-icon"></span>
+          数学建模
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" >
+      
+      <label class="md-nav__link" for="nav-2-1">
+        评价模型
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="评价模型" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-1">
+          <span class="md-nav__icon md-icon"></span>
+          评价模型
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/" class="md-nav__link">
+        层次分析法
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2" >
+      
+      <label class="md-nav__link" for="nav-2-2">
+        回归模型
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="回归模型" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-2">
+          <span class="md-nav__icon md-icon"></span>
+          回归模型
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" class="md-nav__link">
+        回归分析
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%9B%9E%E5%BD%92%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87/" class="md-nav__link">
+        回归评价指标
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
+      
+      <label class="md-nav__link" for="nav-3">
+        神经网络
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="神经网络" data-md-level="1">
+        <label class="md-nav__title" for="nav-3">
+          <span class="md-nav__icon md-icon"></span>
+          神经网络
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E2%80%94%E2%80%94%E5%9F%BA%E7%A1%80%E7%90%86%E8%AE%BA/" class="md-nav__link">
+        神经网络——基本理论文档
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MLPRegressor%20%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        MLPRegressor 神经网络搭建
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
+      
+      <label class="md-nav__link" for="nav-4">
+        考研408
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="考研408" data-md-level="1">
+        <label class="md-nav__title" for="nav-4">
+          <span class="md-nav__icon md-icon"></span>
+          考研408
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1" >
+      
+      <label class="md-nav__link" for="nav-4-1">
+        数据结构
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="数据结构" data-md-level="2">
+        <label class="md-nav__title" for="nav-4-1">
+          <span class="md-nav__icon md-icon"></span>
+          数据结构
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E2%80%94%E2%80%94%E7%AC%AC%E4%B8%80%E7%AB%A0%20%E6%A6%82%E8%AE%BA/" class="md-nav__link">
+        数据结构——第一章 概论
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E2%80%94%E2%80%94%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E7%BA%BF%E6%80%A7%E8%A1%A8/" class="md-nav__link">
+        数据结构——第二章 线性表
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E2%80%94%E2%80%94%E7%AC%AC%E4%B8%89%E7%AB%A0%20%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/" class="md-nav__link">
+        数据结构——第三章 栈和队列
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E2%80%94%E2%80%94%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E4%B8%B2/" class="md-nav__link">
+        数据结构——第四章 串
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E2%80%94%E2%80%94%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E6%95%B0%E7%BB%84%E3%80%81%E7%9F%A9%E9%98%B5%E4%B8%8E%E5%B9%BF%E4%B9%89%E8%A1%A8/" class="md-nav__link">
+        数据结构——第五章 数组、矩阵与广义表
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1l1-001-hello-world-5" class="md-nav__link">
+    1.L1-001 Hello World! (5 分)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2l1-002-20" class="md-nav__link">
+    2.L1-002 打印沙漏 (20 分)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3l1-003-15" class="md-nav__link">
+    3.L1-003 个位数统计 (15 分)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4l1-004-5" class="md-nav__link">
+    4.L1-004 计算摄氏温度 (5 分)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5l1-005-15" class="md-nav__link">
+    5.L1-005 考试座位号 (15 分)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6l1-006-20-18" class="md-nav__link">
+    6.L1-006 连续因子 (20分-18分)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7l1-007-10" class="md-nav__link">
+    7.L1-007 念数字 (10 分)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-l1-008-10" class="md-nav__link">
+    8. L1-008 求整数段和 (10 分)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9l1-009-n-20" class="md-nav__link">
+    9.L1-009 N个数求和 (20 分)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10l1-010-10" class="md-nav__link">
+    10.L1-010 比较大小 (10 分)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11l1-011-a-b-20" class="md-nav__link">
+    11.L1-011 A-B (20 分)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12l1-012-5" class="md-nav__link">
+    12.L1-012 计算指数 (5 分)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13l1-013-10" class="md-nav__link">
+    13.L1-013 计算阶乘和 (10 分)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14l1-014-5" class="md-nav__link">
+    14.L1-014 简单题 (5 分)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15l1-015-15" class="md-nav__link">
+    15.L1-015 跟奥巴马一起画方块 (15 分)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16l1-016-15" class="md-nav__link">
+    16.L1-016 查验身份证 (15 分)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="pat1-16">PAT刷题记录（1-16）</h1>
+<ul>
+<li>又来写bug了</li>
+<li>没满分的都标记括号里了（等心情好再去看看</li>
+<li>产量==质量（雾），就算是水水水水水水水题都写了干嘛不记（叉腰</li>
+<li>
+<p>每年总有那么几天用来折麽自己一下</p>
+</li>
+<li>
+<p>？注释是什么</p>
+</li>
+</ul>
+<h3 id="1l1-001-hello-world-5">1.L1-001 Hello World! (5 分)</h3>
+<p>本题要求编写程序，输出一个短句“Hello World!”。</p>
+<p><strong>输入格式:</strong></p>
+<p>本题目没有输入。</p>
+<p><strong>输出格式:</strong></p>
+<p>在一行中输出短句“Hello World!”。</p>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    cout&lt;&lt;&quot;Hello World!&quot;&lt;&lt;endl;
+    return 0;
+}
+</code></pre>
+<h3 id="2l1-002-20">2.L1-002 打印沙漏 (20 分)</h3>
+<p>本题要求你写个程序把给定的符号打印成沙漏的形状。例如给定17个“*”，要求按下列格式打印</p>
+<pre><code>*****
+ ***
+  *
+ ***
+*****
+</code></pre>
+<p>所谓“沙漏形状”，是指每行输出奇数个符号；各行符号中心对齐；相邻两行符号数差2；符号数先从大到小顺序递减到1，再从小到大顺序递增；首尾符号数相等。</p>
+<p>给定任意N个符号，不一定能正好组成一个沙漏。要求打印出的沙漏能用掉尽可能多的符号。</p>
+<p><strong>输入格式:</strong></p>
+<p>输入在一行给出1个正整数N（≤1000）和一个符号，中间以空格分隔。</p>
+<p><strong>输出格式:</strong></p>
+<p>首先打印出由给定符号组成的最大的沙漏形状，最后在一行中输出剩下没用掉的符号数。</p>
+<p><strong>输入样例:</strong></p>
+<pre><code class="language-in">19 *
+</code></pre>
+<p><strong>输出样例:</strong></p>
+<pre><code class="language-out">*****
+ ***
+  *
+ ***
+*****
+2
+</code></pre>
+<p><strong>代码：</strong></p>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+using namespace std;
+int main()
+{
+    int num;
+    char w;
+    scanf(&quot;%d %c&quot;,&amp;num,&amp;w);
+    if(num==0)
+        return 0;
+    int count=2;
+    num--;
+    while(num&gt;=(count*2-1)*2)
+    {
+        num=num-((2*count-1)*2);
+        count++;
+    }
+    for(int i=count-1;i&gt;0;i--)
+    {
+        for(int j=0;j&lt;(count-1)-i;j++)
+            cout&lt;&lt;&quot; &quot;;
+        for(int k=i*2-1;k&gt;0;k--)
+            cout&lt;&lt;w;
+        cout&lt;&lt;endl;
+    }
+    for(int i=2;i&lt;=count-1;i++)
+    {
+        for(int j=0;j&lt;(count-1)-i;j++)
+            cout&lt;&lt;&quot; &quot;;
+        for(int k=i*2-1;k&gt;0;k--)
+            cout&lt;&lt;w;
+        cout&lt;&lt;endl;
+    }
+    cout&lt;&lt;num&lt;&lt;endl;
+    return 0;
+}
+</code></pre>
+<h3 id="3l1-003-15">3.L1-003 个位数统计 (15 分)</h3>
+<p>给定一个 <em>k</em> 位整数 <em>N</em>=<em>d</em><em>k</em>−110<em>k</em>−1+⋯+<em>d</em>1101+<em>d</em>0 (0≤<em>d</em><em>i</em>≤9, <em>i</em>=0,⋯,<em>k</em>−1, <em>d</em><em>k</em>−1&gt;0)，请编写程序统计每种不同的个位数字出现的次数。例如：给定 <em>N</em>=100311，则有 2 个 0，3 个 1，和 1 个 3。</p>
+<p><strong>输入格式：</strong></p>
+<p>每个输入包含 1 个测试用例，即一个不超过 1000 位的正整数 <em>N</em>。</p>
+<p><strong>输出格式：</strong></p>
+<p>对 <em>N</em> 中每一种不同的个位数字，以 <code>D:M</code> 的格式在一行中输出该位数字 <code>D</code> 及其在 <em>N</em> 中出现的次数 <code>M</code>。要求按 <code>D</code> 的升序输出。</p>
+<p><strong>输入样例：</strong></p>
+<pre><code class="language-in">100311
+</code></pre>
+<p><strong>输出样例：</strong></p>
+<pre><code class="language-out">0:2
+1:3
+3:1
+</code></pre>
+<p><strong>代码：</strong></p>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+#include &lt;string&gt;
+#include &lt;map&gt;
+using namespace std;
+int main()
+{
+    string w;
+    cin&gt;&gt;w;
+    map&lt;char,int&gt; map_num;
+    map&lt;char,int&gt;::iterator iter;
+    for(int i=0;i&lt;w.length();i++)
+    {
+        if(map_num.find(w[i])-&gt;first)
+        {
+            map_num[w[i]]++;
+        }
+        else
+            map_num.insert(make_pair(w[i], 1));
+    }
+    for(iter=map_num.begin();iter!=map_num.end();iter++)
+        cout&lt;&lt;iter-&gt;first&lt;&lt;&quot;:&quot;&lt;&lt;iter-&gt;second&lt;&lt;endl;
+    return 0;
+}
+</code></pre>
+<h3 id="4l1-004-5">4.L1-004 计算摄氏温度 (5 分)</h3>
+<p>给定一个华氏温度<em>F</em>，本题要求编写程序，计算对应的摄氏温度<em>C</em>。计算公式：<em>C</em>=5×(<em>F</em>−32)/9。题目保证输入与输出均在整型范围内。</p>
+<p><strong>输入格式:</strong></p>
+<p>输入在一行中给出一个华氏温度。</p>
+<p><strong>输出格式:</strong></p>
+<p>在一行中按照格式“Celsius = C”输出对应的摄氏温度C的整数值。</p>
+<p><strong>输入样例:</strong></p>
+<pre><code class="language-in">150
+</code></pre>
+<p><strong>输出样例:</strong></p>
+<pre><code class="language-out">Celsius = 65
+</code></pre>
+<p><strong>代码：</strong></p>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+int main()
+{
+    int f,c;
+    cin&gt;&gt;f;
+    f=f-32;
+    c=(int)(5*f/9);
+    cout&lt;&lt;&quot;Celsius = &quot;&lt;&lt;c&lt;&lt;endl;
+    return 0;
+}
+</code></pre>
+<h3 id="5l1-005-15">5.L1-005 考试座位号 (15 分)</h3>
+<p>每个 PAT 考生在参加考试时都会被分配两个座位号，一个是试机座位，一个是考试座位。正常情况下，考生在入场时先得到试机座位号码，入座进入试机状态后，系统会显示该考生的考试座位号码，考试时考生需要换到考试座位就座。但有些考生迟到了，试机已经结束，他们只能拿着领到的试机座位号码求助于你，从后台查出他们的考试座位号码。</p>
+<p><strong>输入格式：</strong></p>
+<p>输入第一行给出一个正整数 <em>N</em>（≤1000），随后 <em>N</em> 行，每行给出一个考生的信息：<code>准考证号 试机座位号 考试座位号</code>。其中<code>准考证号</code>由 16 位数字组成，座位从 1 到 <em>N</em> 编号。输入保证每个人的准考证号都不同，并且任何时候都不会把两个人分配到同一个座位上。</p>
+<p>考生信息之后，给出一个正整数 <em>M</em>（≤<em>N</em>），随后一行中给出 <em>M</em> 个待查询的试机座位号码，以空格分隔。</p>
+<p><strong>输出格式：</strong></p>
+<p>对应每个需要查询的试机座位号码，在一行中输出对应考生的准考证号和考试座位号码，中间用 1 个空格分隔。</p>
+<p><strong>输入样例：</strong></p>
+<pre><code class="language-in">4
+3310120150912233 2 4
+3310120150912119 4 1
+3310120150912126 1 3
+3310120150912002 3 2
+2
+3 4
+</code></pre>
+<p><strong>输出样例：</strong></p>
+<pre><code class="language-out">3310120150912002 2
+3310120150912119 1
+</code></pre>
+<p><strong>代码：</strong></p>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+#define MAXStudent 1001
+using namespace std;
+struct{
+    string id;
+    int p,r;
+}student_info[MAXStudent];
+int main()
+{
+    string sid;
+    int sp,sr;
+    int n;
+    cin&gt;&gt;n;
+    for(int i=0;i&lt;n;i++)
+    {
+        cin&gt;&gt;sid;
+        cin&gt;&gt;sp&gt;&gt;sr;
+        student_info[i].id=sid;
+        student_info[i].p=sp;
+        student_info[i].r=sr;
+    }
+    int m,sm;
+    cin&gt;&gt;m;
+    for(int i=0;i&lt;m;i++)
+    {
+        cin&gt;&gt;sm;
+        for(int j=0;j&lt;n;j++)
+        {
+            if(student_info[j].p==sm)
+                cout&lt;&lt;student_info[j].id&lt;&lt;&quot; &quot;&lt;&lt;student_info[j].r&lt;&lt;endl;
+        }
+    }
+    return 0;
+}
+</code></pre>
+<h3 id="6l1-006-20-18">6.L1-006 连续因子 (20分-18分)</h3>
+<p>一个正整数 <em>N</em> 的因子中可能存在若干连续的数字。例如 630 可以分解为 3×5×6×7，其中 5、6、7 就是 3 个连续的数字。给定任一正整数 <em>N</em>，要求编写程序求出最长连续因子的个数，并输出最小的连续因子序列。</p>
+<p><strong>输入格式：</strong></p>
+<p>输入在一行中给出一个正整数 <em>N</em>（1&lt;<em>N</em>&lt;231）。</p>
+<p><strong>输出格式：</strong></p>
+<p>首先在第 1 行输出最长连续因子的个数；然后在第 2 行中按 <code>因子1*因子2*……*因子k</code> 的格式输出最小的连续因子序列，其中因子按递增顺序输出，1 不算在内。</p>
+<p><strong>输入样例：</strong></p>
+<pre><code class="language-in">630
+</code></pre>
+<p><strong>输出样例：</strong></p>
+<pre><code class="language-out">3
+5*6*7
+</code></pre>
+<p><strong>代码：</strong></p>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;cmath&gt;
+using namespace std;
+
+int main()
+{
+    long long n;
+    cin&gt;&gt;n;
+    int x=0;
+    vector&lt;long long&gt; sushu;
+    for(long long i=2;i&lt;double(sqrt(n));i++)
+    {
+        if(n%i==0)
+        {
+            sushu.push_back(i);
+            x++;
+        }
+    }
+    int max=0,maxz=0;
+    int mz=0,w;
+    for(int i=0;i&lt;x;i++)
+    {
+        mz=0;
+        w=i;
+        while(sushu[i]==sushu[i+1]-1)
+        {
+            mz++;
+            i++;
+        }
+        if(max&lt;mz)
+        {
+            max=mz;
+            maxz=w;
+        }
+    }
+    if(x==0)
+    {
+        cout&lt;&lt;1&lt;&lt;endl&lt;&lt;n&lt;&lt;endl;
+        return 0;
+    }
+
+    cout&lt;&lt;max+1&lt;&lt;endl;
+    for(int i=0;i&lt;max;i++)
+    {
+        cout&lt;&lt;sushu[maxz+i]&lt;&lt;'*';
+    }
+    cout&lt;&lt;sushu[maxz+max];
+
+    return 0;
+}
+</code></pre>
+<p><img alt="截屏2021-04-08 下午1.51.50" src="/Users/suneann/Library/Application Support/typora-user-images/截屏2021-04-08 下午1.51.50.png" /></p>
+<p>​   在修改了几次无果之后，于是我找了一个<a href="ttps://blog.csdn.net/liangzhaoyang1/article/details/51204989">满分的答案</a>（上边），基于我对题目的理解这一标准，我的答案（下边）比较正确一些（X异常自信的自我肯定）。</p>
+<p><img src="https://i.loli.net/2021/04/08/qzUM1lg2TtDrfLm.png" alt="截屏2021-04-08 下午1.54.58"  /></p>
+<p><img alt="" src="https://i.loli.net/2021/04/08/HlogQVzO457Kv3n.png" /></p>
+<p>过了，这题我读不明白。</p>
+<h3 id="7l1-007-10">7.L1-007 念数字 (10 分)</h3>
+<p>输入一个整数，输出每个数字对应的拼音。当整数为负数时，先输出<code>fu</code>字。十个数字对应的拼音如下：</p>
+<pre><code>0: ling
+1: yi
+2: er
+3: san
+4: si
+5: wu
+6: liu
+7: qi
+8: ba
+9: jiu
+</code></pre>
+<p><strong>输入格式：</strong></p>
+<p>输入在一行中给出一个整数，如：<code>1234</code>。</p>
+<p><strong>提示：整数包括负数、零和正数。</strong></p>
+<p><strong>输出格式：</strong></p>
+<p>在一行中输出这个整数对应的拼音，每个数字的拼音之间用空格分开，行末没有最后的空格。如 <code>yi er san si</code>。</p>
+<p><strong>输入样例：</strong></p>
+<pre><code class="language-in">-600
+</code></pre>
+<p><strong>输出样例：</strong></p>
+<pre><code class="language-out">fu liu ling ling
+</code></pre>
+<p><strong>代码：</strong></p>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;map&gt;
+using namespace std;
+int main()
+{
+    map&lt;char,string&gt; readnum;
+
+    readnum.insert(make_pair('-', &quot;fu&quot;));
+    readnum.insert(make_pair('0', &quot;ling&quot;));
+    readnum.insert(make_pair('1', &quot;yi&quot;));
+    readnum.insert(make_pair('2', &quot;er&quot;));
+    readnum.insert(make_pair('3', &quot;san&quot;));
+    readnum.insert(make_pair('4', &quot;si&quot;));
+    readnum.insert(make_pair('5', &quot;wu&quot;));
+    readnum.insert(make_pair('6', &quot;liu&quot;));
+    readnum.insert(make_pair('7', &quot;qi&quot;));
+    readnum.insert(make_pair('8', &quot;ba&quot;));
+    readnum.insert(make_pair('9', &quot;jiu&quot;));
+
+    string w;
+    cin&gt;&gt;w;
+    for(int i=0;i&lt;w.length();i++)
+    {
+        if(i!=w.length()-1)
+            cout&lt;&lt;readnum[w[i]]&lt;&lt;&quot; &quot;;
+        else
+            cout&lt;&lt;readnum[w[i]]&lt;&lt;endl;
+    }
+}
+</code></pre>
+<h3 id="8-l1-008-10">8. L1-008 求整数段和 (10 分)</h3>
+<p>给定两个整数<em>A</em>和<em>B</em>，输出从<em>A</em>到<em>B</em>的所有整数以及这些数的和。</p>
+<p><strong>输入格式：</strong></p>
+<p>输入在一行中给出2个整数<em>A</em>和<em>B</em>，其中−100≤<em>A</em>≤<em>B</em>≤100，其间以空格分隔。</p>
+<p><strong>输出格式：</strong></p>
+<p>首先顺序输出从<em>A</em>到<em>B</em>的所有整数，每5个数字占一行，每个数字占5个字符宽度，向右对齐。最后在一行中按<code>Sum = X</code>的格式输出全部数字的和<code>X</code>。</p>
+<p><strong>输入样例：</strong></p>
+<pre><code class="language-in">-3 8
+</code></pre>
+<p><strong>输出样例：</strong></p>
+<pre><code class="language-out">   -3   -2   -1    0    1
+    2    3    4    5    6
+    7    8
+Sum = 30
+</code></pre>
+<p><strong>代码：</strong></p>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+using namespace std;
+int main()
+{
+    int a,b;
+    cin&gt;&gt;a&gt;&gt;b;
+    int z=0,sum=0;
+
+    for(int i=a;i&lt;=b;i++)
+    {
+        printf(&quot;%5d&quot;,i);
+        sum+=i;
+        z++;
+        if(z%5==0&amp;&amp;z!=b-a+1)
+            cout&lt;&lt;endl;
+    }
+    cout&lt;&lt;endl&lt;&lt;&quot;Sum = &quot;&lt;&lt;sum;
+    return 0;
+}
+</code></pre>
+<h3 id="9l1-009-n-20">9.L1-009 N个数求和 (20 分)</h3>
+<p>本题的要求很简单，就是求<code>N</code>个数字的和。麻烦的是，这些数字是以有理数<code>分子/分母</code>的形式给出的，你输出的和也必须是有理数的形式。</p>
+<p><strong>输入格式：</strong></p>
+<p>输入第一行给出一个正整数<code>N</code>（≤100）。随后一行按格式<code>a1/b1 a2/b2 ...</code>给出<code>N</code>个有理数。题目保证所有分子和分母都在长整型范围内。另外，负数的符号一定出现在分子前面。</p>
+<p><strong>输出格式：</strong></p>
+<p>输出上述数字和的最简形式 —— 即将结果写成<code>整数部分 分数部分</code>，其中分数部分写成<code>分子/分母</code>，要求分子小于分母，且它们没有公因子。如果结果的整数部分为0，则只输出分数部分。</p>
+<p><strong>输入样例1：</strong></p>
+<pre><code class="language-in">5
+2/5 4/15 1/30 -2/60 8/3
+</code></pre>
+<p><strong>输出样例1：</strong></p>
+<pre><code class="language-out">3 1/3
+</code></pre>
+<p><strong>输入样例2：</strong></p>
+<pre><code>2
+4/3 2/3
+</code></pre>
+<p><strong>输出样例2：</strong></p>
+<pre><code>2
+</code></pre>
+<p><strong>输入样例3：</strong></p>
+<pre><code>3
+1/3 -1/6 1/8
+
+3
+-1/3 -5/6 -1/8
+</code></pre>
+<p><strong>输出样例3：</strong></p>
+<pre><code>7/24
+</code></pre>
+<p><strong>代码：</strong></p>
+<ul>
+<li>辗转相除法求最大公约数和最小公倍数</li>
+</ul>
+<pre><code class="language-c++">int gcd(int a,int b)
+{
+    int r;
+    while(b!=0)
+    {
+        r=a%b;
+        a=b;
+        b=r;
+    }
+    return a;
+}
+int lcd(int a,int b)
+{
+    return a*b/gcd(a,b);
+}
+</code></pre>
+<ul>
+<li>完整代码</li>
+</ul>
+<pre><code class="language-c++">#include &lt;stdio.h&gt;
+#include &lt;iostream&gt;
+#include &lt;string.h&gt;
+#include &lt;cstdio&gt;
+#include &lt;cmath&gt;
+using namespace std;
+long int gcd(long int a,long int b)
+{
+    long int r;
+    while(b!=0)
+    {
+        r=a%b;
+        a=b;
+        b=r;
+    }
+    return a;
+}
+long int lcd(long int a,long int b)
+{
+    return a*b/gcd(a,b);
+}
+
+int main()
+{
+
+    long int n,a,b;
+    long int z[200];
+    long int m[200];
+
+    cin&gt;&gt;n;
+    for(int i=0;i&lt;n;i++)
+    {
+        scanf(&quot;%ld/%ld&quot;,&amp;a,&amp;b);
+        z[i]=a;
+        m[i]=b;
+    }
+
+    long int g=m[0];
+    for(int i=0;i&lt;n-1;i++)
+    {
+        g=lcd(g,m[i+1]);
+    }
+
+    long int zz,add_result=0;
+    for(int i=0;i&lt;n;i++)
+    {
+        zz=g/m[i];
+        z[i]*=zz;
+        add_result=add_result+z[i];
+    }
+    bool fuhao=true;
+    if(add_result&lt;0)
+    {
+        fuhao=false;
+        add_result=-add_result;
+    }
+    if(g==0)
+        return 0;
+    if(add_result==0)
+    {
+        cout&lt;&lt;0&lt;&lt;endl;
+        return 0;
+    }
+
+    if(add_result%g==0&amp;&amp;g&lt;add_result)
+    {
+        if(fuhao)
+            cout&lt;&lt;add_result/g&lt;&lt;endl;
+        else
+            cout&lt;&lt;-add_result/g&lt;&lt;endl;
+        return 0;
+    }
+
+    if(g&lt;add_result)
+    {
+        long int f=add_result/g;
+
+        add_result=add_result-(f*g);
+        long int z=gcd(add_result, g);
+        if(!fuhao)
+        {
+            f=-f;
+        }
+        if(fuhao)
+            cout&lt;&lt;f&lt;&lt;&quot; &quot;&lt;&lt;add_result/z&lt;&lt;&quot;/&quot;&lt;&lt;g/z&lt;&lt;endl;
+        else cout&lt;&lt;f&lt;&lt;&quot; -&quot;&lt;&lt;add_result/z&lt;&lt;&quot;/&quot;&lt;&lt;g/z&lt;&lt;endl;
+        return 0;
+    }
+
+    if(add_result&lt;g)
+    {
+        long int f=gcd(g, add_result);
+        if(fuhao)
+            cout&lt;&lt;add_result/f&lt;&lt;&quot;/&quot;&lt;&lt;g/f&lt;&lt;endl;
+        else cout&lt;&lt;&quot;-&quot;&lt;&lt;add_result/f&lt;&lt;&quot;/&quot;&lt;&lt;g/f&lt;&lt;endl;
+    }
+
+    return 0;
+}
+</code></pre>
+<h3 id="10l1-010-10">10.L1-010 比较大小 (10 分)</h3>
+<p>本题要求将输入的任意3个整数从小到大输出。</p>
+<p><strong>输入格式:</strong></p>
+<p>输入在一行中给出3个整数，其间以空格分隔。</p>
+<p><strong>输出格式:</strong></p>
+<p>在一行中将3个整数从小到大输出，其间以“-&gt;”相连。</p>
+<p><strong>输入样例:</strong></p>
+<pre><code class="language-in">4 2 8
+</code></pre>
+<p><strong>输出样例:</strong></p>
+<pre><code class="language-out">2-&gt;4-&gt;8
+</code></pre>
+<p><strong>代码：</strong></p>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+#include &lt;vector&gt;
+using namespace std;
+int main()
+{
+    int a,b,c;
+    scanf(&quot;%d %d %d&quot;,&amp;a,&amp;b,&amp;c);
+    int Max;
+    int Mid;
+    int Min;
+    Max=a&gt;b?(a&gt;c?a:c):(b&gt;c?b:c);
+    Min=a&lt;b?(a&lt;c?a:c):(b&lt;c?b:c);
+    Mid=(a+b+c)-(Max+Min);
+    cout&lt;&lt;Min&lt;&lt;&quot;-&gt;&quot;&lt;&lt;Mid&lt;&lt;&quot;-&gt;&quot;&lt;&lt;Max&lt;&lt;endl;
+    return 0;
+}
+</code></pre>
+<h3 id="11l1-011-a-b-20">11.L1-011 A-B (20 分)</h3>
+<p>本题要求你计算<em>A</em>−<em>B</em>。不过麻烦的是，<em>A</em>和<em>B</em>都是字符串 —— 即从字符串<em>A</em>中把字符串<em>B</em>所包含的字符全删掉，剩下的字符组成的就是字符串<em>A</em>−<em>B</em>。</p>
+<p><strong>输入格式：</strong></p>
+<p>输入在2行中先后给出字符串<em>A</em>和<em>B</em>。两字符串的长度都不超过104，并且保证每个字符串都是由可见的ASCII码和空白字符组成，最后以换行符结束。</p>
+<p><strong>输出格式：</strong></p>
+<p>在一行中打印出<em>A</em>−<em>B</em>的结果字符串。</p>
+<p><strong>输入样例：</strong></p>
+<pre><code class="language-in">I love GPLT!  It's a fun game!
+aeiou
+</code></pre>
+<p><strong>输出样例：</strong></p>
+<pre><code class="language-out">I lv GPLT!  It's  fn gm!
+</code></pre>
+<p><strong>代码：</strong></p>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;vector&gt;
+#include &lt;stdio.h&gt;
+using namespace std;
+
+int main()
+{
+    string w;
+    getline(cin,w);
+    string sw;
+    getline(cin,sw);
+    vector&lt;char&gt; result;
+    vector&lt;char&gt;::iterator iter;
+    for(int i=0;i&lt;w.length();i++)
+    {
+        bool p=true;
+        for(int j=0;j&lt;sw.length();j++)
+            if(w[i]==sw[j])
+                p=false;
+        if(p)
+            result.push_back(w[i]);
+    }
+    for(iter=result.begin();iter!=result.end();iter++)
+    {
+        cout&lt;&lt;*iter;
+    }
+    return 0;
+}
+</code></pre>
+<h3 id="12l1-012-5">12.L1-012 计算指数 (5 分)</h3>
+<p>真的没骗你，这道才是简单题 —— 对任意给定的不超过10的正整数<em>n</em>，要求你输出2<em>n</em>。不难吧？</p>
+<p><strong>输入格式：</strong></p>
+<p>输入在一行中给出一个不超过10的正整数<em>n</em>。</p>
+<p><strong>输出格式：</strong></p>
+<p>在一行中按照格式 <code>2^n = 计算结果</code> 输出2<em>n</em>的值。</p>
+<p><strong>输入样例：</strong></p>
+<pre><code class="language-in">5
+</code></pre>
+<p><strong>输出样例：</strong></p>
+<pre><code class="language-out">2^5 = 32
+</code></pre>
+<p><strong>代码：</strong></p>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;cmath&gt;
+using namespace std;
+int main()
+{
+    int n;
+    cin&gt;&gt;n;
+    if(n==0)
+    {
+        cout&lt;&lt;&quot;2^&quot;&lt;&lt;n&lt;&lt;&quot; = &quot;&lt;&lt;1;
+        return 0;
+    }
+    int s=1;
+    for(int i=0;i&lt;n;i++)
+    {
+        s*=2;
+    }
+    cout&lt;&lt;&quot;2^&quot;&lt;&lt;n&lt;&lt;&quot; = &quot;&lt;&lt;s;
+
+    return 0;
+}
+</code></pre>
+<h3 id="13l1-013-10">13.L1-013 计算阶乘和 (10 分)</h3>
+<p>对于给定的正整数<em>N</em>，需要你计算 <em>S</em>=1!+2!+3!+...+<em>N</em>!。</p>
+<p><strong>输入格式：</strong></p>
+<p>输入在一行中给出一个不超过10的正整数<em>N</em>。</p>
+<p><strong>输出格式：</strong></p>
+<p>在一行中输出<em>S</em>的值。</p>
+<p><strong>输入样例：</strong></p>
+<pre><code class="language-in">3
+</code></pre>
+<p><strong>输出样例：</strong></p>
+<pre><code class="language-out">9
+</code></pre>
+<p><strong>代码：</strong></p>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+int main()
+{
+    int n;
+    cin&gt;&gt;n;
+    if(n==0)
+    {
+        cout&lt;&lt;0&lt;&lt;endl;
+        return 0;
+    }
+    int r=1,s=0;
+    for(int i=1;i&lt;=n;i++)
+    {
+        r*=i;
+        s+=r;
+    }
+    cout&lt;&lt;s&lt;&lt;endl;
+    return 0;
+}
+</code></pre>
+<h3 id="14l1-014-5">14.L1-014 简单题 (5 分)</h3>
+<p>这次真的没骗你 —— 这道超级简单的题目没有任何输入。</p>
+<p>你只需要在一行中输出事实：<code>This is a simple problem.</code> 就可以了。</p>
+<p><strong>代码：</strong></p>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+int main()
+{
+    cout&lt;&lt;&quot;This is a simple problem.&quot;&lt;&lt;endl;
+    return 0;
+}
+</code></pre>
+<h3 id="15l1-015-15">15.L1-015 跟奥巴马一起画方块 (15 分)</h3>
+<p>美国总统奥巴马不仅呼吁所有人都学习编程，甚至以身作则编写代码，成为美国历史上首位编写计算机代码的总统。2014年底，为庆祝“计算机科学教育周”正式启动，奥巴马编写了很简单的计算机代码：在屏幕上画一个正方形。现在你也跟他一起画吧！</p>
+<p><strong>输入格式：</strong></p>
+<p>输入在一行中给出正方形边长<em>N</em>（3≤<em>N</em>≤21）和组成正方形边的某种字符<code>C</code>，间隔一个空格。</p>
+<p><strong>输出格式：</strong></p>
+<p>输出由给定字符<code>C</code>画出的正方形。但是注意到行间距比列间距大，所以为了让结果看上去更像正方形，我们输出的行数实际上是列数的50%（四舍五入取整）。</p>
+<p><strong>输入样例：</strong></p>
+<pre><code class="language-in">10 a
+</code></pre>
+<p><strong>输出样例：</strong></p>
+<pre><code class="language-out">aaaaaaaaaa
+aaaaaaaaaa
+aaaaaaaaaa
+aaaaaaaaaa
+aaaaaaaaaa
+</code></pre>
+<p><strong>代码：</strong></p>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;cmath&gt;
+using namespace std;
+int main()
+{
+    char c;
+    float n;
+    cin&gt;&gt;n&gt;&gt;c;
+
+    for(int i=0;i&lt;ceil(n/2);i++)
+    {
+        for(int  j=0;j&lt;n-1;j++)
+        {
+            cout&lt;&lt;c;
+        }
+        cout&lt;&lt;c&lt;&lt;endl;
+    }
+    return 0;
+}
+</code></pre>
+<h3 id="16l1-016-15">16.L1-016 查验身份证 (15 分)</h3>
+<p>一个合法的身份证号码由17位地区、日期编号和顺序编号加1位校验码组成。校验码的计算规则如下：</p>
+<p>首先对前17位数字加权求和，权重分配为：{7，9，10，5，8，4，2，1，6，3，7，9，10，5，8，4，2}；然后将计算的和对11取模得到值<code>Z</code>；最后按照以下关系对应<code>Z</code>值与校验码<code>M</code>的值：</p>
+<pre><code>Z：0 1 2 3 4 5 6 7 8 9 10
+M：1 0 X 9 8 7 6 5 4 3 2
+</code></pre>
+<p>现在给定一些身份证号码，请你验证校验码的有效性，并输出有问题的号码。</p>
+<p><strong>输入格式：</strong></p>
+<p>输入第一行给出正整数<em>N</em>（≤100）是输入的身份证号码的个数。随后<em>N</em>行，每行给出1个18位身份证号码。</p>
+<p><strong>输出格式：</strong></p>
+<p>按照输入的顺序每行输出1个有问题的身份证号码。这里并不检验前17位是否合理，只检查前17位是否全为数字且最后1位校验码计算准确。如果所有号码都正常，则输出<code>All passed</code>。</p>
+<p><strong>输入样例1：</strong></p>
+<pre><code class="language-in">4
+320124198808240056
+12010X198901011234
+110108196711301866
+37070419881216001X
+
+4
+320X219880824005X
+12010X198901011234
+110108196711301866
+37070419881216001X
+</code></pre>
+<p><strong>输出样例1：</strong></p>
+<pre><code class="language-out">12010X198901011234
+110108196711301866
+37070419881216001X
+</code></pre>
+<p><strong>输入样例2：</strong></p>
+<pre><code>2
+320124198808240056
+110108196711301862
+</code></pre>
+<p><strong>输出样例2：</strong></p>
+<pre><code>All passed
+</code></pre>
+<p><strong>代码：</strong></p>
+<pre><code class="language-c++">#include&lt;iostream&gt;
+#include&lt;iomanip&gt;
+using namespace std;
+int main()
+{
+    int a[17]= {7,9,10,5,8,4,2,1,6,3,7,9,10,5,8,4,2};
+    char b[11]= {'1','0','X','9','8','7','6','5','4','3','2'};
+    int n,sum=0,error=0;
+    string str;
+    cin&gt;&gt;n;
+    for(int i=0; i&lt;n; i++)
+    {
+        cin&gt;&gt;str;
+        for(int i=0; i&lt;17; i++)
+            sum=sum+(str[i]-'0')*a[i];
+        sum=sum%11;
+        if(b[sum]!=str[17])
+        {
+            error++;
+            cout&lt;&lt;str&lt;&lt;endl;
+        }
+        sum=0;
+    }
+    if(error==0)
+        cout&lt;&lt;&quot;All passed&quot;&lt;&lt;endl;
+    return 0;
+}
+</code></pre>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../%E5%8F%AF%E6%8C%81%E4%B9%85%E5%8C%96%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%80/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              可持久化数据结构
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              层次分析法
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.217ffd95.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.926459b3.min.js"></script>
+      
+        <script src="../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
