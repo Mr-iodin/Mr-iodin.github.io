@@ -371,7 +371,7 @@ int main()
 }
 ```
 
-![截屏2021-04-08 下午1.51.50](/Users/suneann/Library/Application Support/typora-user-images/截屏2021-04-08 下午1.51.50.png)
+![](https://i.loli.net/2021/04/09/MoNZSagt5umnfl6.png)
 
 ​	在修改了几次无果之后，于是我找了一个[满分的答案](ttps://blog.csdn.net/liangzhaoyang1/article/details/51204989)（上边），基于我对题目的理解这一标准，我的答案（下边）比较正确一些（X异常自信的自我肯定）。
 
